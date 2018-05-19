@@ -26,28 +26,28 @@ public class Product implements Serializable {
     private double price;
     @Column(name = "amount")
     private int amount;
-    @Column(name = "thumbnail")
-    private String link;
+    @Column(name = "thumnail")
+    private String thumnail;
     @ManyToOne
     @JoinColumn(name = "cid")
     private Category category;
 
-    public Product(int id, String name, String description, double price, int amount, String link, Category category) {
+    public Product(int id, String name, String description, double price, int amount, String thumnail, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.link = link;
+        this.thumnail = thumnail;
         this.category = category;
     }
 
-    public Product(String name, String description, double price, int amount, String link, Category category) {
+    public Product(String name, String description, double price, int amount, String thumnail, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.link = link;
+        this.thumnail = thumnail;
         this.category = category;
     }
 
@@ -125,17 +125,17 @@ public class Product implements Serializable {
     }
 
     /**
-     * @return the link
+     * @return the thumnail
      */
-    public String getLink() {
-        return link;
+    public String getThumnail() {
+        return thumnail;
     }
 
     /**
-     * @param link the link to set
+     * @param thumnail the thumnail to set
      */
-    public void setLink(String link) {
-        this.link = link;
+    public void setThumnail(String thumnail) {
+        this.thumnail = thumnail;
     }
 
     /**
