@@ -19,7 +19,7 @@ public class UserDAO {
     public List<User> readAll() {
         em.clear();
         em.getTransaction().begin();
-        List<User> result = em.createQuery("FROM product", User.class).getResultList();
+        List<User> result = em.createQuery("FROM user", User.class).getResultList();
         em.getTransaction().commit();
         return result;
     }

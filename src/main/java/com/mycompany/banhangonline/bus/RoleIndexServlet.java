@@ -24,7 +24,7 @@ public class RoleIndexServlet extends HttpServlet {
         try {
             List<Role> listItem = roleDAO.readAll();
             request.setAttribute("model", listItem);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/homedep.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/roleindex.jsp");
             rd.forward(request, response);
         } catch (IOException | ServletException e) {
             Logger.getLogger(RoleIndexServlet.class.getName()).log(Level.SEVERE, null, e);
