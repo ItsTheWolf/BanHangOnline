@@ -12,7 +12,7 @@ public class ProductDAO {
     private EntityManagerFactory emf;
 
     public ProductDAO() {
-        emf = Persistence.createEntityManagerFactory("ProjectService");
+        emf = Persistence.createEntityManagerFactory("BanHangService");
         em = emf.createEntityManager();
     }
 
@@ -31,12 +31,12 @@ public class ProductDAO {
     }
 
     public Product read(int id) {
-        emf = Persistence.createEntityManagerFactory("ProjectService");
+        emf = Persistence.createEntityManagerFactory("BanHangService");
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        Product e = em.find(Product.class, id);
+        Product obj = em.find(Product.class, id);
         em.getTransaction().commit();
-        return e;
+        return obj;
     }
 
     public void updateProduct(Product obj) {

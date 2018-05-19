@@ -12,7 +12,7 @@ public class CategoryDAO {
     private EntityManagerFactory emf;
 
     public CategoryDAO() {
-        emf = Persistence.createEntityManagerFactory("ProjectService");
+        emf = Persistence.createEntityManagerFactory("BanHangService");
         em = emf.createEntityManager();
     }
 
@@ -31,12 +31,12 @@ public class CategoryDAO {
     }
 
     public Category read(int id) {
-        emf = Persistence.createEntityManagerFactory("ProjectService");
+        emf = Persistence.createEntityManagerFactory("BanHangService");
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        Category e = em.find(Category.class, id);
+        Category obj = em.find(Category.class, id);
         em.getTransaction().commit();
-        return e;
+        return obj;
     }
 
     public void updateCategory(Category obj) {
