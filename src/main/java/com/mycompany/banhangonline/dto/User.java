@@ -30,13 +30,11 @@ public class User implements Serializable {
     private String birthday;
     @Column(name = "address")
     private String address;
-    @Column(name = "phone")
-    private String phone;
     @ManyToOne
-    @JoinColumn(name = "rid")
+    @JoinColumn(name = "roleId")
     private Role role;
 
-    public User(int id, String username, String password, String fullname, String email, String birthday, String address, String phone, Role role) {
+    public User(int id, String username, String password, String fullname, String email, String birthday, String address, Role role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -44,18 +42,16 @@ public class User implements Serializable {
         this.email = email;
         this.birthday = birthday;
         this.address = address;
-        this.phone = phone;
         this.role = role;
     }
 
-    public User(String username, String password, String fullname, String email, String birthday, String address, String phone, Role role) {
+    public User(String username, String password, String fullname, String email, String birthday, String address, Role role) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
         this.birthday = birthday;
         this.address = address;
-        this.phone = phone;
         this.role = role;
     }
 
@@ -158,20 +154,6 @@ public class User implements Serializable {
      */
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    /**
-     * @return the phone
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * @param phone the phone to set
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     /**
