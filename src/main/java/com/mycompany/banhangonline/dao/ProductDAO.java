@@ -19,7 +19,7 @@ public class ProductDAO {
     public List<Product> readAll() {
         em.clear();
         em.getTransaction().begin();
-        List<Product> result = em.createQuery("FROM product", Product.class).getResultList();
+        List<Product> result = em.createQuery("FROM Product", Product.class).getResultList();
         em.getTransaction().commit();
         return result;
     }

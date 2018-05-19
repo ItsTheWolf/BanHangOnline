@@ -19,7 +19,7 @@ public class RoleDAO {
     public List<Role> readAll() {
         em.clear();
         em.getTransaction().begin();
-        List<Role> result = em.createQuery("FROM role", Role.class).getResultList();
+        List<Role> result = em.createQuery("FROM Role", Role.class).getResultList();
         em.getTransaction().commit();
         return result;
     }

@@ -19,7 +19,7 @@ public class CategoryDAO {
     public List<Category> readAll() {
         em.clear();
         em.getTransaction().begin();
-        List<Category> result = em.createQuery("FROM category", Category.class).getResultList();
+        List<Category> result = em.createQuery("FROM Category", Category.class).getResultList();
         em.getTransaction().commit();
         return result;
     }
