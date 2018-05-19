@@ -16,10 +16,10 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pid")
-    private int pid;
-    @Column(name = "pname")
-    private String pname;
+    @Column(name = "id")
+    private int id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "description")
     private String description;
     @Column(name = "price")
@@ -32,9 +32,9 @@ public class Product implements Serializable {
     @JoinColumn(name = "cid")
     private Category category;
 
-    public Product(int pid, String pname, String description, double price, int amount, String link, Category category) {
-        this.pid = pid;
-        this.pname = pname;
+    public Product(int id, String name, String description, double price, int amount, String link, Category category) {
+        this.id = id;
+        this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
@@ -42,8 +42,8 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public Product(String pname, String description, double price, int amount, String link, Category category) {
-        this.pname = pname;
+    public Product(String name, String description, double price, int amount, String link, Category category) {
+        this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
@@ -55,31 +55,31 @@ public class Product implements Serializable {
     }
 
     /**
-     * @return the pid
+     * @return the id
      */
-    public int getPid() {
-        return pid;
+    public int getId() {
+        return id;
     }
 
     /**
-     * @param pid the pid to set
+     * @param id the id to set
      */
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
-     * @return the pname
+     * @return the name
      */
-    public String getPname() {
-        return pname;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param pname the pname to set
+     * @param name the name to set
      */
-    public void setPname(String pname) {
-        this.pname = pname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
