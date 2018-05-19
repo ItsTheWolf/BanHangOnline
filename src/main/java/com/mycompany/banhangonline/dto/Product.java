@@ -29,7 +29,7 @@ public class Product implements Serializable {
     @Column(name = "thumnail")
     private String thumnail;
     @ManyToOne
-    @JoinColumn(name = "cid")
+    @JoinColumn(name = "cateId")
     private Category category;
 
     public Product(int id, String name, String description, double price, int amount, String thumnail, Category category) {

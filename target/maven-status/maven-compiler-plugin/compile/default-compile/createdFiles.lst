@@ -1,0 +1,4 @@
+com\mycompany\banhangonline\dto\User.class
+com\mycompany\banhangonline\dto\Category.class
+com\mycompany\banhangonline\dto\Product.class
+com\mycompany\banhangonline\dto\Role.class
