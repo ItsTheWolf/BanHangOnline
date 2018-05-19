@@ -42,7 +42,6 @@ public class UserDAO {
     public void updateUser(User obj) {
         User curr = em.find(User.class, obj.getId());
         em.getTransaction().begin();
-        curr.setUsername(obj.getUsername());
         curr.setPassword(obj.getPassword());
         curr.setFullname(obj.getFullname());
         curr.setEmail(obj.getEmail());
