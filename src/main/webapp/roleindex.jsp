@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="header.jsp"/>
-    <body class="bg-secondary">
+    <body >
         <table class="bg-dark width-max">
             <tr>
                 <td class="bg-dark text-white cell-title">PHÒNG BAN</td>
