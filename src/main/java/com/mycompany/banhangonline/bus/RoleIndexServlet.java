@@ -22,8 +22,8 @@ public class RoleIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-//            List<Role> listItem = roleDAO.readAll();
-//            request.setAttribute("model", listItem);
+            List<Role> listItem = roleDAO.readAll();
+            request.setAttribute("model", listItem);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/roleindex.jsp");
             rd.forward(request, response);
         } catch (IOException | ServletException e) {
