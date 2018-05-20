@@ -1,6 +1,5 @@
 com\mycompany\banhangonline\bus\RoleIndexServlet.class
 com\mycompany\banhangonline\dao\UserDAO.class
-com\mycompany\banhangonline\bus\IndexServlet.class
 com\mycompany\banhangonline\dto\User.class
 com\mycompany\banhangonline\dao\CategoryDAO.class
 com\mycompany\banhangonline\dto\Category.class

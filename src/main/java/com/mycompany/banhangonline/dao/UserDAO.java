@@ -40,7 +40,7 @@ public class UserDAO {
     }
 
     public void updateUser(User obj) {
-        User curr = em.find(User.class, obj.getId());
+        User curr = em.find(User.class, obj.getUsername());
         em.getTransaction().begin();
         curr.setPassword(obj.getPassword());
         curr.setFullname(obj.getFullname());
@@ -51,8 +51,8 @@ public class UserDAO {
         em.getTransaction().commit();
     }
 
-    public void deleteUser(int id) {
-        User curr = em.find(User.class, id);
+    public void deleteUser(String username) {
+        User curr = em.find(User.class, username);
         em.getTransaction().begin();
         em.remove(curr);
         em.getTransaction().commit();

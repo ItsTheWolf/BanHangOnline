@@ -15,9 +15,6 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
     @Column(name = "username")
     private String username;
     @Column(name = "password")
@@ -33,17 +30,6 @@ public class User implements Serializable {
     @ManyToOne
     @JoinColumn(name = "roleId")
     private Role role;
-
-    public User(int id, String username, String password, String fullname, String email, String birthday, String address, Role role) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.fullname = fullname;
-        this.email = email;
-        this.birthday = birthday;
-        this.address = address;
-        this.role = role;
-    }
 
     public User(String username, String password, String fullname, String email, String birthday, String address, Role role) {
         this.username = username;
@@ -65,20 +51,6 @@ public class User implements Serializable {
     }
 
     public User() {
-    }
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 
     /**
