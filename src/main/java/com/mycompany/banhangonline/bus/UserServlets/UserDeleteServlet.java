@@ -19,7 +19,9 @@ public class UserDeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String username = request.getParameter("username");
-            userDAO.deleteUser(username);
+            if (!username.equals("admin")) {
+                userDAO.deleteUser(username);
+            }
             response.sendRedirect("userindex");
         } catch (Exception e) {
             Logger.getLogger(UserDeleteServlet.class.getName()).log(Level.SEVERE, null, e);
