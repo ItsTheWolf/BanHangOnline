@@ -11,7 +11,10 @@
             <%
             } else {
             %>
-            User:<%=session.getAttribute("loggedName")%> | Role:<%=session.getAttribute("loggedRole")%> | <a href='logout'>Logout</a>
+            User: <a href="userdetails?username=${session.getAttribute("loggedName")}"><%=session.getAttribute("loggedName")%></a> | 
+            Role: <a href="roledetails?id=${session.getAttribute("loggedRole")}"><%=session.getAttribute("loggedRole")%></a> | 
+            <a href="usereditpw?username=${session.getAttribute("loggedName")}">Change password</a> | 
+            <a href='logout'>Logout</a>
             <%
                 }
             %>

@@ -26,10 +26,6 @@
                     <td class="bg-light">${requestScope.model.address}</td>
                 </tr>
                 <tr>
-                    <td class="width-10 bg-dark text-white"> Birthday:</td>
-                    <td class="bg-light">${requestScope.model.birthday}</td>
-                </tr>
-                <tr>
                     <td class="bg-dark text-white">Role:</td>
                     <td class="bg-light">${requestScope.model.role.name}</td>
                 </tr>

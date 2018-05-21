@@ -42,12 +42,17 @@ public class UserDAO {
     public void updateUser(User obj) {
         User curr = em.find(User.class, obj.getUsername());
         em.getTransaction().begin();
-        curr.setPassword(obj.getPassword());
         curr.setFullname(obj.getFullname());
         curr.setEmail(obj.getEmail());
         curr.setAddress(obj.getAddress());
-        curr.setBirthday(obj.getBirthday());
         curr.setRole(obj.getRole());
+        em.getTransaction().commit();
+    }
+
+    public void updateUserPassword(User obj) {
+        User curr = em.find(User.class, obj.getUsername());
+        em.getTransaction().begin();
+        curr.setPassword(obj.getPassword());
         em.getTransaction().commit();
     }
 

@@ -21,31 +21,30 @@ public class User implements Serializable {
     private String fullname;
     @Column(name = "email")
     private String email;
-    @Column(name = "birthday")
-    private String birthday;
     @Column(name = "address")
     private String address;
     @ManyToOne
     @JoinColumn(name = "roleId")
     private Role role;
 
-    public User(String username, String password, String fullname, String email, String birthday, String address, Role role) {
+    public User(String username, String password, String fullname, String email, String address, Role role) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
-        this.birthday = birthday;
         this.address = address;
         this.role = role;
     }
 
-    public User(String password, String fullname, String email, String birthday, String address, Role role) {
-        this.password = password;
+    public User(String fullname, String email, String address, Role role) {
         this.fullname = fullname;
         this.email = email;
-        this.birthday = birthday;
         this.address = address;
         this.role = role;
+    }
+
+    public User(String password) {
+        this.password = password;
     }
 
     public User() {
@@ -105,20 +104,6 @@ public class User implements Serializable {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * @return the birthday
-     */
-    public String getBirthday() {
-        return birthday;
-    }
-
-    /**
-     * @param birthday the birthday to set
-     */
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
     }
 
     /**
