@@ -25,12 +25,16 @@ public class UserEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String username = request.getParameter("username");
-            User item = userDAO.read(username);
-            request.setAttribute("model", item);
-            List<Role> listItem = roleDAO.readAll();
-            request.setAttribute("listItem", listItem);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
-            rd.forward(request, response);
+            if (!username.equals("admin")) {
+                User item = userDAO.read(username);
+                request.setAttribute("model", item);
+                List<Role> listItem = roleDAO.readAll();
+                request.setAttribute("listItem", listItem);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
+                rd.forward(request, response);
+            } else {
+                response.sendRedirect("userindex");
+            }
         } catch (Exception e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
