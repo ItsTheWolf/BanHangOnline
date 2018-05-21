@@ -16,7 +16,7 @@
                         <th class="width-25">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-light">
                     <c:forEach var="row" items="${requestScope.model}">
                         <tr>
                             <td>${row.id}</td>
