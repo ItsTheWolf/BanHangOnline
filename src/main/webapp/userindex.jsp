@@ -13,6 +13,7 @@
                 <thead class="bg-dark text-white">
                     <tr>
                         <th>Username</th>
+                        <th class="width-30">Fullname</th>
                         <th class="width-15">Role</th>
                         <th class="width-25">Actions</th>
                     </tr>
@@ -21,6 +22,7 @@
                     <c:forEach var="row" items="${requestScope.model}">
                         <tr>
                             <td>${row.username}</td>
+                            <td>${row.fullname}</td>
                             <td>${row.role.name}</td>
                             <td>
                                 <a class="btn btn-actions-divide btn-info" href="userdetails?id=${row.username}">Details</a>
