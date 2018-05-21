@@ -38,9 +38,9 @@
                         <tr>
                             <td>${row.username}</td>
                             <td>
-                                <a class="btn btn-actions-divide btn-info" href="">Details</a>
-                                <a class="btn btn-actions-divide btn-info" href="">Edit</a>
-                                <a class="btn btn-actions-divide btn-danger" href="">Delete</a>
+                                <a class="btn btn-actions-divide btn-info" href="userdetails?id=${row.username}">Details</a>
+                                <a class="btn btn-actions-divide btn-info" href="useredit?id=${row.username}">Edit</a>
+                                <a class="btn btn-actions-divide btn-danger" href="userdelete?id=${row.username}">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
