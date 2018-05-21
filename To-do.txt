@@ -1,0 +1,16 @@
+To-do:
+- validate information editing
+- make change password page
+- add edit information in details
+- categories
+- products
+- login
+- privilege
+- if delete self user, logout after delete
+- if add user when logged in, don't log in with added user account
+- if no user, register page won't show user nav
+- only admin can change role
+- register default role is customer
+- make user 'admin' uneditable
+- hardcode user 'admin' with admin role
+- make hardcoded role only add when missing
