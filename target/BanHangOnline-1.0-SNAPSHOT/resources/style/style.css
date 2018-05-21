@@ -21,6 +21,9 @@
 .margin-top-5px {
     margin-top: 5px;
 }
+.col-span-max{
+    column-span: all;
+}
 .width-max {
     width: 100%;
 }

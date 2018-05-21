@@ -7,12 +7,13 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
+            <a href="">Role</a>
             <table class="table table-borderless margin-top-5px">
                 <thead class="bg-dark text-white">
                     <tr>
-                        <th class="width-5">Mã số</th>
-                        <th>Tên chức vụ</th>
-                        <th class="width-25">Thao tác</th>
+                        <th class="width-5">ID</th>
+                        <th>Role</th>
+                        <th class="width-25">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +22,7 @@
                             <td>${row.id}</td>
                             <td>${row.name}</td>
                             <td>
-                                <a class="btn btn-actions-divide btn-info" href="roledetails?id=${row.id}">Chi tiết</a>
+                                <a class="btn btn-actions-divide btn-info" href="roledetails?id=${row.id}">Details</a>
                             </td>
                         </tr>
                     </c:forEach>
