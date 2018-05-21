@@ -18,16 +18,20 @@ public class Role implements Serializable {
     private int id;
     @Column(name = "name")
     private String name;
+    @Column(name = "description")
+    private String description;
 
-    public Role(int id, String name) {
+    public Role(int id, String name, String description) {
         this.id = id;
         this.name = name;
+        this.description = description;
     }
 
-    public Role(String name) {
+    public Role(String name, String description) {
         this.name = name;
+        this.description = description;
     }
-
+    
     public Role() {
     }
 
@@ -57,5 +61,19 @@ public class Role implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

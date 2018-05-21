@@ -4,13 +4,8 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="header.jsp"/>
-    <body>
-        <table class="bg-dark width-max">
-            <tr>
-                <td class="bg-dark text-white cell-title">PHÒNG BAN</td>
-                <td><a class="btn btn-block btn-light" href="">Nhân viên</a></td>
-            </tr>
-        </table>
+    <body class="bg-lightblue">
+        <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <table class="table table-borderless margin-top-5px">
                 <thead class="bg-dark text-white">

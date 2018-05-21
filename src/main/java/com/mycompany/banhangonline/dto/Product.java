@@ -26,28 +26,28 @@ public class Product implements Serializable {
     private double price;
     @Column(name = "amount")
     private int amount;
-    @Column(name = "thumnail")
-    private String thumnail;
+    @Column(name = "thumbnail")
+    private String thumbnail;
     @ManyToOne
     @JoinColumn(name = "cateId")
     private Category category;
 
-    public Product(int id, String name, String description, double price, int amount, String thumnail, Category category) {
+    public Product(int id, String name, String description, double price, int amount, String thumbnail, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.thumnail = thumnail;
+        this.thumbnail = thumbnail;
         this.category = category;
     }
 
-    public Product(String name, String description, double price, int amount, String thumnail, Category category) {
+    public Product(String name, String description, double price, int amount, String thumbnail, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.thumnail = thumnail;
+        this.thumbnail = thumbnail;
         this.category = category;
     }
 
@@ -125,17 +125,17 @@ public class Product implements Serializable {
     }
 
     /**
-     * @return the thumnail
+     * @return the thumbnail
      */
-    public String getThumnail() {
-        return thumnail;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
     /**
-     * @param thumnail the thumnail to set
+     * @param thumbnail the thumbnail to set
      */
-    public void setThumnail(String thumnail) {
-        this.thumnail = thumnail;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     /**

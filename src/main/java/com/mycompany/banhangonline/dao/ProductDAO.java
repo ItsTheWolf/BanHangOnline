@@ -46,7 +46,7 @@ public class ProductDAO {
         curr.setDescription(obj.getDescription());
         curr.setPrice(obj.getPrice());
         curr.setAmount(obj.getAmount());
-        curr.setThumnail(obj.getThumnail());
+        curr.setThumbnail(obj.getThumbnail());
         curr.setCategory(obj.getCategory());
         em.getTransaction().commit();
     }

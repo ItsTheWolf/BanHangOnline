@@ -26,11 +26,14 @@ public class RoleIndexServlet extends HttpServlet {
             if (listItem == null || listItem.isEmpty()) {
                 request.setCharacterEncoding("UTF-8");
                 String admin = "Admin";
+                String adminDesc = "- Can manage Products, Categories and Users details.";
                 String staff = "Staff";
+                String staffDesc = "- Can view Users, Roles details.<br>- Can manage Products, Categories and 'Customer' role Users details.";
                 String customer = "Customer";
-                Role item1 = new Role(admin);
-                Role item2 = new Role(staff);
-                Role item3 = new Role(customer);
+                String customerDesc = "- Can view Products and Categories details.";
+                Role item1 = new Role(admin, adminDesc);
+                Role item2 = new Role(staff, staffDesc);
+                Role item3 = new Role(customer, customerDesc);
                 roleDAO.resetAI();
                 roleDAO.createRole(item1);
                 roleDAO.createRole(item2);
