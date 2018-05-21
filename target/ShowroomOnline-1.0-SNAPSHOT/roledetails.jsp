@@ -40,8 +40,10 @@
                             <td>${row.username}</td>
                             <td>
                                 <a class="btn btn-actions-divide btn-info" href="userdetails?username=${row.username}">Details</a>
-                                <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
-                                <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                <c:if test = "${row.username != 'admin'}">
+                                    <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
+                                    <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
