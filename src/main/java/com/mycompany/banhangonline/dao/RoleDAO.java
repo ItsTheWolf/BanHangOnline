@@ -1,6 +1,7 @@
 package com.mycompany.banhangonline.dao;
 
 import com.mycompany.banhangonline.dto.Role;
+import com.mycompany.banhangonline.dto.User;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,6 +52,15 @@ public class RoleDAO {
         em.getTransaction().begin();
         em.remove(curr);
         em.getTransaction().commit();
+    }
+    
+    public List<User> findbyRole(int id) {
+        emf = Persistence.createEntityManagerFactory("BanHangService");
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<User> result = em.createQuery("FROM User WHERE roleid=" + id).getResultList();
+        em.getTransaction().commit();
+        return result;
     }
     
     public void resetAI() {

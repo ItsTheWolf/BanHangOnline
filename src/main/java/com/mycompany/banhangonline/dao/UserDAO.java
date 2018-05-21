@@ -30,11 +30,11 @@ public class UserDAO {
         em.getTransaction().commit();
     }
 
-    public User read(int id) {
+    public User read(String username) {
         emf = Persistence.createEntityManagerFactory("BanHangService");
         em = emf.createEntityManager();
         em.getTransaction().begin();
-        User obj = em.find(User.class, id);
+        User obj = em.find(User.class, username);
         em.getTransaction().commit();
         return obj;
     }

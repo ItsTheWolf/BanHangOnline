@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,6 +25,26 @@
                 <tr>
                     <td class="bg-light" colspan="100%">${requestScope.model.description}</td>
                 </tr>
+            </table>
+            <table class="table table-borderless">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Users</th>
+                        <th class="width-25">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-light">
+                    <c:forEach var="row" items="${requestScope.users}">
+                        <tr>
+                            <td>${row.username}</td>
+                            <td>
+                                <a class="btn btn-actions-divide btn-info" href="">Details</a>
+                                <a class="btn btn-actions-divide btn-info" href="">Edit</a>
+                                <a class="btn btn-actions-divide btn-danger" href="">Delete</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </table>
         </div>
     </body>
