@@ -7,9 +7,10 @@
     <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="resources/style/style.css" />
     <%
+        out.print("<div class='container-fluid'>");
         if (session.getAttribute("loggedName") == null) {
             out.println("<a href='login'>Login</a>");
-            out.println("<a href='register'>Register</a>");
+            out.println("<a href='register'>Register</a><br><br>");
         } else {
             String username = (String) session.getAttribute("loggedName");
             String role = (String) session.getAttribute("loggedRole");
@@ -17,5 +18,6 @@
             out.print("Role: " + role + "<br>");
             out.println("<br><a href='logout'>Logout</a>");
         }
+        out.print("</div>");
     %>
 </head>
