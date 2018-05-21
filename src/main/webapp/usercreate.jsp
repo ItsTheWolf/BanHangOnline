@@ -51,7 +51,9 @@
                     </tr>
                 </table>
             </form>
-            *: Required 
+            *: Required
+            <%=request.getAttribute("ERROR1")%>
+            <%--
             <%
                 if (request.getAttribute("ERROR").equals(1)) {
             %>
@@ -69,6 +71,7 @@
             <%
                 }
             %>
+            --%>
         </div>
     </body>
 </html>

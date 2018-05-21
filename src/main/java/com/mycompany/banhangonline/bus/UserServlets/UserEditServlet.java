@@ -26,6 +26,8 @@ public class UserEditServlet extends HttpServlet {
         try {
             String username = request.getParameter("username");
             if (!username.equals("admin")) {
+                getRolesList(request);
+                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
                 List<Role> listItem = roleDAO.readAll();
@@ -44,15 +46,50 @@ public class UserEditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
+            getRolesList(request);
+            resetError(request);
+            String username = request.getParameter("txtUsername");
             String fullname = request.getParameter("txtFullname");
             String email = request.getParameter("txtEmail");
             String address = request.getParameter("txtAddress");
             Role roleid = roleDAO.read(Integer.parseInt(request.getParameter("txtRoleId")));
-            User item = new User(fullname, email, address, roleid);
-            userDAO.updateUser(item);
-            response.sendRedirect(request.getContextPath() + "/userindex");
+            int rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            boolean error = validation(email, rid, request);
+            if (error) {
+                response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
+            } else {
+                User item = new User(username, fullname, email, address, roleid);
+                userDAO.updateUser(item);
+                response.sendRedirect(request.getContextPath() + "/userindex");
+            }
         } catch (Exception e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+
+    protected boolean validation(String email, int rid, HttpServletRequest request) {
+        try {
+            if (email.equals("") || rid == 0) {
+                request.setAttribute("ERROR", 1);
+                return true;
+            }
+            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                request.setAttribute("ERROR", 2);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            return true;
+        }
+    }
+
+    protected void resetError(HttpServletRequest request) {
+        request.setAttribute("ERROR", 0);
+    }
+
+    protected void getRolesList(HttpServletRequest request) {
+        List<Role> listItem = roleDAO.readAll();
+        request.setAttribute("model", listItem);
     }
 }

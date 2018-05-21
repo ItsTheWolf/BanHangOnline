@@ -49,7 +49,8 @@ public class UserCreateServlet extends HttpServlet {
             String address = request.getParameter("txtAddress");
             String email = request.getParameter("txtEmail");
             Role roleid = roleDAO.read(Integer.parseInt(request.getParameter("txtRoleId")));
-            boolean error = validation(username, password, cpw, email, roleid, request);
+            int rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            boolean error = validation(username, password, cpw, email, rid, request);
             if (error) {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
                 rd.include(request, response);
@@ -67,9 +68,9 @@ public class UserCreateServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String username, String password, String cpw, String email, Role roleid, HttpServletRequest request) {
+    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpServletRequest request) {
         try {
-            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || roleid.equals(0)) {
+            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || rid == 0) {
                 request.setAttribute("ERROR", 1);
                 return true;
             }
