@@ -27,7 +27,7 @@ public class UserEditServlet extends HttpServlet {
             String username = request.getParameter("username");
             if (!username.equals("admin")) {
                 getRolesList(request);
-                resetError(request);
+//                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
                 List<Role> listItem = roleDAO.readAll();
@@ -47,7 +47,7 @@ public class UserEditServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             getRolesList(request);
-            resetError(request);
+//            resetError(request);
             String username = request.getParameter("txtUsername");
             String fullname = request.getParameter("txtFullname");
             String email = request.getParameter("txtEmail");
@@ -69,12 +69,8 @@ public class UserEditServlet extends HttpServlet {
 
     protected boolean validation(String email, int rid, HttpServletRequest request) {
         try {
-            if (email.equals("") || rid == 0) {
-                request.setAttribute("ERROR", 1);
-                return true;
-            }
-            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                request.setAttribute("ERROR", 2);
+            if (email.equals("") || rid == 0
+                    || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
                 return true;
             }
             return false;
@@ -84,10 +80,9 @@ public class UserEditServlet extends HttpServlet {
         }
     }
 
-    protected void resetError(HttpServletRequest request) {
-        request.setAttribute("ERROR", 0);
-    }
-
+//    protected void resetError(HttpServletRequest request) {
+//        request.setAttribute("ERROR", 0);
+//    }
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();
         request.setAttribute("model", listItem);

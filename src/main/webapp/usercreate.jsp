@@ -52,7 +52,6 @@
                 </table>
             </form>
             *: Required
-            <%=request.getAttribute("ERROR1")%>
             <%--
             <%
                 if (request.getAttribute("ERROR").equals(1)) {

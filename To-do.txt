@@ -1,5 +1,4 @@
 To-do:
-- validate information editing
 - make change password page
 - add edit information in details
 - categories
@@ -14,3 +13,4 @@ To-do:
 - hardcode user 'admin' with admin role
 - make hardcoded role only add when missing
 - add nav for other pages
+- figure out how to make error message in case of validation failed (try either HttpSession method based on register or make an error.jsp)
