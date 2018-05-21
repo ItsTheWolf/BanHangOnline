@@ -23,11 +23,11 @@
                         <tr>
                             <td>${row.username}</td>
                             <td>${row.fullname}</td>
-                            <td>${row.role.name}</td>
+                            <td><a href="roledetails?id=${row.role.id}">${row.role.name}</a></td>
                             <td>
-                                <a class="btn btn-actions-divide btn-info" href="userdetails?id=${row.username}">Details</a>
-                                <a class="btn btn-actions-divide btn-info" href="useredit?id=${row.username}">Edit</a>
-                                <a class="btn btn-actions-divide btn-danger" href="userdelete?id=${row.username}">Delete</a>
+                                <a class="btn btn-actions-divide btn-info" href="userdetails?username=${row.username}">Details</a>
+                                <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
+                                <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

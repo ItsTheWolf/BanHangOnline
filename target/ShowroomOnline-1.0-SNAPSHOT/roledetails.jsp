@@ -1,12 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java"%>
 <!DOCTYPE html>
 <html>
     <jsp:include page="header.jsp"/>
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="roleindex">Role</a> >> <a href="">Role Details</a>
+            <a href="roleindex">Roles</a> >> <a href="">'${requestScope.model.name}' role Details</a>
             <table class="table table-borderless margin-top-5px">
                 <tr>
                     <td class="width-10 bg-dark text-white">ID:</td>
@@ -38,9 +39,9 @@
                         <tr>
                             <td>${row.username}</td>
                             <td>
-                                <a class="btn btn-actions-divide btn-info" href="userdetails?id=${row.username}">Details</a>
-                                <a class="btn btn-actions-divide btn-info" href="useredit?id=${row.username}">Edit</a>
-                                <a class="btn btn-actions-divide btn-danger" href="userdelete?id=${row.username}">Delete</a>
+                                <a class="btn btn-actions-divide btn-info" href="userdetails?username=${row.username}">Details</a>
+                                <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
+                                <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

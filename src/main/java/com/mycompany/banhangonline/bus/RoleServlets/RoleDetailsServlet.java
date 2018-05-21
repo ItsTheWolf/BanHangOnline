@@ -1,7 +1,6 @@
 package com.mycompany.banhangonline.bus.RoleServlets;
 
 import com.mycompany.banhangonline.dao.RoleDAO;
-import com.mycompany.banhangonline.dao.UserDAO;
 import com.mycompany.banhangonline.dto.Role;
 import com.mycompany.banhangonline.dto.User;
 import java.io.IOException;

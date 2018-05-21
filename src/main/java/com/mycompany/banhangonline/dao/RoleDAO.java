@@ -65,7 +65,7 @@ public class RoleDAO {
     
     public void resetAI() {
         em.getTransaction().begin();
-        em.createNativeQuery("ALTER TABLE roles AUTO_INCREMENT = 1").executeUpdate();
+        em.createNativeQuery("ALTER TABLE Roles AUTO_INCREMENT = 1").executeUpdate();
         em.getTransaction().commit();
     }
 }
