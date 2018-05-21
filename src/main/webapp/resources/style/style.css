@@ -45,3 +45,7 @@
 .width-5 {
     width: 5%;
 }
+.text-error {
+    font-weight: bold;
+    color: #F00;
+}

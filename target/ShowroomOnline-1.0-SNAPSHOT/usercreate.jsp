@@ -7,41 +7,40 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
+            <a href="userindex">Users</a> >> <a href="">Register</a>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
-                        <td class="width-10">Username:</td>
+                        <td class="width-10">*Username:</td>
                         <td><input class="btn-block" type="text" name="txtUsername" value=""/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Password:</td>
+                        <td class="width-10">*Password:</td>
                         <td><input class="btn-block" type="password" name="txtPassword" value=""/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Confirm Password:</td>
+                        <td class="width-10">*Confirm Password:</td>
                         <td><input class="btn-block" type="password" name="txtCPassword" value=""/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Email:</td>
+                        <td class="width-10">*Email:</td>
                         <td><input class="btn-block" type="text" name="txtEmail" value=""/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Fullname::</td>
-                        <td><input class="btn-block" type="number" name="txtFullname" value=""/></td>
+                        <td class="width-10">Fullname:</td>
+                        <td><input class="btn-block" type="text" name="txtFullname" value=""/></td>
                     </tr>
                     <tr>
                         <td class="width-10">Address:</td>
                         <td><input class="btn-block" type="text" name="txtAddress" value=""/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Role:</td>
+                        <td class="width-10">*Role:</td>
                         <td>
                             <select class="btn-block" name="txtRoleId">
                                 <option value="0">--Choose Role--</option>
                                 <c:forEach var="item" items="${requestScope.model}">
-                                    <option value="${item.id}">
-                                    <c:out value="${item.name}"/>
-                                    </option>
+                                    <option value="${item.id}">${item.name}</option>
                                 </c:forEach>
                             </select>
                         </td>
@@ -52,6 +51,24 @@
                     </tr>
                 </table>
             </form>
+            *: Required 
+            <%
+                if (request.getAttribute("ERROR").equals(1)) {
+            %>
+            <div class="text-error">Please fill the required fields.</div>
+            <%
+                }
+                if (request.getAttribute("ERROR").equals(2)) {
+            %>
+            <div class="text-error">Password and Confirm Password don't match.</div>
+            <%
+                }
+                if (request.getAttribute("ERROR").equals(3)) {
+            %>
+            <div class="text-error">Email isn't valid.</div>
+            <%
+                }
+            %>
         </div>
     </body>
 </html>
