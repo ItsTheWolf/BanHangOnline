@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td class="bg-dark text-white">Role:</td>
-                    <td class="bg-light">${requestScope.model.role.name}</td>
+                    <td class="bg-light"><a href='roledetails?id=${requestScope.model.role.id}'>${requestScope.model.role.name}</a></td>
                 </tr>
                 <tr>
                     <td></td>
