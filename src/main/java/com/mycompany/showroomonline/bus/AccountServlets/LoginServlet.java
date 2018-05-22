@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("loggedName", username);
                     session.setAttribute("loggedRole", role);
                     session.setAttribute("loggedRoleId", id);
-                    response.sendRedirect(request.getContextPath() + "/productindex");
+                    response.sendRedirect(request.getContextPath() + "/index");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/login");
                 }

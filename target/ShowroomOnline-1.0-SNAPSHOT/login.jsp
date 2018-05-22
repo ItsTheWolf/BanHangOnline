@@ -4,7 +4,7 @@
     <jsp:include page="header.jsp"/>
     <body class="bg-lightblue">
         <div class="container-fluid">
-            <a href="productindex">Home</a> >> <a href="">Login</a><br>
+            <a href="index">Home</a> >> <a href="">Login</a><br>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>

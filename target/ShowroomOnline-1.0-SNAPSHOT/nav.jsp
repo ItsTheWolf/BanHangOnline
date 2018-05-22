@@ -36,7 +36,7 @@
         <td class="text-right">Contact: 69-1919-***</td>
     </tr>
 </table>
-<a href="productindex"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
+<a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
 <table class="bg-dark width-max">
     <tr>
         <td class="width-25"><a class="btn btn-block btn-light" href="">Products</a></td>

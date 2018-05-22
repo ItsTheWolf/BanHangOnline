@@ -20,6 +20,6 @@ public class LogoutServlet extends HttpServlet {
         session.removeAttribute("loggedRole");
         session.removeAttribute("loggedRoleId");
         session.invalidate();
-        response.sendRedirect(request.getContextPath() + "/productindex");
+        response.sendRedirect(request.getContextPath() + "/index");
     }
 }

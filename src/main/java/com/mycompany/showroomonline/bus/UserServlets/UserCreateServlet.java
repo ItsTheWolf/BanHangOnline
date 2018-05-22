@@ -72,7 +72,7 @@ public class UserCreateServlet extends HttpServlet {
                     session.setAttribute("loggedName", username);
                     session.setAttribute("loggedRole", roleid.getName());
                     session.setAttribute("loggedRoleId", rid);
-                    response.sendRedirect(request.getContextPath() + "/productindex");
+                    response.sendRedirect(request.getContextPath() + "/index");
                 }
             }
         } catch (Exception e) {

@@ -7,7 +7,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="productindex">Home</a> >> <a href="userindex">Users</a><br>
+            <a href="index">Home</a> >> <a href="userindex">Users</a><br>
             <a class="btn btn-info btn-distance" href="register">Add User</a>
             <table class="table table-borderless margin-top-5px">
                 <thead class="bg-dark text-white">

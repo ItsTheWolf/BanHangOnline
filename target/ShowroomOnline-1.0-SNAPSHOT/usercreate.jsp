@@ -13,7 +13,7 @@
             }
         %>
         <div class="container-fluid">
-            <a href="productindex">Home</a> >> 
+            <a href="index">Home</a> >> 
             <%
                 if (session.getAttribute("loggedName") != null) {
             %>

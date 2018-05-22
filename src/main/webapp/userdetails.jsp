@@ -7,7 +7,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="productindex">Home</a> >> <a href="userindex">Users</a> >> <a href="">${requestScope.model.username}'s Details</a><br>
+            <a href="index">Home</a> >> <a href="userindex">Users</a> >> <a href="">${requestScope.model.username}'s Details</a><br>
             <table class="table table-borderless margin-top-5px">
                 <tr>
                     <td class="width-10 bg-dark text-white">Username:</td>
