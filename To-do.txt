@@ -3,8 +3,7 @@ To-do:
 - products
 - privilege
 - when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
-- hardcode user 'admin' with admin role
-- make hardcoded role only add when missing
+x make hardcoded role only add when missing (chưa test)
 - add nav for other pages
 - figure out how to make error message in case of validation failed (try either HttpSession method based on register or make an error.jsp)
 - add confirmation page for anything important (delete self)
