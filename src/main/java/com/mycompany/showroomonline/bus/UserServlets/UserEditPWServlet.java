@@ -20,6 +20,7 @@ public class UserEditPWServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("UTF-8");
             String username = request.getParameter("username");
             if (!username.equals("admin")) {
 //                resetError(request);

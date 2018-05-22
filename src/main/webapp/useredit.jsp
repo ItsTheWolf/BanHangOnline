@@ -31,7 +31,7 @@
                         } else {
                     %>
                     <tr>
-                        <td class="width-10">Role:</td>
+                        <td class="width-10">*Role:</td>
                         <td>
                             <select class="btn-block" name="txtRoleId">
                                 <option value="0">--Choose Role--</option>
