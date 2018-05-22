@@ -22,30 +22,6 @@ public class RoleIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            for (int i = 1; i <= 3; i++) {
-                Role role = roleDAO.read(i);
-                if (role == null) {
-                    request.setCharacterEncoding("UTF-8");
-                    int roleId = 0;
-                    String roleName = null, roleDesc = null;
-                    if (i == 1) {
-                        roleName = "Admin";
-                        roleDesc = "- Can manage Products, Categories and Users details.";
-                    }
-                    if (i == 2) {
-                        roleName = "Staff";
-                        roleDesc = "- Can view Users, Roles details.<br>- Can manage Products, Categories and ''Customer'' role Users details.";
-                    }
-                    if (i == 3) {
-                        roleName = "Customer";
-                        roleDesc = "- Can view Products and Categories details.";
-                    }
-                    if (roleId != 0 || roleName != null || roleDesc != null) {
-                        roleId = i;
-                        roleDAO.createRole(roleId, roleName, roleDesc);
-                    }
-                }
-            }
             List<Role> listItem = roleDAO.readAll();
             request.setAttribute("model", listItem);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/roleindex.jsp");

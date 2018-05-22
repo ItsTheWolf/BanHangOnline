@@ -25,18 +25,6 @@ public class UserIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            User user = userDAO.read("admin");
-            if (user == null) {
-                request.setCharacterEncoding("UTF-8");
-                String username = "admin";
-                String password = "admin";
-                String email = "admin@showroomonline.com";
-                String fullname = "Admin";
-                String address = "Net";
-                Role roleid = roleDAO.read(1);
-                User item = new User(username, password, fullname, email, address, roleid);
-                userDAO.createUser(item);
-            }
             List<User> listItem = userDAO.readAll();
             request.setAttribute("model", listItem);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/userindex.jsp");

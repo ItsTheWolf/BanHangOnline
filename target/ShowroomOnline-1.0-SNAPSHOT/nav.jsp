@@ -39,7 +39,7 @@
 <a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
 <table class="bg-dark width-max">
     <tr>
-        <td class="width-25"><a class="btn btn-block btn-light" href="">Products</a></td>
+        <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
         <td class="width-25"><a class="btn btn-block btn-light" href="">Categories</a></td>
         <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
         <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
