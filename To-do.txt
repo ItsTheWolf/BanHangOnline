@@ -1,5 +1,4 @@
 To-do:
-- make change password page
 - add edit information in details
 - categories (P)
 - products
