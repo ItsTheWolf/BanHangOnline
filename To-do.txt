@@ -2,7 +2,6 @@ To-do:
 - categories (P)
 - products
 - privilege
-- if delete self user, logout after delete
 - when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
 - hardcode user 'admin' with admin role
 - make hardcoded role only add when missing
