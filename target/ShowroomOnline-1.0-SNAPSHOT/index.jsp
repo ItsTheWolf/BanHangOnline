@@ -12,15 +12,15 @@
             <div class="row">
                 <c:forEach var="row" items="${requestScope.model}">
                     <div class="col-sm-2">
-                        <table class="width-max">
+                        <table class="bg-light width-max text-center table-product">
                             <tr>
-                                <td>${row.thumbnail}</td>
+                                <td class="cell-thumbnail"><img src="${row.thumbnail}" width="100%"/></td>
                             </tr>
                             <tr>
-                                <td>${row.name}</td>
+                                <td class="cell-name"><a href='productdetails?id=${row.id}'>${row.name}</a></td>
                             </tr>
                             <tr>
-                                <td>${row.price}</td>
+                                <td class="cell-price bg-warning">$${row.price}</td>
                             </tr>
                         </table>
                     </div>
