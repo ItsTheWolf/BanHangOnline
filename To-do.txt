@@ -5,4 +5,5 @@ To-do:
 - when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
 - add nav for other pages
 - figure out how to make error message in case of validation failed (try either HttpSession method based on register or make an error.jsp)
-- add confirmation page for anything important (delete self)
+- add confirmation page for anything important (delete self, log out)
+- inlude login, register and logout success image
