@@ -27,6 +27,10 @@ public class UserCreateServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             getRolesList(request);
+            HttpSession session = request.getSession();
+            if (session.getAttribute("loggedRole") == null) {
+                session.setAttribute("loggedRole", "null");
+            }
 //            resetError(request);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
             rd.forward(request, response);
@@ -48,20 +52,29 @@ public class UserCreateServlet extends HttpServlet {
             String fullname = request.getParameter("txtFullname");
             String address = request.getParameter("txtAddress");
             String email = request.getParameter("txtEmail");
-            Role roleid = roleDAO.read(Integer.parseInt(request.getParameter("txtRoleId")));
-            int rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            int rid;
+            try {
+                rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            } catch (NumberFormatException e) {
+                rid = 3;
+            }
+            Role roleid = roleDAO.read(rid);
             boolean error = validation(username, password, cpw, email, rid, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/register");
             } else {
                 User item = new User(username, password, fullname, email, address, roleid);
                 userDAO.createUser(item);
-                HttpSession registerSession = request.getSession();
-                registerSession.setAttribute("loggedName", username);
-                registerSession.setMaxInactiveInterval(60 * 5);
-                response.sendRedirect(request.getContextPath() + "/userindex");
+                HttpSession session = request.getSession();
+                if (session.getAttribute("loggedName") != null) {
+                    response.sendRedirect(request.getContextPath() + "/userindex");
+                } else {
+                    session.setAttribute("loggedName", username);
+                    session.setAttribute("loggedRole", roleid.getName());
+                    session.setAttribute("loggedRoleId", rid);
+                    response.sendRedirect(request.getContextPath() + "/productindex");
+                }
             }
-
         } catch (Exception e) {
             Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -85,7 +98,6 @@ public class UserCreateServlet extends HttpServlet {
 //        request.setAttribute("ERROR2", "");
 //        request.setAttribute("ERROR3", "");
 //    }
-
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();
         request.setAttribute("model", listItem);

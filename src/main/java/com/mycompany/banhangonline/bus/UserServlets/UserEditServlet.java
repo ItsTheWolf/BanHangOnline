@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/useredit")
 public class UserEditServlet extends HttpServlet {
@@ -27,6 +28,10 @@ public class UserEditServlet extends HttpServlet {
             String username = request.getParameter("username");
             if (!username.equals("admin")) {
                 getRolesList(request);
+                HttpSession session = request.getSession();
+                if (session.getAttribute("loggedRole") == null) {
+                    session.setAttribute("loggedRole", "null");
+                }
 //                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
@@ -52,8 +57,13 @@ public class UserEditServlet extends HttpServlet {
             String fullname = request.getParameter("txtFullname");
             String email = request.getParameter("txtEmail");
             String address = request.getParameter("txtAddress");
-            Role roleid = roleDAO.read(Integer.parseInt(request.getParameter("txtRoleId")));
-            int rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            int rid;
+            try {
+                rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            } catch (NumberFormatException e) {
+                rid = 3;
+            }
+            Role roleid = roleDAO.read(rid);
             boolean error = validation(email, rid, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
@@ -69,8 +79,7 @@ public class UserEditServlet extends HttpServlet {
 
     protected boolean validation(String email, int rid, HttpServletRequest request) {
         try {
-            if (email.equals("") || rid == 0
-                    || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+            if (email.equals("") || rid == 0 || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
                 return true;
             }
             return false;

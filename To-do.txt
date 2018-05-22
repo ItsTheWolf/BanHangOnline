@@ -3,12 +3,7 @@ To-do:
 - products
 - privilege
 - if delete self user, logout after delete
-- when delete categories/roles that have products/users attach, catch exception, ask user if they want to delete the products/users along with it. If yes, delete products based
-categories/users based roles.
-- if add user when logged in, don't log in with added user account
-- after registration, log in with registration account if there's no user logged in
-- only admin can change role
-- register default role is customer
+- when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
 - hardcode user 'admin' with admin role
 - make hardcoded role only add when missing
 - add nav for other pages

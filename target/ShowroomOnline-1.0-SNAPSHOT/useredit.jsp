@@ -26,8 +26,12 @@
                         <td class="width-10">Address:</td>
                         <td><input class="btn-block" type="text" name="txtAddress" value="${requestScope.model.address}"/></td>
                     </tr>
+                    <%
+                        if (!session.getAttribute("loggedRole").equals("Admin")) {
+                        } else {
+                    %>
                     <tr>
-                        <td class="width-10">*Role:</td>
+                        <td class="width-10">Role:</td>
                         <td>
                             <select class="btn-block" name="txtRoleId">
                                 <option value="0">--Choose Role--</option>
@@ -48,6 +52,9 @@
                             </select>
                         </td>
                     </tr>
+                    <%
+                        }
+                    %>
                     <tr>
                         <td></td>
                         <td><button class="btn btn-confirm btn-success" type="submit">Update information</button></td>
