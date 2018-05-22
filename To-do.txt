@@ -1,5 +1,4 @@
 To-do:
-- add edit information in details
 - categories (P)
 - products
 - login (P)

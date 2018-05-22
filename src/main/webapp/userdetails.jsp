@@ -29,6 +29,14 @@
                     <td class="bg-dark text-white">Role:</td>
                     <td class="bg-light">${requestScope.model.role.name}</td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <c:if test = "${requestScope.model.username != 'admin'}">
+                            <a class="btn btn-actions-divide btn-info" href="useredit?username=${requestScope.model.username}">Edit</a>
+                        </c:if>
+                    </td>
+                </tr>
             </table>
         </div>
     </body>
