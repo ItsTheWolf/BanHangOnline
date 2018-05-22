@@ -4,8 +4,11 @@ To-do:
 - categories
 - products
 - login
+- logout
 - privilege
 - if delete self user, logout after delete
+- when delete categories/roles that have products/users attach, catch exception, ask user if they want to delete the products/users along with it. If yes, delete products based
+categories/users based roles.
 - if add user when logged in, don't log in with added user account
 - if no user, register page won't show user nav
 - only admin can change role
