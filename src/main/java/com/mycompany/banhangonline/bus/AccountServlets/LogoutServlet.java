@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet(name = "Logout", urlPatterns = {"/logout"})
+
+@WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 
     @Override
@@ -16,8 +17,9 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = request.getSession(true);
         session.removeAttribute("loggedName");
+        session.removeAttribute("loggedRole");
+        session.removeAttribute("loggedRoleId");
         session.invalidate();
-        response.sendRedirect(request.getContextPath() + "/login");
-
+        response.sendRedirect(request.getContextPath() + "/productindex");
     }
 }

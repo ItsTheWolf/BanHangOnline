@@ -1,7 +1,5 @@
 To-do:
 - categories (P)
-- login
-- logout
 - products
 - privilege
 - if delete self user, logout after delete
@@ -9,7 +7,6 @@ To-do:
 categories/users based roles.
 - if add user when logged in, don't log in with added user account
 - after registration, log in with registration account if there's no user logged in
-- if no user, register page won't show user nav
 - only admin can change role
 - register default role is customer
 - hardcode user 'admin' with admin role

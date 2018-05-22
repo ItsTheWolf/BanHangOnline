@@ -17,7 +17,10 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="btn btn-confirm btn-success" type="submit">Log in</button></td>
+                        <td>
+                            <button class="btn btn-confirm btn-success" type="submit">Log in</button>
+                            <a href="register">Don't have an account? Click here to Register.</a>
+                        </td>
                     </tr>
                 </table>
             </form>

@@ -5,7 +5,13 @@
 <html>
     <jsp:include page="header.jsp"/>
     <body class="bg-lightblue">
+        <%
+            if (session.getAttribute("loggedName") != null) {
+        %>
         <jsp:include page="nav.jsp"/>
+        <%
+            }
+        %>
         <div class="container-fluid">
             <a href="productindex">Home</a> >> 
             <%
@@ -55,7 +61,15 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="btn btn-confirm btn-success" type="submit">Register</button></td>
+                        <td><button class="btn btn-confirm btn-success" type="submit">Register</button>
+                            <%
+                                if (session.getAttribute("loggedName") == null) {
+                            %>
+                            <a href="login">Already have an account? Click here to Log in.</a>
+                            <%
+                                }
+                            %>
+                        </td>
                     </tr>
                 </table>
             </form>

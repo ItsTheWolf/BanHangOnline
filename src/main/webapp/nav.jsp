@@ -10,14 +10,24 @@
             <a href="login">Login</a> | <a href="register">Register</a>
             <%
             } else if (!session.getAttribute("loggedName").equals("admin")) {
+                if (!session.getAttribute("loggedRole").equals("customer")) {
             %>
             User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
+            Role: <a href="roledetails?id=<%=session.getAttribute("loggedRoleId")%>"><%=session.getAttribute("loggedRole")%></a> | 
             <a href="usereditpw?username=<%=session.getAttribute("loggedName")%>">Change password</a> | 
             <a href='logout'>Logout</a>
             <%
             } else {
             %>
             User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
+            <a href="usereditpw?username=<%=session.getAttribute("loggedName")%>">Change password</a> | 
+            <a href='logout'>Logout</a>
+            <%
+                }
+            } else {
+            %>
+            User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
+            Role: <a href="roledetails?id=<%=session.getAttribute("loggedRoleId")%>"><%=session.getAttribute("loggedRole")%></a> | 
             <a href='logout'>Logout</a>
             <%
                 }
