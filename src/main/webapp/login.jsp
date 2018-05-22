@@ -1,0 +1,26 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <jsp:include page="header.jsp"/>
+    <body class="bg-lightblue">
+        <div class="container-fluid">
+            <a href="productindex">Home</a> >> <a href="">Login</a><br>
+            <form action="" method="POST">
+                <table class="table table-borderless margin-top-5px">
+                    <tr>
+                        <td class="width-10">*Username:</td>
+                        <td><input class="btn-block" type="text" name="txtUsername" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td class="width-10">*Password:</td>
+                        <td><input class="btn-block" type="password" name="txtPassword" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-confirm btn-success" type="submit">Log in</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

@@ -7,7 +7,15 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="userindex">Users</a> >> <a href="">Register</a>
+            <a href="productindex">Home</a> >> 
+            <%
+                if (session.getAttribute("loggedName") != null) {
+            %>
+            <a href="userindex">Users</a> >> 
+            <%
+                }
+            %>
+            <a href="">Register</a><br>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>

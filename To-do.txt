@@ -1,7 +1,7 @@
 To-do:
 - categories (P)
-- login (P)
-- logout (P)
+- login
+- logout
 - products
 - privilege
 - if delete self user, logout after delete

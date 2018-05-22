@@ -25,7 +25,7 @@ public class UserEditPWServlet extends HttpServlet {
 //                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/usereditpw.jsp");
                 rd.forward(request, response);
             } else {
                 response.sendRedirect("userindex");
@@ -45,11 +45,11 @@ public class UserEditPWServlet extends HttpServlet {
             String cpw = request.getParameter("txtCPassword");
             boolean error = validation(password, cpw, request);
             if (error) {
-                response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
+                response.sendRedirect(request.getContextPath() + "/userindexpw?username=" + username);
             } else {
                 User item = new User(username, password);
                 userDAO.updateUser(item);
-                response.sendRedirect(request.getContextPath() + "/userindex");
+                response.sendRedirect(request.getContextPath() + "/userindexpw");
             }
         } catch (Exception e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);

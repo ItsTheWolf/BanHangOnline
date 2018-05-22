@@ -9,10 +9,15 @@
             %>
             <a href="login">Login</a> | <a href="register">Register</a>
             <%
-            } else {
+            } else if (!session.getAttribute("loggedName").equals("admin")) {
             %>
             User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
             <a href="usereditpw?username=<%=session.getAttribute("loggedName")%>">Change password</a> | 
+            <a href='logout'>Logout</a>
+            <%
+            } else {
+            %>
+            User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
             <a href='logout'>Logout</a>
             <%
                 }

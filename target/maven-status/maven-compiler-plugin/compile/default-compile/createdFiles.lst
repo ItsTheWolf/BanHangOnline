@@ -1,11 +1,13 @@
 com\mycompany\banhangonline\bus\UserServlets\UserCreateServlet.class
 com\mycompany\banhangonline\bus\UserServlets\UserDetailsServlet.class
 com\mycompany\banhangonline\dto\User.class
+com\mycompany\banhangonline\bus\AccountServlets\LogoutServlet.class
 com\mycompany\banhangonline\dao\RoleDAO.class
 com\mycompany\banhangonline\bus\UserServlets\UserEditServlet.class
 com\mycompany\banhangonline\bus\RoleServlets\RoleIndexServlet.class
 com\mycompany\banhangonline\dao\UserDAO.class
 com\mycompany\banhangonline\bus\UserServlets\UserDeleteServlet.class
+com\mycompany\banhangonline\bus\AccountServlets\LoginServlet.class
 com\mycompany\banhangonline\bus\UserServlets\UserIndexServlet.class
 com\mycompany\banhangonline\bus\UserServlets\UserEditPWServlet.class
 com\mycompany\banhangonline\dao\CategoryDAO.class
