@@ -1,10 +1,10 @@
 To-do:
 - make change password page
 - add edit information in details
-- categories
+- categories (P)
 - products
-- login
-- logout
+- login (P)
+- logout (P)
 - privilege
 - if delete self user, logout after delete
 - when delete categories/roles that have products/users attach, catch exception, ask user if they want to delete the products/users along with it. If yes, delete products based
