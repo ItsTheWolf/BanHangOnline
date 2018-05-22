@@ -27,7 +27,7 @@ public class UserCreateServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             getRolesList(request);
-            resetError(request);
+//            resetError(request);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class UserCreateServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             getRolesList(request);
-            resetError(request);
+//            resetError(request);
             String username = request.getParameter("txtUsername");
             String password = request.getParameter("txtPassword");
             String cpw = request.getParameter("txtCPassword");
@@ -49,10 +49,10 @@ public class UserCreateServlet extends HttpServlet {
             String address = request.getParameter("txtAddress");
             String email = request.getParameter("txtEmail");
             Role roleid = roleDAO.read(Integer.parseInt(request.getParameter("txtRoleId")));
-            boolean error = validation(username, password, cpw, email, roleid, request);
+            int rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+            boolean error = validation(username, password, cpw, email, rid, request);
             if (error) {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
-                rd.include(request, response);
+                response.sendRedirect(request.getContextPath() + "/register");
             } else {
                 User item = new User(username, password, fullname, email, address, roleid);
                 userDAO.createUser(item);
@@ -67,18 +67,10 @@ public class UserCreateServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String username, String password, String cpw, String email, Role roleid, HttpServletRequest request) {
+    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpServletRequest request) {
         try {
-            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || roleid.equals(0)) {
-                request.setAttribute("ERROR", 1);
-                return true;
-            }
-            if (!cpw.equals(password)) {
-                request.setAttribute("ERROR", 2);
-                return true;
-            }
-            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                request.setAttribute("ERROR", 3);
+            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || rid == 0 || !cpw.equals(password)
+                    || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
                 return true;
             }
             return false;
@@ -88,9 +80,11 @@ public class UserCreateServlet extends HttpServlet {
         }
     }
 
-    protected void resetError(HttpServletRequest request) {
-        request.setAttribute("ERROR", 0);
-    }
+//    protected void resetError(HttpServletRequest request) {
+//        request.setAttribute("ERROR1", "");
+//        request.setAttribute("ERROR2", "");
+//        request.setAttribute("ERROR3", "");
+//    }
 
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();

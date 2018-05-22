@@ -14,7 +14,7 @@
                         <td>${requestScope.model.username}<input class="btn-block" type="hidden" name="txtUsername" readonly="true" value="${requestScope.model.username}"></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Email:</td>
+                        <td class="width-10">*Email:</td>
                         <td><input class="btn-block" type="text" name="txtEmail" value="${requestScope.model.email}"/></td>
                     </tr>
                     <tr>
@@ -26,7 +26,7 @@
                         <td><input class="btn-block" type="text" name="txtAddress" value="${requestScope.model.address}"/></td>
                     </tr>
                     <tr>
-                        <td class="width-10">Role:</td>
+                        <td class="width-10">*Role:</td>
                         <td>
                             <select class="btn-block" name="txtRoleId">
                                 <option value="0">--Choose Role--</option>
@@ -53,6 +53,21 @@
                     </tr>
                 </table>
             </form>
+            *: Required
+            <%--
+            <%
+                if (request.getAttribute("ERROR").equals(1)) {
+            %>
+            <div class="text-error">Please fill the required fields.</div>
+            <%
+                }
+                if (request.getAttribute("ERROR").equals(2)) {
+            %>
+            <div class="text-error">Email isn't valid.</div>
+            <%
+                }
+            %>
+            --%>
         </div>
     </body>
 </html>
