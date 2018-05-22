@@ -41,9 +41,7 @@ public class RoleIndexServlet extends HttpServlet {
                     }
                     if (roleName != null || roleDesc != null) {
                         Role item = new Role(roleName, roleDesc);
-                        roleDAO.resetAI(i);
                         roleDAO.createRole(item);
-                        response.sendRedirect(request.getContextPath() + "/roleindex");
                     }
                 }
             }
