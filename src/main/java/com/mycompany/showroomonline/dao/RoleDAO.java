@@ -25,9 +25,9 @@ public class RoleDAO {
         return result;
     }
 
-    public void createRole(Role obj) {
+    public void createRole(int id, String name, String description) {
         em.getTransaction().begin();
-        em.persist(obj);
+        em.createNativeQuery("INSERT INTO Roles (id, description, name) VALUES (" + id + ", '" + description + "', '" + name + "')").executeUpdate();
         em.getTransaction().commit();
     }
 
