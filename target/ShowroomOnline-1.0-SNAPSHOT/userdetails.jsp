@@ -33,7 +33,8 @@
                     <td></td>
                     <td>
                         <c:if test = "${requestScope.model.username != 'admin'}">
-                            <a class="btn btn-actions-divide btn-info" href="useredit?username=${requestScope.model.username}">Edit</a>
+                            <a class="btn btn-info margin-top-5px btn-product-actions" href="useredit?username=${requestScope.model.username}">Edit user's information</a>
+                            <a class="btn btn-danger margin-top-5px btn-product-actions" href="userdelete?username=${requestScope.model.username}">Delete User</a>
                         </c:if>
                     </td>
                 </tr>
