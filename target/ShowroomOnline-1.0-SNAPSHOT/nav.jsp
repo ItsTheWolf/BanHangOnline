@@ -40,7 +40,7 @@
 <table class="bg-dark width-max">
     <tr>
         <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
-        <td class="width-25"><a class="btn btn-block btn-light" href="">Categories</a></td>
+        <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
         <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
         <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
     </tr>
