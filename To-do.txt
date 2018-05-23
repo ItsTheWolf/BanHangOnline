@@ -6,5 +6,5 @@ To-do:
 - figure out how to make error message in case of validation failed (try either HttpSession method based on register or make an error.jsp)
 - add confirmation page for anything important (delete self, log out)
 - inlude login, register and logout success pages
-- edit self will keep role
-- let customer be able to delete themselves
+x edit self will keep role (chưa test)
+x let customer be able to delete themselves (chưa test)
