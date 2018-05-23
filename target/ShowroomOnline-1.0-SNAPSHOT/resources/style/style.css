@@ -31,6 +31,10 @@
 .btn-actions-divide {
     width: calc(100% / 3 - 4px);
 }
+.btn-product-actions {
+    width: 250px;
+    padding: 15px;
+}
 .margin-top-5px {
     margin-top: 5px;
 }
@@ -59,9 +63,16 @@
     width: 5%;
 }
 .width-500px {
-    width: 20px;
+    width: 500px;
+}
+.width-350px {
+    width: 350px;
 }
 .text-error {
     font-weight: bold;
     color: #F00;
+}
+.product-card-distance {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

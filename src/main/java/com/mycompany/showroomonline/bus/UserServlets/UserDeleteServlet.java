@@ -32,7 +32,7 @@ public class UserDeleteServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/index");
                 }
             }
-            response.sendRedirect("userindex");
+            response.sendRedirect(request.getContextPath() + "userindex");
         } catch (Exception e) {
             Logger.getLogger(UserDeleteServlet.class.getName()).log(Level.SEVERE, null, e);
         }
