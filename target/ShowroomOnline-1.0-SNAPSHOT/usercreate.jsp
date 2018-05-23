@@ -5,9 +5,26 @@
 <html>
     <jsp:include page="header.jsp"/>
     <body class="bg-lightblue">
+        <%
+            if (session.getAttribute("loggedName") != null) {
+        %>
         <jsp:include page="nav.jsp"/>
+        <%
+            }
+        %>
         <div class="container-fluid">
-            <a href="userindex">Users</a> >> <a href="">Register</a>
+            <a href="index">Home</a> >> 
+            <%
+                if (session.getAttribute("loggedName") != null) {
+            %>
+            <a href="userindex">Users</a> >> <a href="">Add user</a><br>
+            <%
+            } else {
+            %>
+            <a href="">Register</a><br>
+            <%
+                }
+            %>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
@@ -34,6 +51,10 @@
                         <td class="width-10">Address:</td>
                         <td><input class="btn-block" type="text" name="txtAddress" value=""/></td>
                     </tr>
+                    <%
+                        if (!session.getAttribute("loggedRole").equals("Admin")) {
+                        } else {
+                    %>
                     <tr>
                         <td class="width-10">*Role:</td>
                         <td>
@@ -45,9 +66,20 @@
                             </select>
                         </td>
                     </tr>
+                    <%
+                        }
+                    %>
                     <tr>
                         <td></td>
-                        <td><button class="btn btn-confirm btn-success" type="submit">Register</button></td>
+                        <td><button class="btn btn-confirm btn-success" type="submit">Register</button>
+                            <%
+                                if (session.getAttribute("loggedName") == null) {
+                            %>
+                            <a href="login">Already have an account? Click here to Log in.</a>
+                            <%
+                                }
+                            %>
+                        </td>
                     </tr>
                 </table>
             </form>

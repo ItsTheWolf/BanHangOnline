@@ -7,7 +7,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="userindex">Users</a> >> <a href="">${requestScope.model.username}'s Details</a>
+            <a href="index">Home</a> >> <a href="userindex">Users</a> >> <a href="">${requestScope.model.username}'s Details</a><br>
             <table class="table table-borderless margin-top-5px">
                 <tr>
                     <td class="width-10 bg-dark text-white">Username:</td>
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td class="bg-dark text-white">Role:</td>
-                    <td class="bg-light">${requestScope.model.role.name}</td>
+                    <td class="bg-light"><a href='roledetails?id=${requestScope.model.role.id}'>${requestScope.model.role.name}</a></td>
                 </tr>
                 <tr>
                     <td></td>

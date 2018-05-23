@@ -7,9 +7,22 @@
     margin-left: 25%;
     margin-right: 25%;
 }
+.table-product {
+    border: #00a2e8 5px solid;
+}
 .cell-title {
     width: 75%;
     padding-left: 10px;
+}
+.cell-thumbnail {
+    width: 500px;
+    height: 15vw;
+}
+.cell-name {
+    height: 75px;
+}
+.cell-price {
+    height: 40px;
 }
 .btn-distance {
     margin-top: 5px;
@@ -44,6 +57,9 @@
 }
 .width-5 {
     width: 5%;
+}
+.width-500px {
+    width: 20px;
 }
 .text-error {
     font-weight: bold;

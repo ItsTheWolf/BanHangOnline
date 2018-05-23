@@ -7,6 +7,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
+            <a href="index">Home</a> >> <a href="userindex">Users</a> >> <a href="">Edit ${requestScope.model.username}'s Information</a><br>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
@@ -25,6 +26,10 @@
                         <td class="width-10">Address:</td>
                         <td><input class="btn-block" type="text" name="txtAddress" value="${requestScope.model.address}"/></td>
                     </tr>
+                    <%
+                        if (!session.getAttribute("loggedRole").equals("Admin")) {
+                        } else {
+                    %>
                     <tr>
                         <td class="width-10">*Role:</td>
                         <td>
@@ -47,6 +52,9 @@
                             </select>
                         </td>
                     </tr>
+                    <%
+                        }
+                    %>
                     <tr>
                         <td></td>
                         <td><button class="btn btn-confirm btn-success" type="submit">Update information</button></td>
