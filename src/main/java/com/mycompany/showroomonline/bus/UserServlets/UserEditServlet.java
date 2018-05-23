@@ -36,8 +36,7 @@ public class UserEditServlet extends HttpServlet {
 //                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
-                List<Role> listItem = roleDAO.readAll();
-                request.setAttribute("listItem", listItem);
+                getRolesList(request);
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
                 rd.forward(request, response);
             } else {
@@ -95,6 +94,6 @@ public class UserEditServlet extends HttpServlet {
 //    }
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();
-        request.setAttribute("model", listItem);
+        request.setAttribute("listItem", listItem);
     }
 }

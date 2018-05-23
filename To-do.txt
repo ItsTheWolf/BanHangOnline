@@ -1,6 +1,5 @@
 To-do:
 - categories (P)
-- products
 - privilege
 - when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
 - add nav for other pages
@@ -8,7 +7,4 @@ To-do:
 - add confirmation page for anything important (delete self, log out)
 - inlude login, register and logout success pages
 - edit self will keep role
-- figure out how to add thumbnail for products
-- if there is no thumbnail for product, use thumbnailtmp.png
 - let customer be able to delete themselves
-- if thumbnail not found, use thumbnailtmp.png
