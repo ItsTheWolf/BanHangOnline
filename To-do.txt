@@ -10,3 +10,5 @@ To-do:
 - edit self will keep role
 - figure out how to add thumbnail for products
 - if there is no thumbnail for product, use thumbnailtmp.png
+- let customer be able to delete themselves
+- if thumbnail not found, use thumbnailtmp.png

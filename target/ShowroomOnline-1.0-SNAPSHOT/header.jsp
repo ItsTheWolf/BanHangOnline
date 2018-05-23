@@ -6,4 +6,5 @@
     <title>Showroom Online</title>
     <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="resources/style/style.css" />
+    <script type="text/javascript" src='resources/script/script.js'></script>
 </head>
