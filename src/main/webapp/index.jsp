@@ -12,7 +12,7 @@
             <div class="row">
                 <c:forEach var="row" items="${requestScope.model}">
                     <div class="col-sm-2">
-                        <table class="bg-light width-max text-center table-product">
+                        <table class="bg-light width-max text-center table-product product-card-distance">
                             <tr>
                                 <td class="cell-thumbnail"><img src="${row.thumbnail}" width="100%"/></td>
                             </tr>
