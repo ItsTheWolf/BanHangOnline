@@ -60,27 +60,56 @@ public class ProductIndexServlet extends HttpServlet {
                 } catch (Exception e) {
                 }
             }
+            String admin = "Admin";
+            String adminDesc = "- Can manage Products, Categories and Users details.<br>- Can view Roles details.";
+            String staff = "Staff";
+            String staffDesc = "- Can manage Products, Categories and ''Customer'' role Users details.<br>- Can view Users, Roles details.";
+            String customer = "Customer";
+            String customerDesc = "- Can view Products and Categories details.";
+            request.setCharacterEncoding("UTF-8");
             for (int i = 1; i <= 3; i++) {
                 Role role = roleDAO.read(i);
                 if (role == null) {
-                    request.setCharacterEncoding("UTF-8");
                     int roleId = 0;
                     String roleName = null, roleDesc = null;
                     if (i == 1) {
-                        roleName = "Admin";
-                        roleDesc = "- Can manage Products, Categories and Users details.";
+                        roleName = admin;
+                        roleDesc = adminDesc;
                     }
                     if (i == 2) {
-                        roleName = "Staff";
-                        roleDesc = "- Can view Users, Roles details.<br>- Can manage Products, Categories and ''Customer'' role Users details.";
+                        roleName = staff;
+                        roleDesc = staffDesc;
                     }
                     if (i == 3) {
-                        roleName = "Customer";
-                        roleDesc = "- Can view Products and Categories details.";
+                        roleName = customer;
+                        roleDesc = customerDesc;
                     }
                     if (roleId != 0 || roleName != null || roleDesc != null) {
                         roleId = i;
                         roleDAO.createRole(roleId, roleName, roleDesc);
+                    }
+                } else {
+                    int roleId = 0;
+                    String roleName = null, roleDesc = null;
+                    if (i == 1 && (!role.getName().equals(admin)
+                            || !role.getDescription().equals(adminDesc))) {
+                        roleName = admin;
+                        roleDesc = adminDesc;
+                    }
+                    if (i == 2 && (!role.getName().equals(staff)
+                            || !role.getDescription().equals(staffDesc))) {
+                        roleName = staff;
+                        roleDesc = staffDesc;
+                    }
+                    if (i == 3 && (!role.getName().equals(customer)
+                            || !role.getDescription().equals(customerDesc))) {
+                        roleName = customer;
+                        roleDesc = customerDesc;
+                    }
+                    if (roleId != 0 || roleName != null || roleDesc != null) {
+                        roleId = i;
+                        role = new Role(roleId, roleName, roleDesc);
+                        roleDAO.updateRole(role);
                     }
                 }
             }
