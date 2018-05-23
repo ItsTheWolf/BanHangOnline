@@ -58,13 +58,16 @@ public class UserEditServlet extends HttpServlet {
             String email = request.getParameter("txtEmail");
             String address = request.getParameter("txtAddress");
             int rid;
+            boolean error;
+            Role roleid;
             try {
                 rid = (Integer.parseInt(request.getParameter("txtRoleId")));
+                roleid = roleDAO.read(rid);
+                error = validation(email, rid, request);
             } catch (NumberFormatException e) {
-                rid = 3;
+                roleid = userDAO.read(username).getRole();
+                error = validationWithoutRid(email, request);
             }
-            Role roleid = roleDAO.read(rid);
-            boolean error = validation(email, rid, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
             } else {
@@ -80,6 +83,18 @@ public class UserEditServlet extends HttpServlet {
     protected boolean validation(String email, int rid, HttpServletRequest request) {
         try {
             if (email.equals("") || rid == 0 || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            return true;
+        }
+    }
+
+    protected boolean validationWithoutRid(String email, HttpServletRequest request) {
+        try {
+            if (email.equals("") || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
                 return true;
             }
             return false;

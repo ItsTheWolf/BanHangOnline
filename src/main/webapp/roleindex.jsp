@@ -12,7 +12,8 @@
                 <thead class="bg-dark text-white">
                     <tr>
                         <th class="width-5">ID</th>
-                        <th>Role</th>
+                        <th class="width-10">Role</th>
+                        <th>Role's privilege</th>
                         <th class="width-25">Actions</th>
                     </tr>
                 </thead>
@@ -21,8 +22,9 @@
                         <tr>
                             <td>${row.id}</td>
                             <td>${row.name}</td>
+                            <td>${row.description}</td>
                             <td>
-                                <a class="btn btn-actions-divide btn-info" href="roledetails?id=${row.id}">Details</a>
+                                <a class="btn btn-info btn-block" href="roledetails?id=${row.id}">View User list</a>
                             </td>
                         </tr>
                     </c:forEach>

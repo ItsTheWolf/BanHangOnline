@@ -10,7 +10,7 @@
             <a href="login">Login</a> | <a href="register">Register</a>
             <%
             } else if (!session.getAttribute("loggedName").equals("admin")) {
-                if (!session.getAttribute("loggedRole").equals("customer")) {
+                if (!session.getAttribute("loggedRole").equals("Customer")) {
             %>
             User: <a href="userdetails?username=<%=session.getAttribute("loggedName")%>"><%=session.getAttribute("loggedName")%></a> | 
             Role: <a href="roledetails?id=<%=session.getAttribute("loggedRoleId")%>"><%=session.getAttribute("loggedRole")%></a> | 

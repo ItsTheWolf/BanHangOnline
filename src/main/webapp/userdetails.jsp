@@ -33,8 +33,12 @@
                     <td></td>
                     <td>
                         <c:if test = "${requestScope.model.username != 'admin'}">
-                            <a class="btn btn-info margin-top-5px btn-product-actions" href="useredit?username=${requestScope.model.username}">Edit user's information</a>
-                            <a class="btn btn-danger margin-top-5px btn-product-actions" href="userdelete?username=${requestScope.model.username}">Delete User</a>
+                            <c:if test = "${sessionScope.loggedName == requestScope.model.username
+                                            || (sessionScope.loggedRoleId == 2 && requestScope.model.role.id == 3)
+                                            || sessionScope.loggedRoleId == 1}">
+                                  <a class="btn btn-info margin-top-5px btn-product-actions" href="useredit?username=${requestScope.model.username}">Edit user's information</a>
+                                  <a class="btn btn-danger margin-top-5px btn-product-actions" href="userdelete?username=${requestScope.model.username}">Delete User</a>
+                            </c:if>
                         </c:if>
                     </td>
                 </tr>
