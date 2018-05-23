@@ -1,6 +1,9 @@
 .bg-lightblue {
     background-color: #99d9ea;
 }
+.text-black {
+    color: #000;
+}
 .table-index {
     width: 50%;
     margin-top: 20%;
@@ -75,4 +78,7 @@
 .product-card-distance {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.product-card:hover {
+    text-decoration: none;
 }

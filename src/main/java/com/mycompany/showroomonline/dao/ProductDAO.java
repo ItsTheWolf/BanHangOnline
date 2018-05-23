@@ -50,7 +50,7 @@ public class ProductDAO {
         curr.setCategory(obj.getCategory());
         em.getTransaction().commit();
     }
-
+    
     public void deleteProduct(int id) {
         Product curr = em.find(Product.class, id);
         em.getTransaction().begin();

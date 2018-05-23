@@ -23,7 +23,7 @@
                             </tr>
                             <tr>
                                 <td class="width-10 bg-dark text-white">Price</td>
-                                <td class="bg-warning">${requestScope.model.price}</td>
+                                <td class="bg-warning">$${requestScope.model.price}</td>
                             </tr>
                             <tr>
                                 <td class="width-10 bg-dark text-white">Stock left:</td>
