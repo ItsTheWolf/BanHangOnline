@@ -1,4 +1,5 @@
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserEditServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductDeleteServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserDeleteServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\AccountServlets\LoginServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\AccountServlets\LogoutServlet.java
@@ -9,10 +10,13 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\ProductDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\RoleDAO.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\CategoryDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\User.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Product.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Category.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductEditServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\RoleServlets\RoleIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserDetailsServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductDetailsServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\UserDAO.java

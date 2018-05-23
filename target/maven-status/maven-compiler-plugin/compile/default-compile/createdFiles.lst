@@ -7,12 +7,16 @@ com\mycompany\showroomonline\bus\AccountServlets\LoginServlet.class
 com\mycompany\showroomonline\dto\User.class
 com\mycompany\showroomonline\bus\RoleServlets\RoleIndexServlet.class
 com\mycompany\showroomonline\dao\ProductDAO.class
+com\mycompany\showroomonline\bus\ProductServlets\ProductDeleteServlet.class
 com\mycompany\showroomonline\bus\AccountServlets\LogoutServlet.class
 com\mycompany\showroomonline\bus\UserServlets\UserEditServlet.class
 com\mycompany\showroomonline\bus\UserServlets\UserEditPWServlet.class
 com\mycompany\showroomonline\dto\Category.class
+com\mycompany\showroomonline\bus\ProductServlets\ProductIndexServlet.class
+com\mycompany\showroomonline\bus\ProductServlets\ProductEditServlet.class
 com\mycompany\showroomonline\dto\Product.class
 com\mycompany\showroomonline\dao\CategoryDAO.class
 com\mycompany\showroomonline\dto\Role.class
 com\mycompany\showroomonline\bus\UserServlets\UserIndexServlet.class
+com\mycompany\showroomonline\bus\ProductServlets\ProductDetailsServlet.class
 com\mycompany\showroomonline\bus\RoleServlets\RoleDetailsServlet.class
