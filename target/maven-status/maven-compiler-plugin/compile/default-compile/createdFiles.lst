@@ -13,6 +13,7 @@ com\mycompany\showroomonline\dao\UserDAO.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductCreateServlet.class
 com\mycompany\showroomonline\dao\RoleDAO.class
 com\mycompany\showroomonline\dto\User.class
+com\mycompany\showroomonline\bus\CategoryServlets\CategoryCreateServlet.class
 com\mycompany\showroomonline\bus\RoleServlets\RoleIndexServlet.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductDeleteServlet.class
 com\mycompany\showroomonline\bus\UserServlets\UserEditPWServlet.class

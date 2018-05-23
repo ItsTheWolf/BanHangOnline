@@ -10,7 +10,7 @@
             <!--<a href="index">Home</a> >> <a href="userindex">Users</a><br>
             <a class="btn btn-info btn-distance" href="register">Add User</a>-->
             <a href="index">Home</a> >> <a href="categoryindex">Categories </a></br>
-            <a class="btn btn-info btn-distance" href="CategoryCreate">Add Category</a>
+            <a class="btn btn-info btn-distance" href="categorycreate">Add Category</a>
             <table class="table table-borderless margin-top-5px">
                 <thead class="bg-dark text-white">
                     <tr>

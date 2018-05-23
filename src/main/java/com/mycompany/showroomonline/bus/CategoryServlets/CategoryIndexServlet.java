@@ -19,15 +19,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/categoryindex")
 public class CategoryIndexServlet extends HttpServlet {
 
-   private CategoryDAO CategoryDAO=new CategoryDAO();
-    
+    private CategoryDAO categoryDAO = new CategoryDAO();
     private RoleDAO roleDAO = new RoleDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List<Category> listItem = CategoryDAO.readAll();
+            List<Category> listItem = categoryDAO.readAll();
             request.setAttribute("model", listItem);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/categoryindex.jsp");
             rd.forward(request, response);
