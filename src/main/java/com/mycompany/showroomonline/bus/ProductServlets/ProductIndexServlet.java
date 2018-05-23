@@ -3,6 +3,7 @@ package com.mycompany.showroomonline.bus.ProductServlets;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dao.RoleDAO;
 import com.mycompany.showroomonline.dao.UserDAO;
+import com.mycompany.showroomonline.dto.Category;
 import com.mycompany.showroomonline.dto.Product;
 import com.mycompany.showroomonline.dto.Role;
 import com.mycompany.showroomonline.dto.User;
@@ -40,6 +41,25 @@ public class ProductIndexServlet extends HttpServlet {
 
     protected void addNecessaryValues(HttpServletRequest request) {
         try {
+            System.out.println("/n/nproduct/n/n");
+            List<Product> listItem = productDAO.readAll();
+            for (int i = 1; i <= listItem.size(); i++) {
+                try {
+                    Product product = productDAO.read(i);
+                    if (product.getThumbnail().equals("")) {
+                        int id = i;
+                        String name = product.getName();
+                        double price = product.getPrice();
+                        int stock = product.getAmount();
+                        String desc = product.getDescription();
+                        Category cateid = product.getCategory();
+                        String link = "resources/img/thumbnailtmp.png";
+                        Product item = new Product(id, name, desc, price, stock, link, cateid);
+                        productDAO.updateProduct(item);
+                    }
+                } catch (Exception e) {
+                }
+            }
             for (int i = 1; i <= 3; i++) {
                 Role role = roleDAO.read(i);
                 if (role == null) {
