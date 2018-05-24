@@ -28,6 +28,12 @@
                             </td>
                         </tr>
                     </c:forEach>
+                    <tr>
+                        <td>N/A</td>
+                        <td>Non-User</td>
+                        <td>- Can view Products and Categories details</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

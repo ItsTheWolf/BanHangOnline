@@ -15,8 +15,6 @@ x let customer be able to delete themselves (chưa test)
 	- Users delete themselves
 	- Log out
 - add thumbnail using the downloaded codes
-- put addnecessaryvalue role section to roleindex
-- put addnecessaryvalue user section to userindex
 
 ~ add comments
 ~ optimize code
@@ -29,7 +27,9 @@ o priviliges: (if violate, add AUTHORIZATION_ERROR)
 		- Can manage Products, Categories and 'Customer' role Users details.
 		x Can view Users, Roles details.
 	- Customer:
-		- Can view Products and Categories and Users details.
+		- Can view Products, Categories and Users details.
+	- Non-User:
+		- Can view Products and Categories details
 
 o kinda done (not finished)
 ~ Optional

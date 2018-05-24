@@ -44,6 +44,7 @@ public class ProductIndexServlet extends HttpServlet {
 
     protected void addNecessaryValues(HttpServletRequest request) {
         try {
+            request.setCharacterEncoding("UTF-8");
             System.out.println("/n/nproduct/n/n");
             List<Product> listItem = productDAO.readAll();
             for (int i = 1; i <= listItem.size(); i++) {
@@ -68,8 +69,7 @@ public class ProductIndexServlet extends HttpServlet {
             String staff = "Staff";
             String staffDesc = "- Can manage Products, Categories and ''Customer'' role Users details.<br>- Can view Users, Roles details.";
             String customer = "Customer";
-            String customerDesc = "- Can view Products and Categories and Users details.";
-            request.setCharacterEncoding("UTF-8");
+            String customerDesc = "- Can view Products, Categories and Users details.";
             for (int i = 1; i <= 3; i++) {
                 Role role = roleDAO.read(i);
                 int roleId = 0;
@@ -116,7 +116,6 @@ public class ProductIndexServlet extends HttpServlet {
                     }
                 }
             }
-            request.setCharacterEncoding("UTF-8");
             String username = "admin";
             String password = "admin";
             String email = "admin@showroomonline.com";
