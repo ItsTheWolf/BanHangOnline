@@ -5,6 +5,7 @@ import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
 import com.mycompany.showroomonline.dto.Product;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +63,7 @@ public class ProductEditServlet extends HttpServlet {
             if (link.equals("resources/img/") || link.equals("")) {
                 link = "resources/img/thumbnailtmp.png";
             }
-            boolean error = validation(product, cid, session);
+            boolean error = validation(product, cid, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
@@ -77,7 +78,8 @@ public class ProductEditServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String product, int cid, HttpSession session) {
+    protected boolean validation(String product, int cid, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         try {
             if (product.equals("") || cid == 0) {
                 session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);

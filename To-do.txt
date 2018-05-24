@@ -19,25 +19,26 @@ x let customer be able to delete themselves (chưa test)
 	- Non-User {
 		- Customer {
 			- Staff {
-				- roledetail
-				- roleindex
-				- useredit
-				- usereditpw
-				- userindex
-				}
-			- categorycreate
-			- categorydelete
-			- categoryedit
-			- categoryindex
-			- productcreate
-			- productdelete
-			- productedit
-			- usercreate
-			- userdelete
+			- useredit (admin)
+			- usereditpw (anyone else)
 			}
-		- userdetails
-		- logout
+		- roledetail
+		- roleindex
+		- categorycreate
+		- categorydelete
+		- categoryedit
+		- categoryindex
+		- productcreate
+		- productdelete
+		- productedit
+		- userdelete
+		(- usercreate)
+		(- login)
 		}
+	- userindex
+	- userdetails
+	- logout
+	}
 
 ~ add comments
 ~ optimize code

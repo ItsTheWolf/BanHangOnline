@@ -3,6 +3,7 @@ package com.mycompany.showroomonline.bus.CategoryServlets;
 import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dto.Category;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,7 +26,7 @@ public class CategoryCreateServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
-            session.setAttribute("ERROR1", "");
+            resetError(session);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/categorycreate.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
@@ -41,7 +42,7 @@ public class CategoryCreateServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("BACK", BACK);
             String category = request.getParameter("txtCategory");
-            boolean error = validation(category, session);
+            boolean error = validation(category, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
@@ -54,7 +55,8 @@ public class CategoryCreateServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String category, HttpSession session) {
+    protected boolean validation(String category, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         try {
             if (category.equals("")) {
                 session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
@@ -65,5 +67,12 @@ public class CategoryCreateServlet extends HttpServlet {
             Logger.getLogger(CategoryCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
+    }
+
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
     }
 }

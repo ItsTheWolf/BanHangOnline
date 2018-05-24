@@ -5,6 +5,7 @@ import com.mycompany.showroomonline.dao.UserDAO;
 import com.mycompany.showroomonline.dto.Role;
 import com.mycompany.showroomonline.dto.User;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,10 +35,10 @@ public class UserEditServlet extends HttpServlet {
             HttpSession session = request.getSession();
             resetError(session);
             if (!username.equals("admin")) {
-                getRolesList(request);
                 if (session.getAttribute("loggedRole") == null) {
                     session.setAttribute("loggedRole", "null");
                 }
+                getRolesList(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
                 getRolesList(request);
@@ -68,7 +69,7 @@ public class UserEditServlet extends HttpServlet {
             try {
                 rid = (Integer.parseInt(request.getParameter("txtRoleId")));
                 roleid = roleDAO.read(rid);
-                error = validation(email, rid, session);
+                error = validation(email, rid, session, request);
             } catch (NumberFormatException e) {
                 roleid = userDAO.read(username).getRole();
                 error = validationWithoutRid(email, session);
@@ -85,7 +86,8 @@ public class UserEditServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String email, int rid, HttpSession session) {
+    protected boolean validation(String email, int rid, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         int err1 = 0, err2 = 0;
         try {
             if (email.equals("") || rid == 0) {

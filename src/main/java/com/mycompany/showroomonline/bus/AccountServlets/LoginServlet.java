@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         session.setAttribute("BACK", BACK);
         String username = request.getParameter("txtUsername");

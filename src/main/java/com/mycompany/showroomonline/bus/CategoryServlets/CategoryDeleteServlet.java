@@ -1,7 +1,6 @@
 package com.mycompany.showroomonline.bus.CategoryServlets;
 
 import com.mycompany.showroomonline.dao.CategoryDAO;
-import com.mycompany.showroomonline.dao.ProductDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

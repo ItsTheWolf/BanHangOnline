@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.showroomonline.bus.CategoryServlets;
 
-import com.mycompany.showroomonline.bus.UserServlets.UserCreateServlet;
 import com.mycompany.showroomonline.dao.CategoryDAO;
-import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
-import com.mycompany.showroomonline.dto.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -20,21 +12,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author danie
- */
 @WebServlet("/categoryedit")
 public class CategoryEditServlet extends HttpServlet {
 
     private CategoryDAO categoryDAO = new CategoryDAO();
+    String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
+    String BACK = "Click <a href='categorycreate'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-//            resetError(request);
+            HttpSession session = request.getSession();
+            resetError(session);
             int id = Integer.parseInt(request.getParameter("id"));
             Category item = categoryDAO.read(id);
             request.setAttribute("model", item);
@@ -50,10 +42,12 @@ public class CategoryEditServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
-//            resetError(request);
+            HttpSession session = request.getSession();
+            session.setAttribute("BACK", BACK);
+            resetError(session);
             int id = Integer.parseInt(request.getParameter("txtId"));
             String category = request.getParameter("txtCategory");
-            boolean error = validation(category, request);
+            boolean error = validation(category, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/categoryedit");
             } else {
@@ -66,9 +60,11 @@ public class CategoryEditServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String category, HttpServletRequest request) {
+    protected boolean validation(String category, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         try {
             if (category.equals("")) {
+                session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
                 return true;
             }
             return false;
@@ -76,5 +72,12 @@ public class CategoryEditServlet extends HttpServlet {
             Logger.getLogger(CategoryCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
+    }
+
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
     }
 }
