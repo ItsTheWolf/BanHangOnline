@@ -1,0 +1,153 @@
+Test
+DATABASE:
+- Tự động tạo 4 bảng roles, users, categories, customers
+- Tự động tạo các value admin, staff, customer trong bảng roles
+- Tự động tạo admin trong bảng users
+- Tự động gán hình thumbnailtmp.png cho các products không có giá trị trong cột thumbnail
+- Nếu value của role admin, role staff, role customer và user admin bị thay đổi:
+	- Vào trang index sẽ tự sửa bảng roles và bảng users
+	- Vào trang userindex sẽ tự sửa bảng users
+	- Vào trang roleindex sẽ tự sửa bảng roles
+
+QUYỀN HẠN:
+- Chỉ sử dụng được các trang:
+	- Không login:
+		- index
+		- productdetails
+		- categorydetails
+		- register
+		- login
+	- Customers:
+		- index
+		- productdetails
+		- categorydetails
+		- userindex
+		- userdetails
+		- useredit (bản thân)
+		- usereditpw (bản thân)
+		- userdelete (bản thân)
+		- logout
+	- Staff:
+		- index
+		- productcreate
+		- productdelete
+		- productdetails
+		- productedit
+		- categorycreate
+		- categorydelete
+		- categorydetails
+		- categoryedit
+		- categoryindex
+		- usercreate (aka. register)
+		- userdelete (bản thân hoặc role customer)
+		- userdetails
+		- useredit (bản thân hoặc role customer)
+		- usereditpw (bản thân)
+		- userindex
+		- roleindex
+		- roledetails
+		- logout
+- Đặc biệt:
+	- User admin không được edit, editpw hoặc delete
+	- Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
+
+VALIDATION:
+- login:
+	- Lỗi:
+		- Username và password trống
+		- Username không đúng
+		- Password không đúng
+	- Được:
+		- Username và password đúng
+- register (usercreate):
+	- Lỗi:
+		- Các dòng * trống
+		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		- Username đã có
+		- Password và confirm password không giống nhau
+		- Email sai định dạng
+	- Được:
+		- Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
+		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		- Có thể bỏ qua fullname và address
+- usereditpw:
+	- Lỗi:
+		- Password và confirm password không giống nhau
+	- Được:
+		- Password và confirm password giống nhau
+- productcreate:
+	- Lỗi:
+		- Các dòng * trống
+	- Được:
+		- Các dòng * được điền đầy đủ
+		- Thumbnail mặc định là thumbnailtmp.png
+		- Nếu để thumbnail trống, Add Product sẽ sử dụng thumbnailtmp.png
+- productedit:
+	- Lỗi:
+		- Các dòng * trống
+	- Được:
+		- Các dòng * được điền đầy đủ
+		- Thumbnail mặc định là thumbnail được chọn trong productcreate
+		- Nếu để thumbnail trống, Edit Product sẽ sử dụng thumbnailtmp.png
+- categorycreate:
+	- Lỗi:
+		- Các dòng * trống
+	- Được:
+		- Các dòng * được điền đầy đủ
+- categoryedit:
+	- Lỗi:
+		- Các dòng * trống
+	- Được:
+		- Các dòng * được điền đầy đủ
+- useredit:
+	- Lỗi:
+		- Các dòng * trống
+		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		- Email sai định dạng
+	- Được:
+		- Các dòng * được điền đầy đủ, đúng định dạng
+		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		- Có thể bỏ qua fullname và address
+		
+GUI:
+(Thanh navigation: Home >> Product's details)
+	- Không login:
+		- Header hiển thị Login | Register
+		- Header không có các nút Products, Categories, Users, Roles
+		- index: không có nút Add Product
+		- productdetails: không có nút Edit và Delete
+		- categorydetails: không có Categories trên thanh navigation
+		- register: không có header
+	- Customer:
+		- Header hiển thị User: username | Change Password | Log out
+		- Header có nút Products và Users
+		- index: không có nút Add Product
+		- productdetails: không có nút Edit và Delete
+		- categorydetails: không có Categories trên thanh navigation
+		- userindex: không có nút Add User
+		- userindex: không có nút edit và delete cho các user khác trừ bản thân
+		- userdetails: không có edit và delete cho các user khác trừ bản thân
+		- useredit: không có lựa chọn Role
+	- Staff:
+		- Header hiển thị User: username | Role: Staff | Change Password | Log out
+		- Header có nút Products, Categories, Users, Roles
+		- index: có nút Add Product
+		- productdetails: có nút Edit và Delete
+		- categoriesdetails: có Categories trên thanh navigation
+		- userindex: có nút Add User
+		- userindex: không có edit và delete cho các user khác trừ bản thân và các user role customer
+		- userdetails: không có edit và delete cho các user khác trừ bản thân và các user role customer
+		- usercreate: không có lựa chọn Role
+		- useredit: không có lựa chọn Role
+	- Admin:
+		- Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
+		- Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
+		- Header có nút Products, Categories, Users, Roles
+		- index: có nút Add Product
+		- productdetails: có nút Edit và Delete
+		- categoriesdetails: có Categories trên thanh navigation
+		- userindex: có nút Add User
+		- userindex: có edit và delete cho các user trừ user admin
+		- userdetails: có edit và delete cho các user trừ user admin
+		- usercreate: có lựa chọn Role
+		- useredit: có lựa chọn Role
