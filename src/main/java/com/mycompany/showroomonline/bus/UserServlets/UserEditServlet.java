@@ -35,9 +35,6 @@ public class UserEditServlet extends HttpServlet {
             HttpSession session = request.getSession();
             resetError(session);
             if (!username.equals("admin")) {
-                if (session.getAttribute("loggedRole") == null) {
-                    session.setAttribute("loggedRole", "null");
-                }
                 getRolesList(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
@@ -45,9 +42,9 @@ public class UserEditServlet extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
                 rd.forward(request, response);
             } else {
-                response.sendRedirect("userindex");
+                response.sendRedirect("error-authorization.jsp");
             }
-        } catch (Exception e) {
+        } catch (IOException | ServletException e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
@@ -81,7 +78,7 @@ public class UserEditServlet extends HttpServlet {
                 userDAO.updateUser(item);
                 response.sendRedirect(request.getContextPath() + "/userindex");
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
