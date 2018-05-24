@@ -6,7 +6,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="index">Home</a> >> <a href="">Edit ${requestScope.model.name}'s Information</a><br>
+            <a href="index">Home</a> >> <a href="productdetails?id=${requestScope.model.id}">${requestScope.model.name}'s Details</a> >> <a href="">Edit ${requestScope.model.name}'s Information</a><br>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>

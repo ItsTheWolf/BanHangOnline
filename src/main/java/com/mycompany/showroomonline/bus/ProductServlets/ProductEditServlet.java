@@ -34,7 +34,7 @@ public class ProductEditServlet extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/productedit.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -65,7 +65,7 @@ public class ProductEditServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index");
             }
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -76,7 +76,7 @@ public class ProductEditServlet extends HttpServlet {
             }
             return false;
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }

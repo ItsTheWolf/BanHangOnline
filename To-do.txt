@@ -1,11 +1,4 @@
 To-do:
-- categories
-	x index
-	x details
-	x delete
-	x create
-	- edit
-x when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
 o add nav for other pages
 o figure out how to make error message in case of validation failed (HttpSession method worked, yay!)
 	x Login

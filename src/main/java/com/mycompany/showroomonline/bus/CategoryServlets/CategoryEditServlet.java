@@ -5,8 +5,16 @@
  */
 package com.mycompany.showroomonline.bus.CategoryServlets;
 
+import com.mycompany.showroomonline.bus.UserServlets.UserCreateServlet;
+import com.mycompany.showroomonline.dao.CategoryDAO;
+import com.mycompany.showroomonline.dao.ProductDAO;
+import com.mycompany.showroomonline.dto.Category;
+import com.mycompany.showroomonline.dto.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,72 +25,56 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author danie
  */
-@WebServlet(name = "CategoryEditServlet", urlPatterns = {"/CategoryEditServlet"})
+@WebServlet("/categoryedit")
 public class CategoryEditServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CategoryEditServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CategoryEditServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    private CategoryDAO categoryDAO = new CategoryDAO();
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+//            resetError(request);
+            int id = Integer.parseInt(request.getParameter("id"));
+            Category item = categoryDAO.read(id);
+            request.setAttribute("model", item);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/categoryedit.jsp");
+            rd.forward(request, response);
+        } catch (Exception e) {
+            Logger.getLogger(CategoryEditServlet.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            request.setCharacterEncoding("UTF-8");
+//            resetError(request);
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            String category = request.getParameter("txtCategory");
+            boolean error = validation(category, request);
+            if (error) {
+                response.sendRedirect(request.getContextPath() + "/categoryedit");
+            } else {
+                Category item = new Category(id, category);
+                categoryDAO.updateCategory(item);
+                response.sendRedirect(request.getContextPath() + "/categoryindex");
+            }
+        } catch (Exception e) {
+            Logger.getLogger(CategoryEditServlet.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    protected boolean validation(String category, HttpServletRequest request) {
+        try {
+            if (category.equals("")) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            Logger.getLogger(CategoryCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            return true;
+        }
+    }
 }
