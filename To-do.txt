@@ -25,7 +25,7 @@ o priviliges:
 		- Can manage Products, Categories and 'Customer' role Users details.
 		x Can view Users, Roles details.
 	- Customer:
-		- Can view Products and Categories details.
+		- Can view Products and Categories and Users details.
 
 o kinda done (not finished)
 ~ Optional
