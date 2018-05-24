@@ -21,6 +21,10 @@ public class UserCreateServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
     private RoleDAO roleDAO = new RoleDAO();
+    String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
+    String PASSWORD_CPW_NOT_MATHCED = "Password and Confirm Password do not match.";
+    String INVALID_EMAIL_FORMAT = "Email is invalid.";
+    String BACK = "Click <a href='register'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +35,7 @@ public class UserCreateServlet extends HttpServlet {
             if (session.getAttribute("loggedRole") == null) {
                 session.setAttribute("loggedRole", "null");
             }
-//            resetError(request);
+            resetError(session);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
@@ -44,8 +48,9 @@ public class UserCreateServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
+            HttpSession session = request.getSession();
+            session.setAttribute("BACK", BACK);
             getRolesList(request);
-//            resetError(request);
             String username = request.getParameter("txtUsername");
             String password = request.getParameter("txtPassword");
             String cpw = request.getParameter("txtCPassword");
@@ -59,13 +64,13 @@ public class UserCreateServlet extends HttpServlet {
                 rid = 3;
             }
             Role roleid = roleDAO.read(rid);
-            boolean error = validation(username, password, cpw, email, rid, request);
+            boolean error = validation(username, password, cpw, email, rid, session);
             if (error) {
-                response.sendRedirect(request.getContextPath() + "/register");
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
                 User item = new User(username, password, fullname, email, address, roleid);
                 userDAO.createUser(item);
-                HttpSession session = request.getSession();
+                session = request.getSession();
                 if (session.getAttribute("loggedName") != null) {
                     response.sendRedirect(request.getContextPath() + "/userindex");
                 } else {
@@ -80,24 +85,34 @@ public class UserCreateServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpServletRequest request) {
+    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpSession session) {
+        int err1 = 0, err2 = 0, err3 = 0;
         try {
-            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || rid == 0 || !cpw.equals(password)
-                    || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                return true;
+            if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || rid == 0) {
+                session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                err1 = 1;
             }
-            return false;
+            if (!cpw.equals(password)) {
+                session.setAttribute("ERROR2", PASSWORD_CPW_NOT_MATHCED);
+                err2 = 1;
+            }
+            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                session.setAttribute("ERROR3", INVALID_EMAIL_FORMAT);
+                err3 = 1;
+            }
+            return err1 == 1 || err2 == 1 || err3 == 1;
         } catch (Exception e) {
             Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }
 
-//    protected void resetError(HttpServletRequest request) {
-//        request.setAttribute("ERROR1", "");
-//        request.setAttribute("ERROR2", "");
-//        request.setAttribute("ERROR3", "");
-//    }
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+    }
+
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();
         request.setAttribute("model", listItem);

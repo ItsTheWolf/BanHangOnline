@@ -17,11 +17,12 @@ public class LoginServlet extends HttpServlet {
     private UserDAO userDAO = new UserDAO();
     String USERNAME_AND_PASSWORD_IS_EMPTY = "Please input username and password.";
     String WRONG_USERNAME_OR_PASSWORD = "Wrong username or password.";
+    String BACK = "Click <a href='login'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.setAttribute("ERROR", "");
+        session.setAttribute("ERROR1", "");
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
         rd.forward(request, response);
     }
@@ -31,11 +32,12 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        session.setAttribute("BACK", BACK);
         String username = request.getParameter("txtUsername");
         String password = request.getParameter("txtPassword");
         if ("".equals(username) && "".equals(password)) {
-            session.setAttribute("ERROR", USERNAME_AND_PASSWORD_IS_EMPTY);
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            session.setAttribute("ERROR1", USERNAME_AND_PASSWORD_IS_EMPTY);
+            response.sendRedirect(request.getContextPath() + "/error.jsp");
         } else {
             try {
                 User user = userDAO.read(username);
@@ -48,12 +50,12 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("loggedRoleId", id);
                     response.sendRedirect(request.getContextPath() + "/index");
                 } else {
-                    session.setAttribute("ERROR", WRONG_USERNAME_OR_PASSWORD);
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    session.setAttribute("ERROR1", WRONG_USERNAME_OR_PASSWORD);
+                    response.sendRedirect(request.getContextPath() + "/error.jsp");
                 }
             } catch (NullPointerException e) {
-                session.setAttribute("ERROR", WRONG_USERNAME_OR_PASSWORD);
-                response.sendRedirect(request.getContextPath() + "/login.jsp");
+                session.setAttribute("ERROR1", WRONG_USERNAME_OR_PASSWORD);
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             }
         }
     }

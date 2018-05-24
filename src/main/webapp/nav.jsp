@@ -33,7 +33,7 @@
                 }
             %>
         </td>
-        <td class="text-right">Contact: 69-1919-***</td>
+        <td class="text-right">Contact: 69-0721-1919</td>
     </tr>
 </table>
 <a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>

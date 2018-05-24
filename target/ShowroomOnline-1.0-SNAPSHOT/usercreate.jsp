@@ -25,7 +25,7 @@
             <%
                 }
             %>
-            <form action="" method="POST">
+            <form action="register" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
                         <td class="width-10">*Username:</td>
@@ -84,25 +84,6 @@
                 </table>
             </form>
             *: Required
-            <%--
-            <%
-                if (request.getAttribute("ERROR").equals(1)) {
-            %>
-            <div class="text-error">Please fill the required fields.</div>
-            <%
-                }
-                if (request.getAttribute("ERROR").equals(2)) {
-            %>
-            <div class="text-error">Password and Confirm Password don't match.</div>
-            <%
-                }
-                if (request.getAttribute("ERROR").equals(3)) {
-            %>
-            <div class="text-error">Email isn't valid.</div>
-            <%
-                }
-            %>
-            --%>
         </div>
     </body>
 </html>

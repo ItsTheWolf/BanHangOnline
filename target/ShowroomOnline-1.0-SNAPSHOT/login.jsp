@@ -24,7 +24,6 @@
                     </tr>
                 </table>
             </form>
-            <div class="text-error"><%=session.getAttribute("ERROR")%></div>
         </div>
     </body>
 </html>

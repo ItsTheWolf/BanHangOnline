@@ -1,7 +1,7 @@
 To-do:
-o figure out how to make error message in case of validation failed (HttpSession method worked, yay!)
+o figure out how to make error message in case of validation failed (nah, it doesn't work, time to make an error page)
 	x Login
-	- Register
+	x Register
 	- Category Create
 	- Product Create
 	- Product Edit
