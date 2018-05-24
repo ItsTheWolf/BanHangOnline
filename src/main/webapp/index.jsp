@@ -34,7 +34,7 @@
                         <td class="bg-lightgray">
                             <div class="row">
                                 <c:forEach var="row" items="${requestScope.model}">
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-3">
                                         <a href='productdetails?id=${row.id}' class="product-card">
                                             <table class="bg-light width-max text-center table-product product-card-distance">
                                                 <tr>

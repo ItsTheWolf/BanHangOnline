@@ -5,6 +5,7 @@ import com.mycompany.showroomonline.dao.UserDAO;
 import com.mycompany.showroomonline.dto.Role;
 import com.mycompany.showroomonline.dto.User;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,7 +66,7 @@ public class UserCreateServlet extends HttpServlet {
                 rid = 3;
             }
             Role roleid = roleDAO.read(rid);
-            boolean error = validation(username, password, cpw, email, rid, session);
+            boolean error = validation(username, password, cpw, email, rid, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
@@ -86,7 +87,8 @@ public class UserCreateServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpSession session) {
+    protected boolean validation(String username, String password, String cpw, String email, int rid, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         User user = userDAO.read(username);
         int err1 = 0, err2 = 0, err3 = 0, err4 = 0;
         try {
@@ -94,9 +96,13 @@ public class UserCreateServlet extends HttpServlet {
                 session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
                 err1 = 1;
             }
-            if (user.getUsername().equals(username)) {
-                session.setAttribute("ERROR2", USERNAME_EXIST);
-                err2 = 1;
+            try {
+                if (user.getUsername().equals(username)) {
+                    session.setAttribute("ERROR2", USERNAME_EXIST);
+                    err2 = 1;
+                }
+            } catch (Exception e) {
+                err2 = 0;
             }
             if (!cpw.equals(password)) {
                 session.setAttribute("ERROR3", PASSWORD_CPW_NOT_MATHCED);

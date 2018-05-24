@@ -21,11 +21,10 @@ public class UserEditServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
     private RoleDAO roleDAO = new RoleDAO();
-    HttpServletRequest request;
-    String username = request.getParameter("username");
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String INVALID_EMAIL_FORMAT = "Email is invalid.";
-    String BACK = "Click <a href='/useredit?username=" + username + "'>here</a> to turn back.";
+    String BACK1 = "Click <a href='/useredit?username=";
+    String BACK2 = "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,8 +57,8 @@ public class UserEditServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             getRolesList(request);
             HttpSession session = request.getSession();
-            session.setAttribute("BACK", BACK);
             String username = request.getParameter("txtUsername");
+            session.setAttribute("BACK", BACK1 + username + BACK2);
             String fullname = request.getParameter("txtFullname");
             String email = request.getParameter("txtEmail");
             String address = request.getParameter("txtAddress");
@@ -75,7 +74,7 @@ public class UserEditServlet extends HttpServlet {
                 error = validationWithoutRid(email, session);
             }
             if (error) {
-                response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
                 User item = new User(username, fullname, email, address, roleid);
                 userDAO.updateUser(item);

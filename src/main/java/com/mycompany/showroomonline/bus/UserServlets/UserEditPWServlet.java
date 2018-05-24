@@ -17,11 +17,10 @@ import javax.servlet.http.HttpSession;
 public class UserEditPWServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
-    HttpServletRequest request;
-    String username = request.getParameter("username");
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String PASSWORD_CPW_NOT_MATHCED = "Password and Confirm Password do not match.";
-    String BACK = "Click <a href='/usereditpw?username=" + username + "'>here</a> to turn back.";
+    String BACK1 = "Click <a href='/usereditpw?username=";
+    String BACK2 = "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,8 +47,8 @@ public class UserEditPWServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
-            session.setAttribute("BACK", BACK);
             String username = request.getParameter("txtUsername");
+            session.setAttribute("BACK", BACK1 + username + BACK2);
             String password = request.getParameter("txtPassword");
             String cpw = request.getParameter("txtCPassword");
             boolean error = validation(password, cpw, session);
