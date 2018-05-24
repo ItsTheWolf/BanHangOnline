@@ -1,5 +1,4 @@
 To-do:
-x add nav for other pages (chưa xem hết)
 o figure out how to make error message in case of validation failed (HttpSession method worked, yay!)
 	x Login
 	- Register

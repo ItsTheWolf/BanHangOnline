@@ -7,7 +7,7 @@
     <body class="bg-lightblue">
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
-            <a href="index">Home</a> >> <a href="">Add Category</a><br>
+            <a href="index">Home</a> >> <a href="categoryindex">Categories</a> >> <a href="">Add Category</a><br>
             <form action="" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
