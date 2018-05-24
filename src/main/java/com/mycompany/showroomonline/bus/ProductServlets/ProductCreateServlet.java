@@ -1,6 +1,5 @@
 package com.mycompany.showroomonline.bus.ProductServlets;
 
-import com.mycompany.showroomonline.bus.UserServlets.UserCreateServlet;
 import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
@@ -31,7 +30,7 @@ public class ProductCreateServlet extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/productcreate.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -61,7 +60,7 @@ public class ProductCreateServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index");
             }
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -72,7 +71,7 @@ public class ProductCreateServlet extends HttpServlet {
             }
             return false;
         } catch (Exception e) {
-            Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }
