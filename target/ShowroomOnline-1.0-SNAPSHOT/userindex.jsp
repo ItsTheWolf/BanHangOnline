@@ -8,7 +8,9 @@
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="">Users</a><br>
-            <a class="btn btn-info btn-distance" href="register">Add User</a>
+            <c:if test="${sessionScope.loggedRoleId < 3 && sessionScope.loggedRoleId != null}">
+                <a class="btn btn-info btn-distance" href="register">Add User</a>
+            </c:if>
             <table class="table table-borderless margin-top-5px">
                 <thead class="bg-dark text-white">
                     <tr>
@@ -27,8 +29,10 @@
                             <td>
                                 <a class="btn btn-actions-divide btn-info" href="userdetails?username=${row.username}">Details</a>
                                 <c:if test = "${row.username != 'admin'}">
-                                    <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
-                                    <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                    <c:if test = "${sessionScope.loggedRoleId < 3 || sessionScope.loggedName == row.username}">
+                                        <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
+                                        <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                    </c:if>
                                 </c:if>
                             </td>
                         </tr>

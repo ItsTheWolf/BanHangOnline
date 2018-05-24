@@ -33,7 +33,7 @@
                                 <td class="width-10 bg-dark text-white">Category:</td>
                                 <td class="bg-light"><a href="categorydetails?id=${requestScope.model.category.id}">${requestScope.model.category.name}</a></td>
                             </tr>
-                            <c:if test="${sessionScope.loggedRoleId < 3 || sessionScope.loggedRoleId != null}">
+                            <c:if test="${sessionScope.loggedRoleId < 3 && sessionScope.loggedRoleId != null}">
                                 <tr>
                                     <td colspan="100%" class="bg-lightblue">
                                         <a class="btn btn-info margin-top-5px btn-product-actions" href="productedit?id=${requestScope.model.id}">Edit Product's details</a>

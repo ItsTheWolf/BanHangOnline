@@ -39,12 +39,20 @@
 </table>
 <a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
 <table class="bg-dark width-max">
-    <c:if test="${sessionScope.loggedRoleId < 3 || sessionScope.loggedRoleId != null}">
+    <c:if test="${sessionScope.loggedRoleId != null}">
         <tr>
-            <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
-            <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
-            <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
-            <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
+            <c:choose>
+                <c:when test="${sessionScope.loggedRoleId < 3}">
+                    <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
+                </c:when>
+                <c:otherwise>
+                    <td><a class="btn btn-block btn-light" href="index">Products</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
+                </c:otherwise>
+            </c:choose>
         </tr>
     </c:if>
 </table>

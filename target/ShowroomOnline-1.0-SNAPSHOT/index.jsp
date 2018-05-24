@@ -8,7 +8,7 @@
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="">Home</a><br>
-            <c:if test="${sessionScope.loggedRoleId < 3 || sessionScope.loggedRoleId != null}">
+            <c:if test="${sessionScope.loggedRoleId < 3 && sessionScope.loggedRoleId != null}">
                 <a class="btn btn-info btn-distance" href="productcreate">Add Product</a>
             </c:if>
             <table class="table table-borderless">
