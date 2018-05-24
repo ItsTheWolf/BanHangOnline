@@ -1,9 +1,6 @@
-
 package com.mycompany.showroomonline.bus.CategoryServlets;
 
-import com.mycompany.showroomonline.bus.UserServlets.UserIndexServlet;
 import com.mycompany.showroomonline.dao.CategoryDAO;
-import com.mycompany.showroomonline.dao.RoleDAO;
 import com.mycompany.showroomonline.dto.Category;
 import java.io.IOException;
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.mycompany.showroomonline.dao;
 
 import com.mycompany.showroomonline.dto.Category;
+import com.mycompany.showroomonline.dto.Product;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,6 +52,15 @@ public class CategoryDAO {
         em.getTransaction().begin();
         em.remove(curr);
         em.getTransaction().commit();
+    }
+    
+    public List<Product> findbyProduct(int id) {
+        emf = Persistence.createEntityManagerFactory("ShowroomService");
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Product> result = em.createQuery("FROM Product WHERE cateid=" + id).getResultList();
+        em.getTransaction().commit();
+        return result;
     }
     
     public void resetAI() {

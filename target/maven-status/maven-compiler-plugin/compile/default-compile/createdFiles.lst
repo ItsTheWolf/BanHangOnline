@@ -16,9 +16,12 @@ com\mycompany\showroomonline\dto\User.class
 com\mycompany\showroomonline\bus\CategoryServlets\CategoryCreateServlet.class
 com\mycompany\showroomonline\bus\RoleServlets\RoleIndexServlet.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductDeleteServlet.class
+com\mycompany\showroomonline\bus\CategoryServlets\CategoryDeleteServlet.class
+com\mycompany\showroomonline\bus\CategoryServlets\CategoryEditServlet.class
 com\mycompany\showroomonline\bus\UserServlets\UserEditPWServlet.class
 com\mycompany\showroomonline\dto\Category.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductIndexServlet.class
+com\mycompany\showroomonline\bus\CategoryServlets\CategoryDetailsServlet.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductEditServlet.class
 com\mycompany\showroomonline\dto\Role.class
 com\mycompany\showroomonline\bus\ProductServlets\ProductDetailsServlet.class

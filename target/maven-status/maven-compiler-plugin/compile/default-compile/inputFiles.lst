@@ -6,6 +6,9 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\CategoryDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\User.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Product.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryDetailsServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryDeleteServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryEditServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\RoleServlets\RoleIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserDetailsServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductDetailsServlet.java
