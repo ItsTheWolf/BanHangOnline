@@ -8,7 +8,6 @@ import com.mycompany.showroomonline.dto.Product;
 import com.mycompany.showroomonline.dto.Role;
 import com.mycompany.showroomonline.dto.User;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,43 +71,73 @@ public class ProductIndexServlet extends HttpServlet {
                 Role role = roleDAO.read(i);
                 int roleId = 0;
                 String roleName = null, roleDesc = null;
-                if (i == 1 && (!role.getName().equals(admin)
-                        || !role.getDescription().equals(adminDesc))) {
-                    roleName = admin;
-                    roleDesc = adminDesc;
+                if (role == null) {
+                    if (i == 1) {
+                        roleName = admin;
+                        roleDesc = adminDesc;
+                    }
+                    if (i == 2) {
+                        roleName = staff;
+                        roleDesc = staffDesc;
+                    }
+                    if (i == 3) {
+                        roleName = customer;
+                        roleDesc = customerDesc;
+                    }
+                    if (roleId != 0 || roleName != null || roleDesc != null) {
+                        roleId = i;
+                        roleDAO.createRole(roleId, roleName, roleDesc);
+                    }
+                } else {
+                    if (i == 1 && (!role.getName().equals(admin)
+                            || !role.getDescription().equals(adminDesc))) {
+                        roleName = admin;
+                        roleDesc = adminDesc;
+                    }
+                    if (i == 2 && (!role.getName().equals(staff)
+                            || !role.getDescription().equals(staffDesc))) {
+                        roleName = staff;
+                        roleDesc = staffDesc;
+                    }
+                    if (i == 3 && (!role.getName().equals(customer)
+                            || !role.getDescription().equals(customerDesc))) {
+                        roleName = customer;
+                        roleDesc = customerDesc;
+                    }
+                    if (roleId != 0 || roleName != null || roleDesc != null) {
+                        roleId = i;
+                        role.setId(roleId);
+                        role.setName(roleName);
+                        role.setDescription(roleDesc);
+                        roleDAO.updateRole(role);
+                    }
                 }
-                if (i == 2 && (!role.getName().equals(staff)
-                        || !role.getDescription().equals(staffDesc))) {
-                    roleName = staff;
-                    roleDesc = staffDesc;
-                }
-                if (i == 3 && (!role.getName().equals(customer)
-                        || !role.getDescription().equals(customerDesc))) {
-                    roleName = customer;
-                    roleDesc = customerDesc;
-                }
-                if (roleId != 0 || roleName != null || roleDesc != null) {
-                    roleId = i;
-                    role.setId(roleId);
-                    role.setName(roleName);
-                    role.setDescription(roleDesc);
-                    roleDAO.updateRole(role);
-                }
-
             }
-            User user = userDAO.read("admin");
+            request.setCharacterEncoding("UTF-8");
+            String username = "admin";
+            String password = "admin";
+            String email = "admin@showroomonline.com";
+            String fullname = "Admin";
+            String address = "Net";
+            Role roleid = roleDAO.read(1);
+            User user = userDAO.read(username);
             if (user == null) {
                 request.setCharacterEncoding("UTF-8");
-                String username = "admin";
-                String password = "admin";
-                String email = "admin@showroomonline.com";
-                String fullname = "Admin";
-                String address = "Net";
-                Role roleid = roleDAO.read(1);
                 User item = new User(username, password, fullname, email, address, roleid);
                 userDAO.createUser(item);
+            } else {
+                if (!user.getUsername().equals(username) || !user.getPassword().equals(password) || !user.getEmail().equals(email)
+                        || !user.getFullname().equals(fullname) || !user.getAddress().equals(address) || !user.getRole().equals(roleid)) {
+                    user.setUsername(username);
+                    user.setPassword(password);
+                    user.setEmail(email);
+                    user.setFullname(fullname);
+                    user.setAddress(address);
+                    user.setRole(roleid);
+                    userDAO.updateUser(user);
+                }
             }
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             Logger.getLogger(ProductIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
