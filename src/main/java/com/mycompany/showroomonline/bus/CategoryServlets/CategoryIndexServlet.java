@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 public class CategoryIndexServlet extends HttpServlet {
 
     private CategoryDAO categoryDAO = new CategoryDAO();
-    private RoleDAO roleDAO = new RoleDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +30,7 @@ public class CategoryIndexServlet extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/categoryindex.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
-            Logger.getLogger(UserIndexServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(CategoryIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 }

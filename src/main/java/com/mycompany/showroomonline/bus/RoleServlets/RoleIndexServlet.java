@@ -30,13 +30,4 @@ public class RoleIndexServlet extends HttpServlet {
             Logger.getLogger(RoleIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-        } catch (Exception e) {
-            Logger.getLogger(RoleIndexServlet.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
 }
