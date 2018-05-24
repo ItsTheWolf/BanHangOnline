@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.setAttribute("ERROR1", "");
+        resetError(session);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
         rd.forward(request, response);
     }
@@ -58,5 +58,12 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             }
         }
+    }
+
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
     }
 }

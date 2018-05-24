@@ -33,10 +33,10 @@ public class UserCreateServlet extends HttpServlet {
         try {
             getRolesList(request);
             HttpSession session = request.getSession();
+            resetError(session);
             if (session.getAttribute("loggedRole") == null) {
                 session.setAttribute("loggedRole", "null");
             }
-            resetError(session);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/usercreate.jsp");
             rd.forward(request, response);
         } catch (Exception e) {

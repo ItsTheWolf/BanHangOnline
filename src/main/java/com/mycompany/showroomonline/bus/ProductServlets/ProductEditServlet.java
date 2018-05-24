@@ -1,6 +1,5 @@
 package com.mycompany.showroomonline.bus.ProductServlets;
 
-import com.mycompany.showroomonline.bus.UserServlets.UserCreateServlet;
 import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
@@ -15,22 +14,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/productedit")
 public class ProductEditServlet extends HttpServlet {
 
     private ProductDAO productDAO = new ProductDAO();
     private CategoryDAO categoryDAO = new CategoryDAO();
+    HttpServletRequest request;
+    int id = Integer.parseInt(request.getParameter("id"));
+    String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
+    String BACK = "Click <a href='productedit?id=" + id + "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-//            resetError(request);
             int id = Integer.parseInt(request.getParameter("id"));
             Product item = productDAO.read(id);
             request.setAttribute("model", item);
             getCategoryList(request);
+            HttpSession session = request.getSession();
+            resetError(session);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/productedit.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
@@ -44,7 +49,8 @@ public class ProductEditServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             getCategoryList(request);
-//            resetError(request);
+            HttpSession session = request.getSession();
+            session.setAttribute("BACK", BACK);
             int id = Integer.parseInt(request.getParameter("txtId"));
             String product = request.getParameter("txtProduct");
             double price = Double.parseDouble(request.getParameter("txtPrice"));
@@ -56,27 +62,30 @@ public class ProductEditServlet extends HttpServlet {
             if (link.equals("resources/img/") || link.equals("")) {
                 link = "resources/img/thumbnailtmp.png";
             }
-            boolean error = validation(product, price, stock, cid, request);
+            boolean error = validation(product, cid, session);
             if (error) {
-                response.sendRedirect(request.getContextPath() + "/productedit");
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
                 Product item = new Product(id, product, description, price, stock, link, category);
                 productDAO.updateProduct(item);
                 response.sendRedirect(request.getContextPath() + "/index");
             }
         } catch (Exception e) {
-            Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
+            HttpSession session = request.getSession();
+            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+            response.sendRedirect(request.getContextPath() + "/error.jsp");
         }
     }
 
-    protected boolean validation(String product, double price, int stock, int cid, HttpServletRequest request) {
+    protected boolean validation(String product, int cid, HttpSession session) {
         try {
-            if (product.equals("") || price == 0 || stock == 0 || cid == 0) {
+            if (product.equals("") || cid == 0) {
+                session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
                 return true;
             }
             return false;
         } catch (Exception e) {
-            Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }
@@ -84,5 +93,12 @@ public class ProductEditServlet extends HttpServlet {
     protected void getCategoryList(HttpServletRequest request) {
         List<Category> listItem = categoryDAO.readAll();
         request.setAttribute("listItem", listItem);
+    }
+
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
     }
 }

@@ -21,19 +21,24 @@ public class UserEditServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
     private RoleDAO roleDAO = new RoleDAO();
+    HttpServletRequest request;
+    String username = request.getParameter("username");
+    String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
+    String INVALID_EMAIL_FORMAT = "Email is invalid.";
+    String BACK = "Click <a href='/useredit?username=" + username + "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setCharacterEncoding("UTF-8");
             String username = request.getParameter("username");
+            HttpSession session = request.getSession();
+            resetError(session);
             if (!username.equals("admin")) {
                 getRolesList(request);
-                HttpSession session = request.getSession();
                 if (session.getAttribute("loggedRole") == null) {
                     session.setAttribute("loggedRole", "null");
                 }
-//                resetError(request);
                 User item = userDAO.read(username);
                 request.setAttribute("model", item);
                 getRolesList(request);
@@ -52,7 +57,8 @@ public class UserEditServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             getRolesList(request);
-//            resetError(request);
+            HttpSession session = request.getSession();
+            session.setAttribute("BACK", BACK);
             String username = request.getParameter("txtUsername");
             String fullname = request.getParameter("txtFullname");
             String email = request.getParameter("txtEmail");
@@ -63,10 +69,10 @@ public class UserEditServlet extends HttpServlet {
             try {
                 rid = (Integer.parseInt(request.getParameter("txtRoleId")));
                 roleid = roleDAO.read(rid);
-                error = validation(email, rid, request);
+                error = validation(email, rid, session);
             } catch (NumberFormatException e) {
                 roleid = userDAO.read(username).getRole();
-                error = validationWithoutRid(email, request);
+                error = validationWithoutRid(email, session);
             }
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/useredit?username=" + username);
@@ -80,33 +86,49 @@ public class UserEditServlet extends HttpServlet {
         }
     }
 
-    protected boolean validation(String email, int rid, HttpServletRequest request) {
+    protected boolean validation(String email, int rid, HttpSession session) {
+        int err1 = 0, err2 = 0;
         try {
-            if (email.equals("") || rid == 0 || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                return true;
+            if (email.equals("") || rid == 0) {
+                session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                err1 = 1;
             }
-            return false;
+            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                session.setAttribute("ERROR2", INVALID_EMAIL_FORMAT);
+                err2 = 1;
+            }
+            return err1 == 1 || err2 == 1;
         } catch (Exception e) {
             Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }
 
-    protected boolean validationWithoutRid(String email, HttpServletRequest request) {
+    protected boolean validationWithoutRid(String email, HttpSession session) {
+        int err1 = 0, err2 = 0;
         try {
-            if (email.equals("") || !email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                return true;
+            if (email.equals("")) {
+                session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                err1 = 1;
             }
-            return false;
+            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                session.setAttribute("ERROR2", INVALID_EMAIL_FORMAT);
+                err2 = 1;
+            }
+            return err1 == 1 || err2 == 1;
         } catch (Exception e) {
             Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
         }
     }
 
-//    protected void resetError(HttpServletRequest request) {
-//        request.setAttribute("ERROR", 0);
-//    }
+    protected void resetError(HttpSession session) {
+        session.setAttribute("ERROR1", "");
+        session.setAttribute("ERROR2", "");
+        session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
+    }
+
     protected void getRolesList(HttpServletRequest request) {
         List<Role> listItem = roleDAO.readAll();
         request.setAttribute("listItem", listItem);

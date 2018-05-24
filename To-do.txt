@@ -1,12 +1,12 @@
 To-do:
-o figure out how to make error message in case of validation failed (nah, it doesn't work, time to make an error page)
+x figure out how to make error message in case of validation failed (nah, it doesn't work, time to make an error page) (chưa test)
 	x Login
 	x Register
 	x Category Create
-	- Product Create
-	- Product Edit
-	- User Edit
-	- User Edit PW
+	x Product Create
+	x Product Edit
+	x User Edit
+	x User Edit PW
 - add confirmation page for anything important
 	- Users delete themselves
 	- Log out
@@ -16,7 +16,7 @@ x let customer be able to delete themselves (chưa test)
 ~ add comments
 - add categories list to the left side of productindex page
 ~ optimize code
-o priviliges:
+o priviliges: (if violate, add AUTHORIZATION_ERROR)
 	- Admin:
 		- Can manage Products, Categories and Users details.
 		x Can view Roles details.
@@ -28,4 +28,4 @@ o priviliges:
 
 o kinda done (not finished)
 ~ Optional
-x Done
+x Done (chưa test)
