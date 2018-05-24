@@ -8,7 +8,9 @@
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="">Home</a><br>
-            <a class="btn btn-info btn-distance" href="productcreate">Add Product</a>
+            <c:if test="${sessionScope.loggedRoleId < 3 || sessionScope.loggedRoleId != null}">
+                <a class="btn btn-info btn-distance" href="productcreate">Add Product</a>
+            </c:if>
             <table class="table table-borderless">
                 <thead class="bg-dark text-white">
                     <tr>
@@ -19,11 +21,11 @@
                 <tbody>
                     <tr>
                         <td class="bg-light">
-                            <table class="table margin-top-10px">
+                            <table class="table">
                                 <tbody class="bg-light">
                                     <c:forEach var="row" items="${requestScope.listItem}">
                                         <tr>
-                                            <td><a href="categorydetails?id=${row.id}" class="btn btn-block btn-info">${row.name}</a></td>
+                                            <td><a href="categorydetails?id=${row.id}" class="btn btn-block btn-info text-left">${row.name}</a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

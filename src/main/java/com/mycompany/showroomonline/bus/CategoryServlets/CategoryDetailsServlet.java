@@ -23,14 +23,20 @@ public class CategoryDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int id = Integer.parseInt(request.getParameter("id"));
+            getCategoryList(request);
             Category item = categoryDAO.read(id);
-            List<Product> listItem = categoryDAO.findbyProduct(id);
+            List<Product> products = categoryDAO.findbyProduct(id);
             request.setAttribute("model", item);
-            request.setAttribute("products", listItem);
+            request.setAttribute("products", products);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/categorydetails.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
             Logger.getLogger(CategoryDetailsServlet.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+
+    protected void getCategoryList(HttpServletRequest request) {
+        List<Category> listItem = categoryDAO.readAll();
+        request.setAttribute("listItem", listItem);
     }
 }

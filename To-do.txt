@@ -19,7 +19,7 @@ x let customer be able to delete themselves (chưa test)
 ~ add comments
 ~ optimize code
 
-o priviliges: (if violate, add AUTHORIZATION_ERROR)
+o privileges: (if violate, add AUTHORIZATION_ERROR)
 	- Admin:
 		- Can manage Products, Categories and Users details.
 		x Can view Roles details.
@@ -28,8 +28,8 @@ o priviliges: (if violate, add AUTHORIZATION_ERROR)
 		x Can view Users, Roles details.
 	- Customer:
 		- Can view Products, Categories and Users details.
-	- Non-User:
-		- Can view Products and Categories details
+	o Non-User:
+		x Can view Products and Categories details.
 
 o kinda done (not finished)
 ~ Optional

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java"%>
 <!DOCTYPE html>
@@ -38,10 +39,12 @@
 </table>
 <a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
 <table class="bg-dark width-max">
-    <tr>
-        <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
-        <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
-        <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
-        <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
-    </tr>
+    <c:if test="${sessionScope.loggedRoleId < 3 || sessionScope.loggedRoleId != null}">
+        <tr>
+            <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
+            <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
+            <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
+            <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
+        </tr>
+    </c:if>
 </table>

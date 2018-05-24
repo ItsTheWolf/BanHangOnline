@@ -31,7 +31,7 @@
                     <tr>
                         <td>N/A</td>
                         <td>Non-User</td>
-                        <td>- Can view Products and Categories details</td>
+                        <td>- Can view Products and Categories details.</td>
                         <td></td>
                     </tr>
                 </tbody>
