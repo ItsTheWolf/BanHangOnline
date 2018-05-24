@@ -42,7 +42,7 @@ public class UserEditServlet extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/useredit.jsp");
                 rd.forward(request, response);
             } else {
-                response.sendRedirect("error-authorization.jsp");
+                response.sendRedirect(request.getContextPath() + "/error-authorization.jsp");
             }
         } catch (IOException | ServletException e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);

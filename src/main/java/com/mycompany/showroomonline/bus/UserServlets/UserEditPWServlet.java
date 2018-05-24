@@ -35,7 +35,7 @@ public class UserEditPWServlet extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/usereditpw.jsp");
                 rd.forward(request, response);
             } else {
-                response.sendRedirect("userindex");
+                response.sendRedirect(request.getContextPath() + "/error-authorization.jsp");
             }
         } catch (Exception e) {
             Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, e);
