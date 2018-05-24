@@ -53,7 +53,7 @@ public class CategoryDAO {
         em.remove(curr);
         em.getTransaction().commit();
     }
-    
+
     public List<Product> findbyProduct(int id) {
         emf = Persistence.createEntityManagerFactory("ShowroomService");
         em = emf.createEntityManager();
@@ -62,7 +62,15 @@ public class CategoryDAO {
         em.getTransaction().commit();
         return result;
     }
-    
+
+    public void deleteallProducts(int id) {
+        emf = Persistence.createEntityManagerFactory("ShowroomService");
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Product WHERE cateid=" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+
     public void resetAI() {
         em.getTransaction().begin();
         em.createNativeQuery("ALTER TABLE categories AUTO_INCREMENT = 1").executeUpdate();

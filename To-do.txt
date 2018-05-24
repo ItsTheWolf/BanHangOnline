@@ -1,8 +1,8 @@
 To-do:
 - categories
-	- index
-	- details
-	- delete
+	x index
+	x details
+	x delete
 	- create
 	- edit
 - when delete categories that have products attached, catch exception, ask user if they want to delete the products along with it. If yes, delete products based categories
