@@ -7,6 +7,7 @@
             <div class="text-error"><%=session.getAttribute("ERROR1")%></div>
             <div class="text-error"><%=session.getAttribute("ERROR2")%></div>
             <div class="text-error"><%=session.getAttribute("ERROR3")%></div>
+            <div class="text-error"><%=session.getAttribute("ERROR4")%></div>
             <div><%=session.getAttribute("BACK")%></div>
         </div>
     </body>

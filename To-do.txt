@@ -2,7 +2,7 @@ To-do:
 o figure out how to make error message in case of validation failed (nah, it doesn't work, time to make an error page)
 	x Login
 	x Register
-	- Category Create
+	x Category Create
 	- Product Create
 	- Product Edit
 	- User Edit

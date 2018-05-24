@@ -21,6 +21,7 @@ public class UserCreateServlet extends HttpServlet {
 
     private UserDAO userDAO = new UserDAO();
     private RoleDAO roleDAO = new RoleDAO();
+    String USERNAME_EXIST = "Username already exists.";
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String PASSWORD_CPW_NOT_MATHCED = "Password and Confirm Password do not match.";
     String INVALID_EMAIL_FORMAT = "Email is invalid.";
@@ -86,21 +87,26 @@ public class UserCreateServlet extends HttpServlet {
     }
 
     protected boolean validation(String username, String password, String cpw, String email, int rid, HttpSession session) {
-        int err1 = 0, err2 = 0, err3 = 0;
+        User user = userDAO.read(username);
+        int err1 = 0, err2 = 0, err3 = 0, err4 = 0;
         try {
             if (username.equals("") || password.equals("") || cpw.equals("") || email.equals("") || rid == 0) {
                 session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
                 err1 = 1;
             }
-            if (!cpw.equals(password)) {
-                session.setAttribute("ERROR2", PASSWORD_CPW_NOT_MATHCED);
+            if (user.getUsername().equals(username)) {
+                session.setAttribute("ERROR2", USERNAME_EXIST);
                 err2 = 1;
             }
-            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                session.setAttribute("ERROR3", INVALID_EMAIL_FORMAT);
+            if (!cpw.equals(password)) {
+                session.setAttribute("ERROR3", PASSWORD_CPW_NOT_MATHCED);
                 err3 = 1;
             }
-            return err1 == 1 || err2 == 1 || err3 == 1;
+            if (!email.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+                session.setAttribute("ERROR4", INVALID_EMAIL_FORMAT);
+                err4 = 1;
+            }
+            return err1 == 1 || err2 == 1 || err3 == 1 || err4 == 1;
         } catch (Exception e) {
             Logger.getLogger(UserCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             return true;
@@ -111,6 +117,7 @@ public class UserCreateServlet extends HttpServlet {
         session.setAttribute("ERROR1", "");
         session.setAttribute("ERROR2", "");
         session.setAttribute("ERROR3", "");
+        session.setAttribute("ERROR4", "");
     }
 
     protected void getRolesList(HttpServletRequest request) {
