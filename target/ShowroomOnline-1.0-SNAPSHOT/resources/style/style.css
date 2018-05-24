@@ -1,6 +1,9 @@
 .bg-lightblue {
     background-color: #99d9ea;
 }
+.bg-lightgray {
+    background-color: #f1f1f1;
+}
 .text-black {
     color: #000;
 }
@@ -19,7 +22,7 @@
 }
 .cell-thumbnail {
     width: 500px;
-    height: 15vw;
+    height: 12vw;
 }
 .cell-name {
     height: 75px;
@@ -40,6 +43,9 @@
 }
 .margin-top-5px {
     margin-top: 5px;
+}
+.margin-top-10px {
+    margin-top: 10px;
 }
 .col-span-max{
     column-span: all;

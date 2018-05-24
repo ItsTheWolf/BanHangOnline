@@ -1,5 +1,6 @@
 package com.mycompany.showroomonline.bus.ProductServlets;
 
+import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dao.RoleDAO;
 import com.mycompany.showroomonline.dao.UserDAO;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ProductIndexServlet extends HttpServlet {
 
     private ProductDAO productDAO = new ProductDAO();
+    private CategoryDAO categoryDAO = new CategoryDAO();
     private RoleDAO roleDAO = new RoleDAO();
     private UserDAO userDAO = new UserDAO();
 
@@ -32,6 +34,7 @@ public class ProductIndexServlet extends HttpServlet {
             addNecessaryValues(request);
             List<Product> listItem = productDAO.readAll();
             request.setAttribute("model", listItem);
+            getCategoryList(request);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
         } catch (Exception e) {
@@ -140,5 +143,10 @@ public class ProductIndexServlet extends HttpServlet {
         } catch (Exception e) {
             Logger.getLogger(ProductIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+
+    protected void getCategoryList(HttpServletRequest request) {
+        List<Category> listItem = categoryDAO.readAll();
+        request.setAttribute("listItem", listItem);
     }
 }
