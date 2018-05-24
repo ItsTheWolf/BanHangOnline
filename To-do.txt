@@ -10,12 +10,10 @@ x figure out how to make error message in case of validation failed (chưa test)
 x edit self will keep role (chưa test)
 x let customer be able to delete themselves (chưa test)
 
-- add confirmation page for anything important
-	- Delete category that has attached products
-	- Users delete themselves
-	- Log out
-- add thumbnail using the downloaded codes
-- add AUTHORIZATION_ERROR for violating privileges
+~ add comments
+~ optimize code
+~ replace java script if else to c
+~ add AUTHORIZATION_ERROR for violating privileges
 	- Non-User {
 		- Customer {
 			- Staff {
@@ -39,10 +37,10 @@ x let customer be able to delete themselves (chưa test)
 	- userdetails
 	- logout
 	}
-
-~ add comments
-~ optimize code
-~ replace java script if else to c
+~ add confirmation page for anything important
+	~ Delete category that has attached products
+	~ Users delete themselves
+	~ Log out
 
 o kinda done (not finished)
 ~ Optional
