@@ -5,7 +5,7 @@
     <body class="bg-lightblue">
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="">Login</a><br>
-            <form action="" method="POST">
+            <form action="login" method="POST">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
                         <td class="width-10">*Username:</td>
@@ -24,6 +24,7 @@
                     </tr>
                 </table>
             </form>
+            <div class="text-error"><%=session.getAttribute("ERROR")%></div>
         </div>
     </body>
 </html>
