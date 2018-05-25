@@ -32,12 +32,21 @@ QUYỀN HẠN:
 		o productcreate
 		o productdelete
 		o productdetails
+<<<<<<< HEAD
 		x productedit  -> lỗi 404
 		o categorycreate
 		o categorydelete
 		o categorydetails
 		o categoryedit
 		o categoryindex
+=======
+		x productedit  -> lỗi 404 (FIX)
+		- categorycreate
+		- categorydelete
+		- categorydetails
+		- categoryedit
+		- categoryindex
+>>>>>>> d073f79de388d46c953b6b38422a344cee20f191
 		o usercreate (aka. register)
 		o userdelete (bản thân hoặc role customer)
 		o userdetails
@@ -84,7 +93,7 @@ o productcreate:
 		o Các dòng * được điền đầy đủ
 		o Thumbnail mặc định là thumbnailtmp.png
 		o Nếu để thumbnail trống, Add Product sẽ sử dụng thumbnailtmp.png
-o productedit: -> lỗi 404
+o productedit: -> lỗi 404 (FIX)
 	- Lỗi:
 		- Các dòng * trống
 	- Được:
@@ -98,7 +107,7 @@ o productedit: -> lỗi 404
 		o Các dòng * được điền đầy đủ
 - categoryedit:
 	- Lỗi:
-		x Các dòng * trống  -> ra trang trắng
+		x Các dòng * trống  -> ra trang trắng (FIX)
 	- Được:
 		o Các dòng * được điền đầy đủ
 - useredit:
