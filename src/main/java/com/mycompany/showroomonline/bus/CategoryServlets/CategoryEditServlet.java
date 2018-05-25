@@ -19,7 +19,8 @@ public class CategoryEditServlet extends HttpServlet {
 
     private CategoryDAO categoryDAO = new CategoryDAO();
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
-    String BACK = "Click <a href='categorycreate'>here</a> to turn back.";
+    String BACK1 = "Click <a href='categoryedit?id=";
+    String BACK2 = "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,13 +44,13 @@ public class CategoryEditServlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
-            session.setAttribute("BACK", BACK);
             resetError(session);
             int id = Integer.parseInt(request.getParameter("txtId"));
+            session.setAttribute("BACK", BACK1 + id + BACK2);
             String category = request.getParameter("txtCategory");
             boolean error = validation(category, session, request);
             if (error) {
-                response.sendRedirect(request.getContextPath() + "/categoryedit");
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
                 Category item = new Category(id, category);
                 categoryDAO.updateCategory(item);

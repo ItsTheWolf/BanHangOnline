@@ -22,10 +22,9 @@ public class ProductEditServlet extends HttpServlet {
 
     private ProductDAO productDAO = new ProductDAO();
     private CategoryDAO categoryDAO = new CategoryDAO();
-    HttpServletRequest request;
-    int id = Integer.parseInt(request.getParameter("id"));
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
-    String BACK = "Click <a href='productedit?id=" + id + "'>here</a> to turn back.";
+    String BACK1 = "Click <a href='productedit?id=";
+    String BACK2 = "'>here</a> to turn back.";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,8 +50,8 @@ public class ProductEditServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             getCategoryList(request);
             HttpSession session = request.getSession();
-            session.setAttribute("BACK", BACK);
             int id = Integer.parseInt(request.getParameter("txtId"));
+            session.setAttribute("BACK", BACK1 + id + BACK2);
             String product = request.getParameter("txtProduct");
             double price = Double.parseDouble(request.getParameter("txtPrice"));
             int stock = Integer.parseInt(request.getParameter("txtAmount"));
