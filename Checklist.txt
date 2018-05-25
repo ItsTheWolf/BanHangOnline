@@ -18,9 +18,9 @@ QUYỀN HẠN:
 		o register
 		o login
 	- Customers:
-		- index
-		- productdetails
-		- categorydetails
+		o index
+		o productdetails
+		o categorydetails
 		o userindex
 		o userdetails
 		o useredit (bản thân)
@@ -28,7 +28,7 @@ QUYỀN HẠN:
 		o userdelete (bản thân)
 		o logout
 	- Staff:
-		- index
+		o index
 		- productcreate
 		- productdelete
 		- productdetails
