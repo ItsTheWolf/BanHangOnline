@@ -72,7 +72,7 @@ VALIDATION:
 		o Có thể bỏ qua fullname và address
 - usereditpw:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 		o Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw (FIX)
 	- Được:
 		o Các dòng * được điền đầy đủ
