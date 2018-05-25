@@ -93,14 +93,14 @@ o productedit: -> lỗi 404
 		- Nếu để thumbnail trống, Edit Product sẽ sử dụng thumbnailtmp.png
 - categorycreate:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đủ
+		o Các dòng * được điền đầy đủ
 - categoryedit:
 	- Lỗi:
-		- Các dòng * trống
+		x Các dòng * trống  -> ra trang trắng
 	- Được:
-		- Các dòng * được điền đầy đủ
+		o Các dòng * được điền đầy đủ
 - useredit:
 	- Lỗi:
 		o Các dòng * trống
