@@ -33,11 +33,11 @@ QUYỀN HẠN:
 		o productdelete
 		o productdetails
 		x productedit  -> lỗi 404
-		- categorycreate
-		- categorydelete
-		- categorydetails
-		- categoryedit
-		- categoryindex
+		o categorycreate
+		o categorydelete
+		o categorydetails
+		o categoryedit
+		o categoryindex
 		o usercreate (aka. register)
 		o userdelete (bản thân hoặc role customer)
 		o userdetails
@@ -65,7 +65,7 @@ VALIDATION:
 		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
 		o Username đã có
 		o Password và confirm password không giống nhau
-		- Email sai định dạng
+		o Email sai định dạng
 	- Được:
 		o Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
 		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
