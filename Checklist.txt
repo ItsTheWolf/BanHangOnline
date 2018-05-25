@@ -117,30 +117,30 @@ GUI:
 		o Header hiển thị Login | Register
 		o Header không có các nút Products, Categories, Users, Roles
 		o index: không có nút Add Product
-		- productdetails: không có nút Edit và Delete
-		- categorydetails: không có Categories trên thanh navigation
+		o productdetails: không có nút Edit và Delete
+		o categorydetails: không có Categories trên thanh navigation
 		o register: không có header
 	- Customer:
-		- Header hiển thị User: username | Change Password | Log out
-		- Header có nút Products và Users
-		- index: không có nút Add Product
-		- productdetails: không có nút Edit và Delete
-		- categorydetails: không có Categories trên thanh navigation
-		- userindex: không có nút Add User
-		- userindex: không có nút edit và delete cho các user khác trừ bản thân
-		- userdetails: không có edit và delete cho các user khác trừ bản thân
-		- useredit: không có lựa chọn Role
+		o Header hiển thị User: username | Change Password | Log out
+		o Header có nút Products và Users
+		o index: không có nút Add Product
+		o productdetails: không có nút Edit và Delete
+		o categorydetails: không có Categories trên thanh navigation
+		o userindex: không có nút Add User
+		o userindex: không có nút edit và delete cho các user khác trừ bản thân
+		o userdetails: không có edit và delete cho các user khác trừ bản thân
+		o useredit: không có lựa chọn Role
 	- Staff:
-		- Header hiển thị User: username | Role: Staff | Change Password | Log out
-		- Header có nút Products, Categories, Users, Roles
-		- index: có nút Add Product
-		- productdetails: có nút Edit và Delete
-		- categoriesdetails: có Categories trên thanh navigation
-		- userindex: có nút Add User
-		- userindex: không có edit và delete cho các user khác trừ bản thân và các user role customer
-		- userdetails: không có edit và delete cho các user khác trừ bản thân và các user role customer
-		- usercreate: không có lựa chọn Role
-		- useredit: không có lựa chọn Role
+		o Header hiển thị User: username | Role: Staff | Change Password | Log out
+		o Header có nút Products, Categories, Users, Roles
+		o index: có nút Add Product
+		o productdetails: có nút Edit và Delete
+		o categoriesdetails: có Categories trên thanh navigation
+		o userindex: có nút Add User
+		o userindex: không có edit và delete cho các user khác trừ bản thân và các user role customer
+		o userdetails: không có edit và delete cho các user khác trừ bản thân và các user role customer
+		o usercreate: không có lựa chọn Role
+		o useredit: không có lựa chọn Role
 	- Admin:
 		o Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
 		o Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
