@@ -24,8 +24,7 @@ QUYỀN HẠN:
 		o userindex
 		o userdetails
 		o useredit (bản thân)
-		x usereditpw (bản thân)
-		    (sau khi edit PW thì mất FullName Role.ogout ra thì ko thể login "Wrong username or password")
+		x usereditpw (bản thân)		    (sau khi edit PW thì mất FullName Role.ogout ra thì ko thể login "Wrong username or password")
 		o userdelete (bản thân)
 		o logout
 	- Staff:
@@ -141,8 +140,8 @@ GUI:
 		- usercreate: không có lựa chọn Role
 		- useredit: không có lựa chọn Role
 	- Admin:
-		- Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
-		- Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
+		o Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
+		o Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
 		- Header có nút Products, Categories, Users, Roles
 		- index: có nút Add Product
 		- productdetails: có nút Edit và Delete
