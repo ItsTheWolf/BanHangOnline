@@ -1,22 +1,22 @@
 Test
 DATABASE:
-- Tự động tạo 4 bảng roles, users, categories, customers
-- Tự động tạo các value admin, staff, customer trong bảng roles
-- Tự động tạo admin trong bảng users
-- Tự động gán hình thumbnailtmp.png cho các products không có giá trị trong cột thumbnail
+o Tự động tạo 4 bảng roles, users, categories, customers
+o Tự động tạo các value admin, staff, customer trong bảng roles
+o Tự động tạo admin trong bảng users
+o Tự động gán hình thumbnailtmp.png cho các products không có giá trị trong cột thumbnail
 - Nếu value của role admin, role staff, role customer và user admin bị thay đổi:
-	- Vào trang index sẽ tự sửa bảng roles và bảng users
-	- Vào trang userindex sẽ tự sửa bảng users
-	- Vào trang roleindex sẽ tự sửa bảng roles
+	o Vào trang index sẽ tự sửa bảng roles và bảng users
+	o Vào trang userindex sẽ tự sửa bảng users
+	o Vào trang roleindex sẽ tự sửa bảng roles
 
 QUYỀN HẠN:
 - Chỉ sử dụng được các trang:
 	- Không login:
-		- index
-		- productdetails
-		- categorydetails
-		- register
-		- login
+		o index
+		o productdetails
+		o categorydetails
+		o register
+		o login
 	- Customers:
 		- index
 		- productdetails
@@ -54,27 +54,27 @@ QUYỀN HẠN:
 VALIDATION:
 - login:
 	- Lỗi:
-		- Username và password trống
-		- Username không đúng
-		- Password không đúng
+		o Username và password trống
+		o Username không đúng
+		o Password không đúng
 	- Được:
-		- Username và password đúng
+		o Username và password đúng
 - register (usercreate):
 	- Lỗi:
-		- Các dòng * trống
-		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Username đã có
-		- Password và confirm password không giống nhau
+		0 Các dòng * trống
+		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Username đã có
+		o Password và confirm password không giống nhau
 		- Email sai định dạng
 	- Được:
-		- Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
-		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Có thể bỏ qua fullname và address
+		o Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
+		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Có thể bỏ qua fullname và address
 - usereditpw:
 	- Lỗi:
-		- Password và confirm password không giống nhau
+		x Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw
 	- Được:
-		- Password và confirm password giống nhau
+		o Password và confirm password giống nhau
 - productcreate:
 	- Lỗi:
 		- Các dòng * trống
