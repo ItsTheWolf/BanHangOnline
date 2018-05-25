@@ -29,10 +29,10 @@ QUYỀN HẠN:
 		o logout
 	- Staff:
 		o index
-		- productcreate
-		- productdelete
-		- productdetails
-		- productedit
+		o productcreate
+		o productdelete
+		o productdetails
+		x productedit  -> lỗi 404
 		- categorycreate
 		- categorydelete
 		- categorydetails
@@ -77,14 +77,14 @@ VALIDATION:
 	- Được:
 		o Các dòng * được điền đầy đủ
 		o Password và confirm password giống nhau
-- productcreate:
+o productcreate:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đủ
-		- Thumbnail mặc định là thumbnailtmp.png
-		- Nếu để thumbnail trống, Add Product sẽ sử dụng thumbnailtmp.png
-- productedit:
+		o Các dòng * được điền đầy đủ
+		o Thumbnail mặc định là thumbnailtmp.png
+		o Nếu để thumbnail trống, Add Product sẽ sử dụng thumbnailtmp.png
+o productedit: -> lỗi 404
 	- Lỗi:
 		- Các dòng * trống
 	- Được:
@@ -103,13 +103,13 @@ VALIDATION:
 		- Các dòng * được điền đầy đủ
 - useredit:
 	- Lỗi:
-		- Các dòng * trống
-		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Email sai định dạng
+		o Các dòng * trống
+		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Email sai định dạng
 	- Được:
-		- Các dòng * được điền đầy đủ, đúng định dạng
-		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Có thể bỏ qua fullname và address
+		o Các dòng * được điền đầy đủ, đúng định dạng
+		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Có thể bỏ qua fullname và address
 		
 GUI:
 (Thanh navigation: Home >> Product's details)
