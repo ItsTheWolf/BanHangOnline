@@ -72,8 +72,10 @@ VALIDATION:
 		o Có thể bỏ qua fullname và address
 - usereditpw:
 	- Lỗi:
-		x Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw
+		- Các dòng * trống
+		x Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw (FIX)
 	- Được:
+		- Các dòng * được điền đầy đủ
 		o Password và confirm password giống nhau
 - productcreate:
 	- Lỗi:

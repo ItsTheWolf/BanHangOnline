@@ -24,7 +24,7 @@ public class UserEditServlet extends HttpServlet {
     private RoleDAO roleDAO = new RoleDAO();
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String INVALID_EMAIL_FORMAT = "Email is invalid.";
-    String BACK1 = "Click <a href='/useredit?username=";
+    String BACK1 = "Click <a href='useredit?username=";
     String BACK2 = "'>here</a> to turn back.";
 
     @Override
