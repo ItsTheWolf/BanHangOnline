@@ -24,7 +24,7 @@ QUYỀN HẠN:
 		o userindex
 		o userdetails
 		o useredit (bản thân)
-		x usereditpw (bản thân)		    (sau khi edit PW thì mất FullName Role.ogout ra thì ko thể login "Wrong username or password")
+		o usereditpw (bản thân)		    
 		o userdelete (bản thân)
 		o logout
 	- Staff:
@@ -73,9 +73,9 @@ VALIDATION:
 - usereditpw:
 	- Lỗi:
 		- Các dòng * trống
-		x Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw (FIX)
+		o Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw (FIX)
 	- Được:
-		- Các dòng * được điền đầy đủ
+		o Các dòng * được điền đầy đủ
 		o Password và confirm password giống nhau
 - productcreate:
 	- Lỗi:
@@ -114,12 +114,12 @@ VALIDATION:
 GUI:
 (Thanh navigation: Home >> Product's details)
 	- Không login:
-		- Header hiển thị Login | Register
-		- Header không có các nút Products, Categories, Users, Roles
-		- index: không có nút Add Product
+		o Header hiển thị Login | Register
+		o Header không có các nút Products, Categories, Users, Roles
+		o index: không có nút Add Product
 		- productdetails: không có nút Edit và Delete
 		- categorydetails: không có Categories trên thanh navigation
-		- register: không có header
+		o register: không có header
 	- Customer:
 		- Header hiển thị User: username | Change Password | Log out
 		- Header có nút Products và Users
@@ -144,12 +144,12 @@ GUI:
 	- Admin:
 		o Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
 		o Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
-		- Header có nút Products, Categories, Users, Roles
-		- index: có nút Add Product
-		- productdetails: có nút Edit và Delete
-		- categoriesdetails: có Categories trên thanh navigation
-		- userindex: có nút Add User
-		- userindex: có edit và delete cho các user trừ user admin
-		- userdetails: có edit và delete cho các user trừ user admin
-		- usercreate: có lựa chọn Role
-		- useredit: có lựa chọn Role
+		o Header có nút Products, Categories, Users, Roles
+		o index: có nút Add Product
+		o productdetails: có nút Edit và Delete
+		o categoriesdetails: có Categories trên thanh navigation
+		o userindex: có nút Add User
+		o userindex: có edit và delete cho các user trừ user admin
+		o userdetails: có edit và delete cho các user trừ user admin
+		o usercreate: có lựa chọn Role
+		o useredit: có lựa chọn Role
