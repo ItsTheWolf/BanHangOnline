@@ -21,12 +21,13 @@ QUYỀN HẠN:
 		- index
 		- productdetails
 		- categorydetails
-		- userindex
-		- userdetails
-		- useredit (bản thân)
-		- usereditpw (bản thân)
-		- userdelete (bản thân)
-		- logout
+		o userindex
+		o userdetails
+		o useredit (bản thân)
+		x usereditpw (bản thân)
+		    (sau khi edit PW thì mất FullName Role.ogout ra thì ko thể login "Wrong username or password")
+		o userdelete (bản thân)
+		o logout
 	- Staff:
 		- index
 		- productcreate
@@ -38,18 +39,18 @@ QUYỀN HẠN:
 		- categorydetails
 		- categoryedit
 		- categoryindex
-		- usercreate (aka. register)
-		- userdelete (bản thân hoặc role customer)
-		- userdetails
-		- useredit (bản thân hoặc role customer)
-		- usereditpw (bản thân)
-		- userindex
-		- roleindex
-		- roledetails
-		- logout
+		o usercreate (aka. register)
+		o userdelete (bản thân hoặc role customer)
+		o userdetails
+		o useredit (bản thân hoặc role customer)
+		o usereditpw (bản thân)
+		o userindex
+		o roleindex
+		o roledetails
+		o logout
 - Đặc biệt:
-	- User admin không được edit, editpw hoặc delete
-	- Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
+	o User admin không được edit, editpw hoặc delete
+	o Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
 
 VALIDATION:
 - login:
@@ -61,7 +62,7 @@ VALIDATION:
 		o Username và password đúng
 - register (usercreate):
 	- Lỗi:
-		0 Các dòng * trống
+		o Các dòng * trống
 		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
 		o Username đã có
 		o Password và confirm password không giống nhau
