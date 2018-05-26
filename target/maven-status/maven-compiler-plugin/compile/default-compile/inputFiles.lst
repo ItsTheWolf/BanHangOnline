@@ -6,6 +6,7 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\CategoryDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\User.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Product.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Thumbnail.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryDetailsServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryDeleteServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryEditServlet.java
@@ -15,6 +16,7 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserEditServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductDeleteServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryCreateServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ThumbnailServlets\ThumbnailUploadServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\RoleServlets\RoleDetailsServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserEditPWServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Role.java
@@ -23,6 +25,7 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\RoleDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductCreateServlet.java
+C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\ThumbnailDAO.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Category.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductEditServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\UserDAO.java

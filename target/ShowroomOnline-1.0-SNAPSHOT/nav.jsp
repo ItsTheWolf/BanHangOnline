@@ -43,14 +43,14 @@
         <tr>
             <c:choose>
                 <c:when test="${sessionScope.loggedRoleId < 3}">
-                    <td class="width-25"><a class="btn btn-block btn-light" href="index">Products</a></td>
-                    <td class="width-25"><a class="btn btn-block btn-light" href="categoryindex">Categories</a></td>
-                    <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
-                    <td class="width-25"><a class="btn btn-block btn-light" href="roleindex">Roles</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-info" href="index">Products</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-info" href="categoryindex">Categories</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-info" href="userindex">Users</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-info" href="roleindex">Roles</a></td>
                 </c:when>
                 <c:otherwise>
-                    <td><a class="btn btn-block btn-light" href="index">Products</a></td>
-                    <td class="width-25"><a class="btn btn-block btn-light" href="userindex">Users</a></td>
+                    <td><a class="btn btn-block btn-info" href="index">Products</a></td>
+                    <td class="width-25"><a class="btn btn-block btn-info" href="userindex">Users</a></td>
                 </c:otherwise>
             </c:choose>
         </tr>
