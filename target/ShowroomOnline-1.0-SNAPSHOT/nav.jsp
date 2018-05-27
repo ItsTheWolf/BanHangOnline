@@ -37,7 +37,7 @@
         <td class="text-right">Contact: 69-0721-1919</td>
     </tr>
 </table>
-<a href="index"><img src="resources/img/headerimgtmp.png" width="100%" alt="headerimgtmp"/></a>
+<a href="index"><img src="resources/img/headerimg.png" width="100%"/></a>
 <table class="bg-dark width-max">
     <c:if test="${sessionScope.loggedRoleId != null}">
         <tr>

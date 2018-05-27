@@ -9,6 +9,7 @@ import com.mycompany.showroomonline.dto.Product;
 import com.mycompany.showroomonline.dto.Role;
 import com.mycompany.showroomonline.dto.User;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,33 +38,33 @@ public class ProductIndexServlet extends HttpServlet {
             getCategoryList(request);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
-        } catch (Exception e) {
+        } catch (IOException | ServletException e) {
             Logger.getLogger(ProductIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
     protected void addNecessaryValues(HttpServletRequest request) {
         try {
-            request.setCharacterEncoding("UTF-8");
-            System.out.println("/n/nproduct/n/n");
-            List<Product> listItem = productDAO.readAll();
-            for (int i = 1; i <= listItem.size(); i++) {
-                try {
-                    Product product = productDAO.read(i);
-                    if (product.getThumbnail().equals("")) {
-                        int id = i;
-                        String name = product.getName();
-                        double price = product.getPrice();
-                        int stock = product.getAmount();
-                        String desc = product.getDescription();
-                        Category cateid = product.getCategory();
-                        String link = "resources/img/thumbnailtmp.png";
-                        Product item = new Product(id, name, desc, price, stock, link, cateid);
-                        productDAO.updateProduct(item);
-                    }
-                } catch (Exception e) {
-                }
-            }
+//            request.setCharacterEncoding("UTF-8");
+//            System.out.println("/n/nproduct/n/n");
+//            List<Product> listItem = productDAO.readAll();
+//            for (int i = 1; i <= listItem.size(); i++) {
+//                try {
+//                    Product product = productDAO.read(i);
+//                    if (product.getThumbnail().equals("")) {
+//                        int id = i;
+//                        String name = product.getName();
+//                        double price = product.getPrice();
+//                        int stock = product.getAmount();
+//                        String desc = product.getDescription();
+//                        Category cateid = product.getCategory();
+//                        String link = "resources/img/thumbnailtmp.png";
+//                        Product item = new Product(id, name, desc, price, stock, link, cateid);
+//                        productDAO.updateProduct(item);
+//                    }
+//                } catch (Exception e) {
+//                }
+//            }
             String admin = "Admin";
             String adminDesc = "- Can manage Products, Categories and Users details.<br>- Can view Roles details.";
             String staff = "Staff";
@@ -128,7 +129,7 @@ public class ProductIndexServlet extends HttpServlet {
                     userDAO.updateUser(user);
                 }
             }
-        } catch (Exception e) {
+        } catch (UnsupportedEncodingException e) {
             Logger.getLogger(ProductIndexServlet.class.getName()).log(Level.SEVERE, null, e);
         }
     }
