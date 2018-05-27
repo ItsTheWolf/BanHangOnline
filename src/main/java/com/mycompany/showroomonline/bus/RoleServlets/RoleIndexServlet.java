@@ -39,9 +39,7 @@ public class RoleIndexServlet extends HttpServlet {
             String adminDesc = "- Can manage Products, Categories and Users details.<br>- Can view Roles details.";
             String staff = "Staff";
             String staffDesc = "- Can manage Products, Categories and ''Customer'' role Users details.<br>- Can view Users, Roles details.";
-            String customer = "Customer";
-            String customerDesc = "- Can view Products, Categories and Users details.";
-            for (int i = 1; i <= 3; i++) {
+            for (int i = 1; i <= 2; i++) {
                 Role role = roleDAO.read(i);
                 int roleId = 0;
                 String roleName = null, roleDesc = null;
@@ -53,10 +51,6 @@ public class RoleIndexServlet extends HttpServlet {
                     if (i == 2) {
                         roleName = staff;
                         roleDesc = staffDesc;
-                    }
-                    if (i == 3) {
-                        roleName = customer;
-                        roleDesc = customerDesc;
                     }
                     if (roleId != 0 || roleName != null || roleDesc != null) {
                         roleId = i;
@@ -72,11 +66,6 @@ public class RoleIndexServlet extends HttpServlet {
                             || !role.getDescription().equals(staffDesc))) {
                         roleName = staff;
                         roleDesc = staffDesc;
-                    }
-                    if (i == 3 && (!role.getName().equals(customer)
-                            || !role.getDescription().equals(customerDesc))) {
-                        roleName = customer;
-                        roleDesc = customerDesc;
                     }
                     if (roleId != 0 || roleName != null || roleDesc != null) {
                         roleId = i;

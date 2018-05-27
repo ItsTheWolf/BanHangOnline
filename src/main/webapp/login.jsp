@@ -12,7 +12,8 @@
                         <table class="table table-borderless bg-light margin-top-5px">
                             <tr>
                                 <td>
-                        <h2>Login</h2></td>
+                                    <h2>Login</h2>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="width-10">*Username:</td>

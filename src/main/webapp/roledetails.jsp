@@ -41,8 +41,12 @@
                             <td>
                                 <a class="btn btn-actions-divide btn-info" href="userdetails?username=${row.username}">Details</a>
                                 <c:if test = "${row.username != 'admin'}">
-                                    <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
-                                    <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                    <c:if test = "${sessionScope.loggedRoleId < 3 || sessionScope.loggedName == row.username}">
+                                        <c:if test = "${sessionScope.loggedRoleId < row.role.id || sessionScope.loggedName == row.username || sessionScope.loggedRoleId == 1}">
+                                            <a class="btn btn-actions-divide btn-info" href="useredit?username=${row.username}">Edit</a>
+                                            <a class="btn btn-actions-divide btn-danger" href="userdelete?username=${row.username}">Delete</a>
+                                        </c:if>
+                                    </c:if>
                                 </c:if>
                             </td>
                         </tr>
