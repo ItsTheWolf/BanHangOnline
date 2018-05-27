@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryIndexServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserDeleteServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\AccountServlets\LoginServlet.java
@@ -31,6 +32,8 @@ C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycom
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\ProductServlets\ProductEditServlet.java
 C:\Users\danie\Documents\NetBeansProjects\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dao\UserDAO.java
 =======
+=======
+>>>>>>> parent of 9e6b099... rebuild for the last time
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryCreateServlet.java
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserIndexServlet.java
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\UserServlets\UserDeleteServlet.java
@@ -59,4 +62,7 @@ D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonlin
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\Role.java
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\dto\User.java
 D:\nano\java\BT\PROJECT\ShowroomOnline\src\main\java\com\mycompany\showroomonline\bus\CategoryServlets\CategoryDeleteServlet.java
+<<<<<<< HEAD
+>>>>>>> parent of 9e6b099... rebuild for the last time
+=======
 >>>>>>> parent of 9e6b099... rebuild for the last time
