@@ -1,7 +1,7 @@
 To-do:
 - upload thumbnail for product
-	- tạo thumbnail bằng productservlet, khi nhấn choose file sẽ chọn file, nhưng chỉ upload hình khi nhấn add product
-	- show hình bằng <img src="resources/img/${row.thumbnail}"/>
+	o productcreate (FileNotFoundException needed to be caught)
+	- productedit
 - carousel
 
 ~ add comments

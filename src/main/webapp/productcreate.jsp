@@ -7,7 +7,7 @@
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="">Add Product</a><br>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
                         <td class="width-10">*Product:</td>
@@ -39,11 +39,8 @@
                     <tr>
                         <td class="width-10">Thumbnail:</td>
                         <td>
-                            <img id="imgThumbnail" width="350px" src="resources/img/thumbnailtmp.png"/><br><br>
-                            <input class="btn-block" type="text" id="txtThumbnail" name="txtThumbnail" value="thumbnailtmp.png"/>
-                            <input class="btn-block" type="hidden" id="txtLink" name="txtLink" value="resources/img/thumbnailtmp.png"/><br>
-                            <a class="btn btn-info text-white" onclick="loadImg()">Load Thumbnail</a><br>
-                            Please put thumbnail image in folder resources/img/ first, then enter the name of the image, including the extension (*.png, *.bmp, *.jpg, etc).
+                            <img src="resources/img/thumbnailtmp.png" id="previewimg" width="350px"><br>
+                            <input type="file" id="file" name="file" size="50" onchange="loadImg()">
                         </td>
                     </tr>
                     <tr>

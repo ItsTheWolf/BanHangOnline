@@ -10,7 +10,7 @@
             <a href="index">Home</a> >> <a href="">${requestScope.model.name}'s Details</a><br>
             <table class="table table-borderless">
                 <tr>
-                    <td class="width-350px"><img src="${requestScope.model.thumbnail}" width="350px"/></td>
+                    <td class="width-350px"><img src="resources/img/${requestScope.model.thumbnail}" width="350px"/></td>
                     <td>
                         <table class="table table-borderless">
                             <tr>

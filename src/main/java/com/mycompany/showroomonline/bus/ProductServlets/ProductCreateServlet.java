@@ -4,8 +4,11 @@ import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
 import com.mycompany.showroomonline.dto.Product;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +19,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 @WebServlet("/productcreate")
 public class ProductCreateServlet extends HttpServlet {
@@ -26,6 +33,9 @@ public class ProductCreateServlet extends HttpServlet {
     private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String BACK = "Click <a href='productcreate'>here</a> to turn back.";
+    private int maxFileSize = 9999 * 1024; // KB
+    private int maxMemSize = 9999 * 1024; // KB
+    private File file;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,27 +59,66 @@ public class ProductCreateServlet extends HttpServlet {
             getCategoryList(request);
             HttpSession session = request.getSession();
             session.setAttribute("BACK", BACK);
-            String product = request.getParameter("txtProduct");
-            double price = Double.parseDouble(request.getParameter("txtPrice"));
-            int stock = Integer.parseInt(request.getParameter("txtAmount"));
-            int cid = Integer.parseInt(request.getParameter("txtCateId"));
-            Category category = categoryDAO.read(cid);
-            String description = request.getParameter("txtDesc");
-            String link = request.getParameter("txtLink");
-            if (link.equals("resources/img/") || link.equals("")) {
-                link = "resources/img/thumbnailtmp.png";
+            // <editor-fold defaultstate="collapsed" desc="uploadimg">
+            isMultipart = ServletFileUpload.isMultipartContent(request);
+            response.setContentType("text/html");
+            java.io.PrintWriter out = response.getWriter();
+            if (!isMultipart) {
+                session.setAttribute("ERROR2", "!isMiltipart");
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
             }
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            factory.setSizeThreshold(maxMemSize);
+            factory.setRepository(new File("D:\\"));
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            upload.setSizeMax(maxFileSize);
+            List fileItems = upload.parseRequest(request);
+            Iterator i = fileItems.iterator();
+            String product = "", description = "";
+            double price = 0;
+            int stock = 0, cid = 0;
+            while (i.hasNext()) {
+                FileItem fi = (FileItem) i.next();
+                if (!fi.isFormField()) {
+                    String fileName = fi.getName();
+                    if (fileName.lastIndexOf("\\") >= 0) {
+                        file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
+                    } else {
+                        file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
+                    }
+                    try {
+                        fi.write(file);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    String input = fi.getFieldName();
+                    if (input.equalsIgnoreCase("txtProduct")) {
+                        product = fi.getString();
+                    } else if (input.equalsIgnoreCase("txtPrice")) {
+                        price = Double.parseDouble(fi.getString());
+                    } else if (input.equalsIgnoreCase("txtAmount")) {
+                        stock = Integer.parseInt(fi.getString());
+                    } else if (input.equalsIgnoreCase("txtCateId")) {
+                        cid = Integer.parseInt(fi.getString());
+                    } else if (input.equalsIgnoreCase("txtDesc")) {
+                        description = fi.getString();
+                    }
+                }
+            }
+            // </editor-fold>
+            Category category = categoryDAO.read(cid);
             boolean error = validation(product, cid, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
-                Product item = new Product(product, description, price, stock, link, category);
+                Product item = new Product(product, description, price, stock, file.getName(), category);
+                System.out.println("PRODUCT: " + product);
                 productDAO.createProduct(item);
                 response.sendRedirect(request.getContextPath() + "/index");
             }
-        } catch (Exception e) {
-            HttpSession session = request.getSession();
-            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+        } catch (IOException | NumberFormatException | FileUploadException e) {
+            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendRedirect(request.getContextPath() + "/error.jsp");
         }
     }

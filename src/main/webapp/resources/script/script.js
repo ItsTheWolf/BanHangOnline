@@ -1,10 +1,10 @@
 function loadImg() {
-    var link = document.getElementById("txtThumbnail").value;
-    if (link.indexOf("resources/img/") >= 0) {
-        document.getElementById("imgThumbnail").src = link;
-        document.getElementById("txtLink").value = link;
-    } else {
-        document.getElementById("imgThumbnail").src = "resources/img/" + link;
-        document.getElementById("txtLink").value = "resources/img/" + link;
-    }
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
+    var imgtag = document.getElementById("previewimg");
+    imgtag.title = selectedFile.name;
+    reader.onload = function (event) {
+        imgtag.src = event.target.result;
+    };
+    reader.readAsDataURL(selectedFile);
 }
