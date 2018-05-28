@@ -1,10 +1,9 @@
 Test
 DATABASE:
-o Tự động tạo 4 bảng roles, users, categories, customers
-o Tự động tạo các value admin, staff, customer trong bảng roles
-o Tự động tạo admin trong bảng users
-o Tự động gán hình thumbnailtmp.png cho các products không có giá trị trong cột thumbnail
-- Nếu value của role admin, role staff, role customer và user admin bị thay đổi:
+- Tự động tạo 4 bảng roles, users, categories, products
+- Tự động tạo các value admin và staff trong bảng roles
+- Tự động tạo admin trong bảng users
+- Nếu value của role admin, role staff và user admin bị thay đổi:
 	o Vào trang index sẽ tự sửa bảng roles và bảng users
 	o Vào trang userindex sẽ tự sửa bảng users
 	o Vào trang roleindex sẽ tự sửa bảng roles
@@ -32,25 +31,16 @@ QUYỀN HẠN:
 		o productcreate
 		o productdelete
 		o productdetails
-<<<<<<< HEAD
-		o productedit  -> lỗi 404
+		o productedit
 		o categorycreate
 		o categorydelete
 		o categorydetails
 		o categoryedit
 		o categoryindex
-=======
-		o productedit  -> lỗi 404 (FIX)
-		o categorycreate
-		o categorydelete
-		o categorydetails
-		o categoryedit
-		o categoryindex
-
 		o usercreate (aka. register)
-		o userdelete (bản thân hoặc role customer)
+		o userdelete (bản thân)
 		o userdetails
-		o useredit (bản thân hoặc role customer)
+		o useredit (bản thân)
 		o usereditpw (bản thân)
 		o userindex
 		o roleindex
@@ -82,7 +72,7 @@ VALIDATION:
 - usereditpw:
 	- Lỗi:
 		o Các dòng * trống
-		o Password và confirm password không giống nhau -> lỗi: ko back lại trang usereditpw (FIX)
+		o Password và confirm password không giống nhau
 	- Được:
 		o Các dòng * được điền đầy đủ
 		o Password và confirm password giống nhau
@@ -90,16 +80,14 @@ o productcreate:
 	- Lỗi:
 		o Các dòng * trống
 	- Được:
-		o Các dòng * được điền đầy đủ
-		o Thumbnail mặc định là thumbnailtmp.png
-		o Nếu để thumbnail trống, Add Product sẽ sử dụng thumbnailtmp.png
-o productedit: -> lỗi 404 (FIX)
+		o Các dòng * được điền đầy đử
+		o Thumbnail mặc định là hình thumbnailtmp.png (trong folder resources/img)
+o productedit:
 	- Lỗi:
 		o Các dòng * trống
 	- Được:
 		o Các dòng * được điền đầy đủ
 		o Thumbnail mặc định là thumbnail được chọn trong productcreate
-		o Nếu để thumbnail trống, Edit Product sẽ sử dụng thumbnailtmp.png
 - categorycreate:
 	- Lỗi:
 		o Các dòng * trống

@@ -21,15 +21,9 @@
                 <tbody>
                     <tr>
                         <td class="bg-light">
-                            <table class="table">
-                                <tbody class="bg-light">
-                                    <c:forEach var="row" items="${requestScope.listItem}">
-                                        <tr>
-                                            <td><a href="categorydetails?id=${row.id}" class="btn btn-block btn-info text-left">${row.name}</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
+                            <c:forEach var="row" items="${requestScope.listItem}">
+                                <a href="categorydetails?id=${row.id}" class="btn btn-light width-max text-left">${row.name}</a><br>
+                            </c:forEach>
                         </td>
                         <td class="bg-lightgray">
                             <div class="row">
