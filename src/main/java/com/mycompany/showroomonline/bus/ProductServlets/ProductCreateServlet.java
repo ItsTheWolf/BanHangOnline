@@ -128,7 +128,10 @@ public class ProductCreateServlet extends HttpServlet {
         } catch (Exception e) {
             HttpSession session = request.getSession();
             session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            try {
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
+            } catch (IllegalStateException ex) {
+            }
         }
     }
 

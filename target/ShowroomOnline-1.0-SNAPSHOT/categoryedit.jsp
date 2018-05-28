@@ -11,7 +11,7 @@
                     <div class="container" style="background-color: #f1f1f1; padding: 1px 5px 20px 5px">
                         <table class="table table-borderless bg-light margin-top-5px">
                             <tr>
-                                <td colspan="100%"><h2>Add Category</h2></td>
+                                <td colspan="100%"><h2>Edit Category</h2></td>
                             </tr>
                             <tr>
                                 <td class="width-10">ID:</td>

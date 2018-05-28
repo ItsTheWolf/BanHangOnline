@@ -136,7 +136,10 @@ public class ProductEditServlet extends HttpServlet {
             Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
             HttpSession session = request.getSession();
             session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            try {
+                response.sendRedirect(request.getContextPath() + "/error.jsp");
+            } catch (IllegalStateException ex) {
+            }
         }
     }
 
