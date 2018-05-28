@@ -1,6 +1,5 @@
 To-do:
 - carousel
-- tweak login and register interface
 
 ~ add comments
 ~ optimize code
