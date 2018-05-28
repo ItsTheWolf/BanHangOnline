@@ -29,7 +29,6 @@ public class ProductCreateServlet extends HttpServlet {
 
     private ProductDAO productDAO = new ProductDAO();
     private CategoryDAO categoryDAO = new CategoryDAO();
-    private boolean isMultipart;
     private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String BACK = "Click <a href='productcreate'>here</a> to turn back.";
@@ -60,13 +59,6 @@ public class ProductCreateServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("BACK", BACK);
             // <editor-fold defaultstate="collapsed" desc="uploadimg">
-            isMultipart = ServletFileUpload.isMultipartContent(request);
-            response.setContentType("text/html");
-            java.io.PrintWriter out = response.getWriter();
-            if (!isMultipart) {
-                session.setAttribute("ERROR2", "!isMiltipart");
-                response.sendRedirect(request.getContextPath() + "/error.jsp");
-            }
             DiskFileItemFactory factory = new DiskFileItemFactory();
             factory.setSizeThreshold(maxMemSize);
             factory.setRepository(new File("D:\\"));
@@ -74,7 +66,7 @@ public class ProductCreateServlet extends HttpServlet {
             upload.setSizeMax(maxFileSize);
             List fileItems = upload.parseRequest(request);
             Iterator i = fileItems.iterator();
-            String product = "", description = "";
+            String product = "", description = "", thumbnail = "";
             double price = 0;
             int stock = 0, cid = 0;
             while (i.hasNext()) {
@@ -86,21 +78,37 @@ public class ProductCreateServlet extends HttpServlet {
                     } else {
                         file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
                     }
-                    try {
-                        fi.write(file);
-                    } catch (Exception ex) {
-                        Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    fi.write(file);
+                    thumbnail = file.getName();
                 } else {
                     String input = fi.getFieldName();
                     if (input.equalsIgnoreCase("txtProduct")) {
                         product = fi.getString();
+                        if (product.equals("")) {
+                            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                            response.sendRedirect(request.getContextPath() + "/error.jsp");
+                        }
                     } else if (input.equalsIgnoreCase("txtPrice")) {
-                        price = Double.parseDouble(fi.getString());
+                        try {
+                            price = Double.parseDouble(fi.getString());
+                        } catch (IllegalStateException | NumberFormatException e) {
+                            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                            response.sendRedirect(request.getContextPath() + "/error.jsp");
+                        }
                     } else if (input.equalsIgnoreCase("txtAmount")) {
-                        stock = Integer.parseInt(fi.getString());
+                        try {
+                            stock = Integer.parseInt(fi.getString());
+                        } catch (IllegalStateException | NumberFormatException e) {
+                            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                            response.sendRedirect(request.getContextPath() + "/error.jsp");
+                        }
                     } else if (input.equalsIgnoreCase("txtCateId")) {
-                        cid = Integer.parseInt(fi.getString());
+                        try {
+                            cid = Integer.parseInt(fi.getString());
+                        } catch (IllegalStateException | NumberFormatException e) {
+                            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
+                            response.sendRedirect(request.getContextPath() + "/error.jsp");
+                        }
                     } else if (input.equalsIgnoreCase("txtDesc")) {
                         description = fi.getString();
                     }
@@ -112,13 +120,14 @@ public class ProductCreateServlet extends HttpServlet {
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
             } else {
-                Product item = new Product(product, description, price, stock, file.getName(), category);
+                Product item = new Product(product, description, price, stock, thumbnail, category);
                 System.out.println("PRODUCT: " + product);
                 productDAO.createProduct(item);
                 response.sendRedirect(request.getContextPath() + "/index");
             }
-        } catch (IOException | NumberFormatException | FileUploadException e) {
-            Logger.getLogger(ProductCreateServlet.class.getName()).log(Level.SEVERE, null, e);
+        } catch (Exception e) {
+            HttpSession session = request.getSession();
+            session.setAttribute("ERROR1", REQUIRED_FIELDS_BLANK);
             response.sendRedirect(request.getContextPath() + "/error.jsp");
         }
     }

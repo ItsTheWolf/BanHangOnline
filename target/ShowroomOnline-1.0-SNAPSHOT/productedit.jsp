@@ -7,7 +7,7 @@
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="productdetails?id=${requestScope.model.id}">${requestScope.model.name}'s Details</a> >> <a href="">Edit ${requestScope.model.name}'s Information</a><br>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <table class="table table-borderless margin-top-5px">
                     <tr>
                         <td class="width-10">ID:</td>
@@ -54,11 +54,8 @@
                     <tr>
                         <td class="width-10">Thumbnail:</td>
                         <td>
-                            <img id="imgThumbnail" width="350px" src="${requestScope.model.thumbnail}"/><br><br>
-                            <input class="btn-block" type="text" id="txtThumbnail" name="txtThumbnail" value="${requestScope.model.thumbnail}"/>
-                            <input class="btn-block" type="hidden" id="txtLink" name="txtLink" value="${requestScope.model.thumbnail}"/><br>
-                            <a class="btn btn-info text-white" onclick="loadImg()">Load Thumbnail</a><br>
-                            Please put thumbnail image in folder resources/img/ first, then enter the name of the image, including the extension (*.png, *.bmp, *.jpg, etc).
+                            <img src="resources/img/${requestScope.model.thumbnail}" id="previewimg" width="350px"><br>
+                            <input type="file" id="file" name="file" size="50" onchange="loadImg()" src="resources/img/${requestScope.model.thumbnail}">
                         </td>
                     </tr>
                     <tr>

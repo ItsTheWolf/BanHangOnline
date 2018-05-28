@@ -1,6 +1,6 @@
 To-do:
 - upload thumbnail for product
-	o productcreate (FileNotFoundException needed to be caught)
+	x productcreate
 	- productedit
 - carousel
 
