@@ -1,8 +1,6 @@
 To-do:
-- upload thumbnail for product
-	x productcreate
-	- productedit
 - carousel
+- tweak login and register interface
 
 ~ add comments
 ~ optimize code
