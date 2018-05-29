@@ -1,10 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java"%>
 <!DOCTYPE html>
 <html>
     <jsp:include page="header.jsp"/>
     <body class="bg-lightblue">
+        <%pageContext.setAttribute("newLineChar", "\n");%>
         <jsp:include page="nav.jsp"/>
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="">${requestScope.model.name}'s Details</a><br>
@@ -48,7 +50,7 @@
                     <td class="bg-dark text-white" colspan="100%">Description:</td>
                 </tr>
                 <tr>
-                    <td class="bg-light" colspan="100%">${requestScope.model.description}</td>
+                    <td class="bg-light" colspan="100%">${fn:replace(requestScope.model.description, newLineChar, "<br>")}</td>
                 </tr>
             </table>
         </div>

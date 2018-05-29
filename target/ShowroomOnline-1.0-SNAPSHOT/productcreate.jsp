@@ -39,7 +39,7 @@
                             </tr>
                             <tr>
                                 <td class="width-10">Description:</td>
-                                <td><input class="btn-block" type="textfield" name="txtDesc" value=""/></td>
+                                <td><textarea class="btn-block" name="txtDesc"></textarea></td>
                             </tr>
                             <tr>
                                 <td class="width-10">Thumbnail:</td>

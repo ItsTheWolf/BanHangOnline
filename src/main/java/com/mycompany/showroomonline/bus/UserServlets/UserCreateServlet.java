@@ -63,7 +63,7 @@ public class UserCreateServlet extends HttpServlet {
             try {
                 rid = (Integer.parseInt(request.getParameter("txtRoleId")));
             } catch (NumberFormatException e) {
-                rid = 3;
+                rid = 2;
             }
             Role roleid = roleDAO.read(rid);
             boolean error = validation(username, password, cpw, email, rid, session, request);

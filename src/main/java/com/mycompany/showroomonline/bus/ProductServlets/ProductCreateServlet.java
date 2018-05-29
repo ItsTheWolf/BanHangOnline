@@ -5,7 +5,6 @@ import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
 import com.mycompany.showroomonline.dto.Product;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -73,6 +71,9 @@ public class ProductCreateServlet extends HttpServlet {
                 FileItem fi = (FileItem) i.next();
                 if (!fi.isFormField()) {
                     String fileName = fi.getName();
+                    if (!fileName.matches("[a-zA-Z0-9.-]")) {
+                        fileName = fileName.replaceAll("[^a-zA-Z0-9.-]", "_");
+                    }
                     if (fileName.lastIndexOf("\\") >= 0) {
                         file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
                     } else {
@@ -80,6 +81,9 @@ public class ProductCreateServlet extends HttpServlet {
                     }
                     fi.write(file);
                     thumbnail = file.getName();
+                    if (!thumbnail.matches("[a-zA-Z0-9.-]")) {
+                        thumbnail = thumbnail.replaceAll("[^a-zA-Z0-9.-]", "_");
+                    }
                 } else {
                     String input = fi.getFieldName();
                     if (input.equalsIgnoreCase("txtProduct")) {

@@ -1,6 +1,5 @@
 To-do:
-- carousel
-
+~ carousel
 ~ add comments
 ~ optimize code
 ~ replace java script if else to c
@@ -35,4 +34,4 @@ To-do:
 
 o kinda done (not finished)
 ~ Optional
-x Done (chưa test)
+x Done (not test)

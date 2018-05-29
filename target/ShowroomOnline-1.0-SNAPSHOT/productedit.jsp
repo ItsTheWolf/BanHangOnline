@@ -54,7 +54,7 @@
                             </tr>
                             <tr>
                                 <td class="width-10">Description:</td>
-                                <td><input class="btn-block" type="textbox" name="txtDesc" value="${requestScope.model.description}"/></td>
+                                <td><textarea class="btn-block" name="txtDesc">${requestScope.model.description}</textarea></td>
                             </tr>
                             <tr>
                                 <td class="width-10">Thumbnail:</td>

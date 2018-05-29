@@ -78,6 +78,9 @@ public class ProductEditServlet extends HttpServlet {
                     FileItem fi = (FileItem) i.next();
                     if (!fi.isFormField()) {
                         String fileName = fi.getName();
+                        if (!fileName.matches("[a-zA-Z0-9.-]")) {
+                            fileName = fileName.replaceAll("[^a-zA-Z0-9.-]", "_");
+                        }
                         if (fileName.lastIndexOf("\\") >= 0) {
                             file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
                         } else {
@@ -85,6 +88,9 @@ public class ProductEditServlet extends HttpServlet {
                         }
                         fi.write(file);
                         thumbnail = file.getName();
+                        if (!thumbnail.matches("[a-zA-Z0-9.-]")) {
+                            thumbnail = thumbnail.replaceAll("[^a-zA-Z0-9.-]", "_");
+                        }
                     } else {
                         String input = fi.getFieldName();
                         if (input.equalsIgnoreCase("txtProduct")) {
@@ -130,7 +136,7 @@ public class ProductEditServlet extends HttpServlet {
             } else {
                 Product item = new Product(id, product, description, price, stock, thumbnail, category);
                 productDAO.updateProduct(item);
-                response.sendRedirect(request.getContextPath() + "/index");
+                response.sendRedirect(request.getContextPath() + "/productdetails?id=" + id);
             }
         } catch (Exception e) {
             Logger.getLogger(ProductEditServlet.class.getName()).log(Level.SEVERE, null, e);
