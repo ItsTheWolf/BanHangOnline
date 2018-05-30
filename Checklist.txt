@@ -60,7 +60,7 @@ VALIDATION:
 		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
 		o Có thể bỏ qua fullname và address
 		o Nếu là register, role mặc định là Staff
-x usereditpw:    -> ko đổi được password
+x usereditpw:   -> ko đổi được password
 	- Lỗi:
 		- Các dòng * trống
 		- Password và confirm password không giống nhau
