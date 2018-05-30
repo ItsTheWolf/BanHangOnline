@@ -52,6 +52,7 @@ public class UserEditPWServlet extends HttpServlet {
             session.setAttribute("BACK", BACK1 + username + BACK2);
             String password = request.getParameter("txtPassword");
             String cpw = request.getParameter("txtCPassword");
+            System.out.println("PASSWORD: " + password + cpw);
             boolean error = validation(password, cpw, session, request);
             if (error) {
                 response.sendRedirect(request.getContextPath() + "/error.jsp");
