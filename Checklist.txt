@@ -27,18 +27,18 @@ QUYỀN HẠN:
 		o categorydetails
 		o categoryedit
 		o categoryindex
-		- usercreate (aka. register)
-		- userdelete (bản thân)
+		o usercreate (aka. register)
+		o userdelete (bản thân)
 		- userdetails
 		- useredit (bản thân)
 		- usereditpw (bản thân)
-		- userindex
-		- roleindex
-		- roledetails
-		- logout
+		o userindex
+		o roleindex
+		o roledetails
+		o logout
 - Đặc biệt:
 	o User admin không được edit, editpw hoặc delete
-	- Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
+	o Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
 
 VALIDATION:
 - login:
@@ -69,11 +69,11 @@ VALIDATION:
 		- Password và confirm password giống nhau
 - productcreate:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đử
-		- Thumbnail mặc định là hình thumbnailtmp.png (trong folder resources/img)
-		- Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
+		o Các dòng * được điền đầy đử
+		o Thumbnail mặc định là hình thumbnailtmp.png (trong folder resources/img)
+		o Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
 - productedit:
 	- Lỗi:
 		o Các dòng * trống
@@ -91,7 +91,7 @@ VALIDATION:
 		- Các dòng * trống  -> ra trang trắng (FIX)
 	- Được:
 		- Các dòng * được điền đầy đủ
-- useredit:
+x useredit: -> lỗi 500
 	- Lỗi:
 		- Các dòng * trống
 		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
@@ -117,11 +117,11 @@ GUI:
 		o index: có nút Add Product
 		o productdetails: có nút Edit và Delete
 		o categoriesdetails: có Categories trên thanh navigation
-		- userindex: có nút Add User
-		- userindex: không có edit và delete cho các user khác trừ bản thân
-		- userdetails: không có edit và delete cho các user khác trừ bản thân
-		- usercreate: không có lựa chọn Role
-		- useredit: không có lựa chọn Role
+		o userindex: có nút Add User
+		o userindex: không có edit và delete cho các user khác trừ bản thân
+		o userdetails: không có edit và delete cho các user khác trừ bản thân
+		o usercreate: không có lựa chọn Role
+		o useredit: không có lựa chọn Role
 	- Admin:
 		o Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
 		o Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
