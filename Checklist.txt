@@ -1,32 +1,32 @@
 Test
 DATABASE:
-- Tự động tạo 4 bảng roles, users, categories, products
-- Tự động tạo các value admin và staff trong bảng roles
-- Tự động tạo admin trong bảng users
-- Nếu value của role admin, role staff và user admin bị thay đổi:
-	- Vào trang index sẽ tự sửa bảng roles và bảng users
-	- Vào trang userindex sẽ tự sửa bảng users
-	- Vào trang roleindex sẽ tự sửa bảng roles
+o Tự động tạo 4 bảng roles, users, categories, products
+o Tự động tạo các value admin và staff trong bảng roles
+o Tự động tạo admin trong bảng users
+o Nếu value của role admin, role staff và user admin bị thay đổi:
+	o Vào trang index sẽ tự sửa bảng roles và bảng users
+	o Vào trang userindex sẽ tự sửa bảng users
+	o Vào trang roleindex sẽ tự sửa bảng roles
 
 QUYỀN HẠN:
 - Chỉ sử dụng được các trang:
 	- Không login:
-		- index
-		- productdetails
-		- categorydetails
-		- register
-		- login
+		o index
+		o productdetails
+		o categorydetails
+		o register
+		o login
 	- Staff:
-		- index
-		- productcreate
-		- productdelete
-		- productdetails
-		- productedit
-		- categorycreate
-		- categorydelete
-		- categorydetails
-		- categoryedit
-		- categoryindex
+		o index
+		o productcreate
+		o productdelete
+		o productdetails
+		o productedit
+		o categorycreate
+		o categorydelete
+		o categorydetails
+		o categoryedit
+		o categoryindex
 		- usercreate (aka. register)
 		- userdelete (bản thân)
 		- userdetails
@@ -37,17 +37,17 @@ QUYỀN HẠN:
 		- roledetails
 		- logout
 - Đặc biệt:
-	- User admin không được edit, editpw hoặc delete
+	o User admin không được edit, editpw hoặc delete
 	- Nếu không phải role admin thì usercreate, useredit và usereditpw không hiển thị lựa chọn Role
 
 VALIDATION:
 - login:
 	- Lỗi:
-		- Username và password trống
-		- Username không đúng
-		- Password không đúng
+		o Username và password trống
+		o Username không đúng
+		o Password không đúng
 	- Được:
-		- Username và password đúng
+		o Username và password đúng
 - register (usercreate):
 	- Lỗi:
 		- Các dòng * trống
@@ -76,11 +76,11 @@ VALIDATION:
 		- Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
 - productedit:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đủ
-		- Thumbnail mặc định là thumbnail được chọn trong productcreate
-		- Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
+		o Các dòng * được điền đầy đủ
+		o Thumbnail mặc định là thumbnail được chọn trong productcreate
+		o Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
 - categorycreate:
 	- Lỗi:
 		- Các dòng * trống
@@ -105,32 +105,32 @@ VALIDATION:
 GUI:
 (Thanh navigation: Home >> Product's details)
 	- Không login:
-		- Header hiển thị Login | Register
-		- Header không có các nút Products, Categories, Users, Roles
-		- index: không có nút Add Product
-		- productdetails: không có nút Edit và Delete
-		- categorydetails: không có Categories trên thanh navigation
-		- registerL không có lựa chọn Role
+		o Header hiển thị Login | Register
+		o Header không có các nút Products, Categories, Users, Roles
+		o index: không có nút Add Product
+		o productdetails: không có nút Edit và Delete
+		o categorydetails: không có Categories trên thanh navigation
+		o registerL không có lựa chọn Role
 	- Staff:
-		- Header hiển thị User: username | Role: Staff | Change Password | Log out
-		- Header có nút Products, Categories, Users, Roles
-		- index: có nút Add Product
-		- productdetails: có nút Edit và Delete
-		- categoriesdetails: có Categories trên thanh navigation
+		o Header hiển thị User: username | Role: Staff | Change Password | Log out
+		o Header có nút Products, Categories, Users, Roles
+		o index: có nút Add Product
+		o productdetails: có nút Edit và Delete
+		o categoriesdetails: có Categories trên thanh navigation
 		- userindex: có nút Add User
 		- userindex: không có edit và delete cho các user khác trừ bản thân
 		- userdetails: không có edit và delete cho các user khác trừ bản thân
 		- usercreate: không có lựa chọn Role
 		- useredit: không có lựa chọn Role
 	- Admin:
-		- Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
-		- Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
-		- Header có nút Products, Categories, Users, Roles
-		- index: có nút Add Product
-		- productdetails: có nút Edit và Delete
-		- categoriesdetails: có Categories trên thanh navigation
-		- userindex: có nút Add User
-		- userindex: có edit và delete cho các user trừ user admin
-		- userdetails: có edit và delete cho các user trừ user admin
-		- usercreate: có lựa chọn Role
-		- useredit: có lựa chọn Role
+		o Nếu không phải là user admin, Header hiển thị User: username | Role: Admin | Change Password | Log out n
+		o Nếu là user admin, Header hiển thị User: admin | Role: Admin | Log out
+		o Header có nút Products, Categories, Users, Roles
+		o index: có nút Add Product
+		o productdetails: có nút Edit và Delete
+		o categoriesdetails: có Categories trên thanh navigation
+		o userindex: có nút Add User
+		o userindex: có edit và delete cho các user trừ user admin
+		o userdetails: có edit và delete cho các user trừ user admin
+		o usercreate: có lựa chọn Role
+		o useredit: có lựa chọn Role
