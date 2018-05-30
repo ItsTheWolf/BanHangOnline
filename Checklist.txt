@@ -50,17 +50,17 @@ VALIDATION:
 		o Username và password đúng
 - register (usercreate):
 	- Lỗi:
-		- Các dòng * trống
-		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Username đã có
-		- Password và confirm password không giống nhau
-		- Email sai định dạng
+		o Các dòng * trống
+		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Username đã có
+		o Password và confirm password không giống nhau
+		o Email sai định dạng
 	- Được:
-		- Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
-		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Có thể bỏ qua fullname và address
-		- Nếu là register, role mặc định là Staff
-- usereditpw:
+		o Các dòng * được điền đầy đủ, đúng định dạng, password và confirm password giống nhau
+		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Có thể bỏ qua fullname và address
+		o Nếu là register, role mặc định là Staff
+x usereditpw:    -> ko đổi được password
 	- Lỗi:
 		- Các dòng * trống
 		- Password và confirm password không giống nhau
