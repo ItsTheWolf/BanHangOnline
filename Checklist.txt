@@ -29,7 +29,7 @@ QUYỀN HẠN:
 		o categoryindex
 		o usercreate (aka. register)
 		o userdelete (bản thân)
-		- userdetails
+		o userdetails
 		- useredit (bản thân)
 		- usereditpw (bản thân)
 		o userindex
@@ -67,14 +67,14 @@ x usereditpw:    -> ko đổi được password
 	- Được:
 		- Các dòng * được điền đầy đủ
 		- Password và confirm password giống nhau
-- productcreate:
+o productcreate:
 	- Lỗi:
 		o Các dòng * trống
 	- Được:
 		o Các dòng * được điền đầy đử
 		o Thumbnail mặc định là hình thumbnailtmp.png (trong folder resources/img)
 		o Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
-- productedit:
+o productedit:
 	- Lỗi:
 		o Các dòng * trống
 	- Được:
@@ -83,14 +83,14 @@ x usereditpw:    -> ko đổi được password
 		o Upload hình nếu tên file có dấu + sẽ được chuyển sang dấu _
 - categorycreate:
 	- Lỗi:
-		- Các dòng * trống
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đủ
+		o Các dòng * được điền đầy đủ
 - categoryedit:
 	- Lỗi:
-		- Các dòng * trống  -> ra trang trắng (FIX)
+		o Các dòng * trống
 	- Được:
-		- Các dòng * được điền đầy đủ
+		o Các dòng * được điền đầy đủ
 x useredit: -> lỗi 500
 	- Lỗi:
 		- Các dòng * trống
