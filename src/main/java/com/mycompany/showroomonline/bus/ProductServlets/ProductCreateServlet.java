@@ -27,7 +27,10 @@ public class ProductCreateServlet extends HttpServlet {
 
     private ProductDAO productDAO = new ProductDAO();
     private CategoryDAO categoryDAO = new CategoryDAO();
-    private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
+   
+    //private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
+   private String filePath = "D:\\nano\\java\\BT\\PROJECT\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
+    
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String BACK = "Click <a href='productcreate'>here</a> to turn back.";
     private int maxFileSize = 9999 * 1024; // KB
