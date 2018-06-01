@@ -30,8 +30,8 @@ QUYỀN HẠN:
 		o usercreate (aka. register)
 		o userdelete (bản thân)
 		o userdetails
-		- useredit (bản thân)
-		- usereditpw (bản thân)
+		o useredit (bản thân)
+		o usereditpw (bản thân)
 		o userindex
 		o roleindex
 		o roledetails
