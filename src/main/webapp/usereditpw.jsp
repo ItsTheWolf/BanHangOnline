@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <a href="index">Home</a> >> <a href="">Change ${requestScope.model.username}'s Password</a><br>
             <div class="container">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST">
                     <div class="container" style="background-color: #f1f1f1; padding: 1px 5px 20px 5px">
                         <table class="table table-borderless bg-light margin-top-5px">
                             <tr>
