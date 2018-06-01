@@ -60,13 +60,13 @@ VALIDATION:
 		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
 		o Có thể bỏ qua fullname và address
 		o Nếu là register, role mặc định là Staff
-x usereditpw:   -> ko đổi được password
+o usereditpw:   
 	- Lỗi:
-		- Các dòng * trống
-		- Password và confirm password không giống nhau
+		o Các dòng * trống
+		o Password và confirm password không giống nhau
 	- Được:
-		- Các dòng * được điền đầy đủ
-		- Password và confirm password giống nhau
+		o Các dòng * được điền đầy đủ
+		o Password và confirm password giống nhau
 o productcreate:
 	- Lỗi:
 		o Các dòng * trống
@@ -91,16 +91,16 @@ o productedit:
 		o Các dòng * trống
 	- Được:
 		o Các dòng * được điền đầy đủ
-x useredit: -> lỗi 500
+o useredit: 
 	- Lỗi:
-		- Các dòng * trống
-		- Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Email sai định dạng
+		o Các dòng * trống
+		o Role không chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Email sai định dạng
 	- Được:
-		- Các dòng * được điền đầy đủ, đúng định dạng
-		- Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
-		- Có thể bỏ qua fullname và address
-		- Role giữ nguyên nếu không được chọn role trong edit
+		o Các dòng * được điền đầy đủ, đúng định dạng
+		o Role có chọn nếu đang đăng nhập bằng tài khoản có role admin và đang add user
+		o Có thể bỏ qua fullname và address
+		o Role giữ nguyên nếu không được chọn role trong edit
 		
 GUI:
 (Thanh navigation: Home >> Product's details)
