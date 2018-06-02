@@ -32,7 +32,7 @@
                                         <a href='productdetails?id=${row.id}' class="product-card">
                                             <table class="bg-light width-max text-center table-product product-card-distance">
                                                 <tr>
-                                                    <td class="cell-thumbnail"><img src="resources/img/${row.thumbnail}" width="100%"/></a></td>
+                                                    <td class="cell-thumbnail"><img src="resources/img/${row.thumbnail}" width="350px" height="350px"/></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cell-name">${row.name}</td>

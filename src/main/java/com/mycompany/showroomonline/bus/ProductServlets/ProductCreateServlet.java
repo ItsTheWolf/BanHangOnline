@@ -4,6 +4,7 @@ import com.mycompany.showroomonline.dao.CategoryDAO;
 import com.mycompany.showroomonline.dao.ProductDAO;
 import com.mycompany.showroomonline.dto.Category;
 import com.mycompany.showroomonline.dto.Product;
+import com.oracle.jrockit.jfr.Producer;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -29,7 +30,7 @@ public class ProductCreateServlet extends HttpServlet {
     private CategoryDAO categoryDAO = new CategoryDAO();
    
     //private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
-   private String filePath = "D:\\nano\\java\\BT\\PROJECT\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
+   private String filePath = "C:\\Users\\danie\\Documents\\NetBeansProjects\\ShowroomOnline\\src\\main\\webapp\\resources\\img\\";
     
     String REQUIRED_FIELDS_BLANK = "Please fill in the required (*) fields.";
     String BACK = "Click <a href='productcreate'>here</a> to turn back.";
